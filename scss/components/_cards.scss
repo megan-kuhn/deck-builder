@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as *;
+
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $Spacing--M;
+  margin: $Spacing--XL 0;
+}
+
+.single-card-container {
+  display: flex;
+  flex-direction: column;
+  background: $Background--Alt;
+  padding: $Spacing--S;
+  border-radius: $Border--L;
+  //box-shadow: 0 0 $Border--S rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card {
+  h3 {
+    font-size: $FontSize--S;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: .25em;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 4%;
+    overflow: clip;
+  }
+}

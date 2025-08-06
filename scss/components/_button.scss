@@ -1,0 +1,40 @@
+@use '../abstracts/variables' as *;
+
+@mixin button-small {
+  font-size: $FontSize--S;
+  border-radius: $Border--XS;
+  padding: $Spacing--XS $Spacing--S;
+  
+}
+
+button {
+  font-size: $FontSize--M;
+  border: 0;
+  border-radius: $Border--S;
+  color: $ButtonText--Primary;
+  box-shadow: none;
+  padding: $Spacing--S $Spacing--M;
+  height: fit-content;
+  margin: auto 0;
+}
+
+.button--primary {
+  background: $ButtonBackground--Primary;
+}
+
+.button--secondary {
+  background: $ButtonBackground--Secondary;
+}
+
+.button--nextpage {
+  background: $ButtonBackground--Primary;
+  width: 100%;
+}
+
+.button--addtolist {
+  background: $ButtonBackground--Secondary;
+  
+  @include button-small;
+
+  margin-top: $Spacing--XS
+}

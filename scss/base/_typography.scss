@@ -1,0 +1,22 @@
+@use '../abstracts/variables' as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 1em 0 .5em;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: clamp($FontSize--XXL, 5vw, 5rem);
+  font-weight: $FontWeight--Bold;
+}
+
+h2 {
+  font-size: clamp($FontSize--XL, 3vw, 3rem);
+  font-weight: $FontWeight--Bold;
+}

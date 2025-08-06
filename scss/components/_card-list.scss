@@ -1,0 +1,22 @@
+@use '../abstracts/variables' as *;
+
+#card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $Spacing--M;
+  margin: $Spacing--XL 0;
+
+  .card-list-item {
+    width: 200px;
+    background: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-list-quantity {
+    font-size: $FontSize--S;
+    text-align: center;
+    margin-top: .25em;
+  }
+}

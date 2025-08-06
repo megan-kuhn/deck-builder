@@ -1,0 +1,84 @@
+@use '../abstracts/variables' as *;
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: $Spacing--M;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: $Spacing--M;
+  margin: $Spacing--M 0;
+}
+
+.legend {
+  display: inline-block; 
+
+  &--small {
+    font-size: $FontSize--S;
+    font-weight: $FontWeight--Regular;
+    margin-bottom: $Spacing--XS;
+  }
+
+  &--large {
+    font-size: $FontSize--L;
+    font-weight: $FontWeight--Bold;
+    margin-bottom: $Spacing--S;
+  }
+}
+
+.Form__Row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $Spacing--S;
+}
+
+label,
+.label {
+  font-size: $FontSize--S;
+  display: flex;
+  flex-direction: column;
+  gap: $Spacing--XS;
+}
+
+label:has(input[type=checkbox]) {
+  gap: $Spacing--XS;
+}
+
+input {
+  border-radius: $Border--S;
+  border: $Border--XS solid $Border--Default;
+}
+
+select {
+  border-radius: $Border--S;
+}
+
+select {
+  border: $Border--XS solid $Border--Default;
+  background: $White;
+  padding: $Spacing--S;
+  margin-right: $Spacing--S;
+}
+
+#color-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $Spacing--M;
+  width: 100%;
+}
+
+#color-filter label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: $Spacing--S;
+}
+
+#color-filter input {
+  width: 1rem;
+  height: 1rem;
+  border-radius: $Border--XS;
+}

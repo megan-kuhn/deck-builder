@@ -1,0 +1,280 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 1em 0 0.5em;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 700;
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+* :focus {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: #212529;
+  background: #f8f9fa;
+  padding: 1rem;
+}
+
+button {
+  font-size: 1rem;
+  border: 0;
+  border-radius: 4px;
+  color: #ffffff;
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+  height: fit-content;
+  margin: auto 0;
+}
+
+.button--primary {
+  background: #000000;
+}
+
+.button--secondary {
+  background: #495057;
+}
+
+.button--nextpage {
+  background: #000000;
+  width: 100%;
+}
+
+.button--addtolist {
+  background: #495057;
+  font-size: 0.875rem;
+  border-radius: 2px;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.25rem;
+}
+
+#card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+#card-list .card-list-item {
+  width: 200px;
+  background: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+#card-list .card-list-quantity {
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 0.25em;
+}
+
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.single-card-container {
+  display: flex;
+  flex-direction: column;
+  background: #e9ecef;
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 0.875rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+.card img {
+  width: 100%;
+  border-radius: 4%;
+  overflow: clip;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.legend {
+  display: inline-block;
+}
+.legend--small {
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+.legend--large {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.Form__Row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+label,
+.label {
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label:has(input[type=checkbox]) {
+  gap: 0.25rem;
+}
+
+input {
+  border-radius: 4px;
+  border: 2px solid #dee2e6;
+}
+
+select {
+  border-radius: 4px;
+}
+
+select {
+  border: 2px solid #dee2e6;
+  background: #ffffff;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+#color-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+}
+
+#color-filter label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+#color-filter input {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+}
+
+#search-input {
+  width: 100%;
+  max-width: 100%;
+  font-size: 1.25rem;
+  border-radius: 6px;
+  border: 2px solid #dee2e6;
+  background: #ffffff;
+  height: 2.5em;
+  padding: 0.5em;
+}
+
+.visually-hidden {
+  font-size: 0.1px;
+  height: 0.1px;
+  width: 0.1px;
+  color: transparent;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=main.css.map */

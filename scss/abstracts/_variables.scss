@@ -1,0 +1,89 @@
+// ------------------------------------------------------
+//  Primitives 
+// ------------------------------------------------------
+
+$White: #ffffff;
+$Black: #000000;
+
+$Gray-100: #f8f9fa;
+$Gray-200: #e9ecef;
+$Gray-300: #dee2e6;
+$Gray-400: #ced4da;
+$Gray-500: #adb5bd;
+$Gray-600: #6c757d;
+$Gray-700: #495057;
+$Gray-800: #343a40;
+$Gray-900: #212529;
+
+$Blue-100: #cce5ff;
+$Blue-500: #007bff;
+$Blue-700: #0056b3;
+
+$Red-500: #dc3545;
+$Green-500: #28a745;
+$Yellow-500: #ffc107;
+
+// ------------------------------------------------------
+//  Tokens
+// ------------------------------------------------------
+
+// Backgrounds
+$Background--Main: $Gray-100;
+$Background--Surface: $White;
+$Background--Alt: $Gray-200;
+
+// Borders
+$Border--Default: $Gray-300;
+$Border--Focus: $Blue-500;
+$Border--XS: 2px;
+$Border--S: 4px;
+$Border--M: 6px;
+$Border--L: 8px;
+
+// Buttons
+$ButtonBackground--Primary: $Black;
+$ButtonBackground--PrimaryHover: $Gray-800;
+$ButtonBackground--Secondary: $Gray-700;
+$ButtonBackground--SecondaryHover: $Gray-600;
+$ButtonText--Primary: $White;
+
+// ------------------------------------------------------
+//  Spacing
+// ------------------------------------------------------
+
+$Spacing--XS: 0.25rem;
+$Spacing--S: 0.5rem;
+$Spacing--M: 1rem;
+$Spacing--L: 1.5rem;
+$Spacing--XL: 2rem;
+
+// ------------------------------------------------------
+//  Typography
+// ------------------------------------------------------
+
+$Font--Base: sans-serif;
+$Font--Mono: monospace;
+
+$FontSize--S: 0.875rem;  // 14px
+$FontSize--M: 1rem;      // 16px
+$FontSize--L: 1.25rem;   // 20px
+$FontSize--XL: 1.5rem;   // 24px
+$FontSize--XXL: 2rem;    // 32px
+
+$FontColor--Main: $Gray-900;
+$FontColor--Muted: $Gray-600;
+$FontColor--Inverted: $White;
+
+$FontWeight--Regular: 400;
+$FontWeight--Medium: 500;
+$FontWeight--Bold: 700;
+
+
+// ------------------------------------------------------
+//  Breakpoints
+// ------------------------------------------------------
+
+$Breakpoint--Mobile: 480px;
+$Breakpoint--Tablet: 768px;
+$Breakpoint--Desktop: 1024px;
+$Breakpoint--XL: 1280px;

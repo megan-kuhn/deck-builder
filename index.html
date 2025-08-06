@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deck Builder</title>
+  <link rel="stylesheet" href="/public/css/main.css" />
+  <link rel="icon" type="image/png" href="https://picsum.photos/16/16" />
+</head>
+<body>
+  <h1>Deck Builder</h1>
+
+  <!-- Card list -->
+  <h2>Card list</h2>
+  <div id="card-list"></div>
+
+  <h2>Find cards</h2>
+  <form id="search-form">
+    <!-- Search bar -->
+    <fieldset>
+      <legend class="visually-hidden">Search</legend>
+      <div class="Form__Row">
+        <input type="text" id="search-input" placeholder="Search cards by name or keyword..." />
+        <button type="submit" class="button--primary">Search</button>
+        <button id="clear-search-btn" type="button" class="button--secondary">Clear Search</button>
+      </div>
+    </fieldset>
+
+    <!-- Filters -->
+    <fieldset>
+      <legend class="legend--large">Filters</legend>
+
+      <!-- Mana color checkboxes -->
+      <fieldset>
+        <legend class="legend--small">Mana colors:</legend>
+        <div class="Form__Row">
+          <div id="color-filter">
+            <!-- checkboxes will be injected by JS here -->
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Card type select list -->
+      <div class="Form__Row">
+        <label>
+          Card type
+          <select id="type-filter">
+            <option value="">Any Card Type</option>
+            <option value="creature">Creature</option>
+            <option value="instant">Instant</option>
+            <option value="sorcery">Sorcery</option>
+            <option value="land">Land</option>
+            <option value="artifact">Artifact</option>
+            <option value="enchantment">Enchantment</option>
+            <option value="planeswalker">Planeswalker</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Reset button -->
+      <div class="Form__Row">
+        <button id="reset-filters-btn" type="button" class="button--secondary">Clear All Filters</button>
+      </div>
+      
+    </fieldset>
+  </form>
+
+  <!-- Card container -->
+  <div id="card-container"></div> 
+
+
+  <script type="module" src="js/src/app.js"></script>
+</body>
+</html>

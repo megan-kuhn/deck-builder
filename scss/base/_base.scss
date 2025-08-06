@@ -1,0 +1,25 @@
+@use '../abstracts/variables' as *;
+
+html {
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+
+  :focus {
+    outline: 3px solid $Border--Focus;
+    outline-offset: 2px;
+  }
+}
+
+body {
+  font-family: $Font--Base;
+  font-size: $FontSize--M;
+  color: $FontColor--Main;
+  background: $Background--Main;
+  padding: $Spacing--M;
+}
+
+

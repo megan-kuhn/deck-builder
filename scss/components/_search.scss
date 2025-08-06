@@ -1,0 +1,12 @@
+@use '../abstracts/variables' as *;
+
+#search-input {
+  width: 100%;
+  max-width: 100%;
+  font-size: $FontSize--L;
+  border-radius: $Border--M;
+  border: $Border--XS solid $Border--Default;
+  background: $Background--Surface;
+  height: 2.5em;
+  padding: .5em;
+}
