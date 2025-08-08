@@ -1,5 +1,6 @@
 @use '../abstracts/variables' as *;
 
+// Groups of elements
 form {
   display: flex;
   flex-direction: column;
@@ -29,40 +30,44 @@ fieldset {
   }
 }
 
-.Form__Row {
+.form__row {
   display: flex;
   flex-wrap: wrap;
   gap: $Spacing--S;
 }
 
+// individual elements
 label,
 .label {
-  font-size: $FontSize--S;
   display: flex;
   flex-direction: column;
   gap: $Spacing--XS;
+  font-size: $FontSize--S;
 }
 
 label:has(input[type=checkbox]) {
   gap: $Spacing--XS;
 }
 
-input {
-  border-radius: $Border--S;
-  border: $Border--XS solid $Border--Default;
-}
-
+input, 
 select {
-  border-radius: $Border--S;
-}
-
-select {
-  border: $Border--XS solid $Border--Default;
+  border-radius: $BorderRadius--S;
+  border: $BorderWidth--XS solid $BorderColor--Default;
   background: $White;
   padding: $Spacing--S;
-  margin-right: $Spacing--S;
 }
 
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+select {
+  height: 2.5em;
+}
+
+// Specific form elements
 #color-filter {
   display: flex;
   flex-wrap: wrap;
@@ -80,5 +85,5 @@ select {
 #color-filter input {
   width: 1rem;
   height: 1rem;
-  border-radius: $Border--XS;
+  border-radius: $BorderRadius--XS;
 }

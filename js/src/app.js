@@ -21,9 +21,17 @@ import { initResetButtons } from './ui/reset.js';
 import { initColorFilters } from './filters/index.js';
 import { setupLoadMoreButton } from './pagination/index.js';
 import { updateLoadMoreButtonVisibility } from './ui/index.js';
+import { setupModal } from './modal/modal.js'; // Adjust path if needed
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.log('launching');
+
+  setupModal({
+    openButtonId: 'login-modal-open-button',
+    modalId: 'login-modal',
+    closeButtonId: 'login-modal-close-button'
+  });
   
   initCardListView();
 

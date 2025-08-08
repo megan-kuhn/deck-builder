@@ -9,7 +9,11 @@ export function setupLoadMoreButton() {
   loadMoreBtn.textContent = "Next Page";
   loadMoreBtn.classList.add("button--nextpage");
   loadMoreBtn.style.display = 'none';
-  document.body.appendChild(loadMoreBtn);
+
+  const paginationContainer = document.getElementById('pagination-container');
+  if (paginationContainer) {
+    paginationContainer.appendChild(loadMoreBtn);
+  }
 
   loadMoreBtn.onclick = loadMoreButtonClickHandler;
 }

@@ -31,14 +31,19 @@ $Yellow-500: #ffc107;
 $Background--Main: $Gray-100;
 $Background--Surface: $White;
 $Background--Alt: $Gray-200;
+$Background--ModalScreen: rgba(255, 255, 255, 0.8);
 
 // Borders
-$Border--Default: $Gray-300;
-$Border--Focus: $Blue-500;
-$Border--XS: 2px;
-$Border--S: 4px;
-$Border--M: 6px;
-$Border--L: 8px;
+$BorderColor--Default: $Gray-300;
+$BorderColor--Focus: $Blue-500;
+
+$BorderWidth--XS: 1px;
+$BorderWidth--S: 2px;
+
+$BorderRadius--XS: 2px;
+$BorderRadius--S: 4px;
+$BorderRadius--M: 6px;
+$BorderRadius--L: 8px;
 
 // Buttons
 $ButtonBackground--Primary: $Black;
