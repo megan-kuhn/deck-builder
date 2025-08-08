@@ -3,8 +3,8 @@
 import { applySearchAndFilters } from '../search/applySearchAndFilters.js';
 
 export function initResetButtons() {
-  const clearSearchBtn = document.getElementById('clear-search-btn');
-  const resetFiltersBtn = document.getElementById('reset-filters-btn');
+  const clearSearchBtn = document.getElementById('clear-search-button');
+  const resetFiltersBtn = document.getElementById('reset-filters-button');
   const searchInput = document.getElementById('search-input');
   const typeFilter = document.getElementById('type-filter');
 

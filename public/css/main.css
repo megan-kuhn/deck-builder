@@ -204,7 +204,7 @@ fieldset {
   margin-bottom: 0.5rem;
 }
 
-.Form__Row {
+.form__row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -212,30 +212,32 @@ fieldset {
 
 label,
 .label {
-  font-size: 0.875rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  font-size: 0.875rem;
 }
 
 label:has(input[type=checkbox]) {
   gap: 0.25rem;
 }
 
-input {
-  border-radius: 4px;
-  border: 2px solid #dee2e6;
-}
-
+input,
 select {
   border-radius: 4px;
-}
-
-select {
-  border: 2px solid #dee2e6;
+  border: 1px solid #dee2e6;
   background: #ffffff;
   padding: 0.5rem;
-  margin-right: 0.5rem;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=url],
+input[type=tel],
+select {
+  height: 2.5em;
 }
 
 #color-filter {
@@ -258,12 +260,41 @@ select {
   border-radius: 2px;
 }
 
+.modal {
+  display: none;
+}
+.modal--open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+.modal__content {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: min-max(100%, 400px);
+}
+.modal__content h2:first-child {
+  margin-top: 0;
+}
+
 #search-input {
   width: 100%;
   max-width: 100%;
   font-size: 1.25rem;
   border-radius: 6px;
-  border: 2px solid #dee2e6;
+  border: 1px solid #dee2e6;
   background: #ffffff;
   height: 2.5em;
   padding: 0.5em;

@@ -2,7 +2,7 @@
 
 @mixin button-small {
   font-size: $FontSize--S;
-  border-radius: $Border--XS;
+  border-radius: $BorderRadius--XS;
   padding: $Spacing--XS $Spacing--S;
   
 }
@@ -10,7 +10,7 @@
 button {
   font-size: $FontSize--M;
   border: 0;
-  border-radius: $Border--S;
+  border-radius: $BorderRadius--S;
   color: $ButtonText--Primary;
   box-shadow: none;
   padding: $Spacing--S $Spacing--M;

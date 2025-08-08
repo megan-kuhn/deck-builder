@@ -10,6 +10,9 @@
 <body>
   <h1>Deck Builder</h1>
 
+  <!-- Login button -->
+  <button id="login-modal-open-button" class="button--primary">Login</button>
+
   <!-- Card list -->
   <h2>Card list</h2>
   <div id="card-list"></div>
@@ -19,10 +22,10 @@
     <!-- Search bar -->
     <fieldset>
       <legend class="visually-hidden">Search</legend>
-      <div class="Form__Row">
+      <div class="form__row">
         <input type="text" id="search-input" placeholder="Search cards by name or keyword..." />
         <button type="submit" class="button--primary">Search</button>
-        <button id="clear-search-btn" type="button" class="button--secondary">Clear Search</button>
+        <button id="clear-search-button" type="button" class="button--secondary">Clear Search</button>
       </div>
     </fieldset>
 
@@ -33,7 +36,7 @@
       <!-- Mana color checkboxes -->
       <fieldset>
         <legend class="legend--small">Mana colors:</legend>
-        <div class="Form__Row">
+        <div class="form__row">
           <div id="color-filter">
             <!-- checkboxes will be injected by JS here -->
           </div>
@@ -41,7 +44,7 @@
       </fieldset>
 
       <!-- Card type select list -->
-      <div class="Form__Row">
+      <div class="form__row">
         <label>
           Card type
           <select id="type-filter">
@@ -58,8 +61,8 @@
       </div>
 
       <!-- Reset button -->
-      <div class="Form__Row">
-        <button id="reset-filters-btn" type="button" class="button--secondary">Clear All Filters</button>
+      <div class="form__row">
+        <button id="reset-filters-button" type="button" class="button--secondary">Clear All Filters</button>
       </div>
       
     </fieldset>
@@ -68,6 +71,27 @@
   <!-- Card container -->
   <div id="card-container"></div> 
 
+  <!-- Pagination container -->
+  <div id="pagination-container"></div>
+
+  <!-- Login modal -->
+  <div id="login-modal" class="modal modal--destructive" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
+    <div class="modal__content">
+      <h2 id="login-modal-title">Login</h2>
+      <form id="login-form">
+        <label for="username">
+          Username
+          <input id="username" name="username" type="text" required />
+        </label>
+        <label for="password">
+          Password
+          <input id="password" name="password" type="password" required />
+        </label>
+        <button type="submit" class="button--primary">Log In</button>
+        <button type="button" id="login-modal-close-button" class="button--secondary">Close</button>
+      </form>
+    </div>
+  </div>
 
   <script type="module" src="js/src/app.js"></script>
 </body>
