@@ -47,20 +47,40 @@ app.post('/register', async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    db.run(
-      `INSERT INTO users (username, password, email) VALUES (?, ?, ?)`,
-      [username, hashedPassword, email],
-      function(err) {
+    // First, check if the username already exists
+    db.get(
+      `SELECT * FROM users WHERE username = ?`,
+      [username],
+      (err, row) => {
         if (err) {
-          return res.status(500).send("User already exists or database error");
+          return res.status(500).send("Database error");
         }
-        res.status(201).send("User registered successfully");
+
+        if (row) {
+          // User already exists
+          return res.status(400).send("Username already taken");
+        }
+
+        // Insert new user if not found
+        db.run(
+          `INSERT INTO users (username, password, email) VALUES (?, ?, ?)`,
+          [username, hashedPassword, email],
+          function(err) {
+            if (err) {
+              console.error("SQLite insert error:", err); // <-- log the real error
+              return res.status(500).send("Database error while inserting user");
+            }
+            res.status(201).send("User registered successfully");
+          }
+        );
+
       }
     );
   } catch (err) {
     res.status(500).send("Error hashing password");
   }
 });
+
 
 // ---------------------------
 // 4️⃣ Frontend routes
