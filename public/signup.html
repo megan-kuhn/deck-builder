@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup</title>
+
+  <!-- CSS -->
+<link rel="stylesheet" href="css/main.css" />
+
+  <link rel="icon" type="image/png" href="https://picsum.photos/16/16" />
+</head>
+<body>
+  <h1>Signup</h1>
+
+  <!-- Signup form -->
+  <form id="signup-form">
+    <label for="email">
+      Email
+      <input id="signup-email" name="signup-email" type="email" required />
+    </label>
+    <label for="username">
+      Username
+      <input id="signup-username" name="signup-username" type="text" required />
+    </label>
+    <label for="password">
+      Password
+      <input id="signup-password" name="signup-password" type="password" required />
+    </label>
+    <button type="submit" class="button--primary">Sign Up</button>
+  </form>
+
+  <h2>Already have an account?</h2>
+  <button id="login-modal-open-button" class="button--secondary">Login</button>
+
+  <!-- Login modal -->
+  <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
+    <div class="modal__content">
+      <h2 id="login-modal-title">Login</h2>
+      <form id="login-form">
+        <label for="username">
+          Username
+          <input id="username" name="username" type="text" required />
+        </label>
+        <label for="password">
+          Password
+          <input id="password" name="password" type="password" required />
+        </label>
+        <button type="submit" class="button--primary">Log In</button>
+        <button type="button" id="login-modal-close-button" class="button--secondary">Close</button>
+      </form>
+    </div>
+  </div>
+
+  <p id="message"></p>
+
+  <!-- Signup JS -->
+  <script>
+    const form = document.getElementById('signup-form');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('signup-email').value;
+      const username = document.getElementById('signup-username').value;
+      const password = document.getElementById('signup-password').value;
+
+      try {
+        // ✅ Use relative URL so it hits your current Express server
+        const res = await fetch('/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, username, password }),
+        });
+
+        const text = await res.text();
+        message.textContent = text;
+        message.style.color = res.ok ? 'green' : 'red';
+      } catch (err) {
+        message.textContent = 'Error connecting to server.';
+        message.style.color = 'red';
+      }
+    });
+  </script>
+
+  <!-- Main app JS -->
+  <script type="module" src="js/src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "deck-builder",
+  "version": "1.0.0",
+  "description": "Magic: The Gathering deck builder focused on intuitive UX, responsive UI, and scalable architecture — built to make deck building easy and fun.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megan-kuhn/deck-builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/megan-kuhn/deck-builder/issues"
+  },
+  "homepage": "https://github.com/megan-kuhn/deck-builder#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
+  }
+}
