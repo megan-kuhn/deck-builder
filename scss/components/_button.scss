@@ -7,15 +7,22 @@
   
 }
 
-button {
+[class^="button"] {
+  display: flex;
   font-size: $FontSize--M;
+  line-height: $LineHeight--M;
   border: 0;
   border-radius: $BorderRadius--S;
   color: $ButtonText--Primary;
   box-shadow: none;
   padding: $Spacing--S $Spacing--M;
   height: fit-content;
-  margin: auto 0;
+  width: fit-content;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
 }
 
 .button--primary {
