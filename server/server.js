@@ -81,6 +81,24 @@ app.post('/register', async (req, res) => {
   }
 });
 
+// Login endpoint
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) return res.status(400).send("Missing username or password");
+
+  db.get('SELECT * FROM users WHERE username = ?', [username], async (err, row) => {
+    if (err) return res.status(500).send("Database error");
+    if (!row) return res.status(400).send("User not found");
+
+    const match = await bcrypt.compare(password, row.password);
+    if (match) {
+      res.send("Login successful!");
+    } else {
+      res.status(400).send("Incorrect password");
+    }
+  });
+});
 
 // ---------------------------
 // 4️⃣ Frontend routes
