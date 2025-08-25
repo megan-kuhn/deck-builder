@@ -29,7 +29,7 @@ db.run(`CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE,
   password TEXT,
-  email TEXT
+  email TEXT UNIQUE
 )`);
 
 // ---------------------------
@@ -48,34 +48,40 @@ app.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // First, check if the username already exists
-    db.get(
-      `SELECT * FROM users WHERE username = ?`,
-      [username],
-      (err, row) => {
+   db.get(
+  `SELECT * FROM users WHERE username = ? OR email = ?`,
+  [username, email],
+  (err, row) => {
+    if (err) {
+      console.error("SQLite query error:", err); // logs real error
+      return res.status(500).send("Database error");
+    }
+
+    if (row) {
+      if (row.username === username) {
+        return res.status(400).send("Username already taken");
+      } 
+      if (row.email === email) {
+        return res.status(400).send("Email already registered");
+      }
+      return res.status(400).send("User already exists");
+    }
+
+    // Insert new user if not found
+    db.run(
+      `INSERT INTO users (username, password, email) VALUES (?, ?, ?)`,
+      [username, hashedPassword, email],
+      function(err) {
         if (err) {
-          return res.status(500).send("Database error");
+          console.error("SQLite insert error:", err);
+          return res.status(500).send("Database error while inserting user");
         }
-
-        if (row) {
-          // User already exists
-          return res.status(400).send("Username already taken");
-        }
-
-        // Insert new user if not found
-        db.run(
-          `INSERT INTO users (username, password, email) VALUES (?, ?, ?)`,
-          [username, hashedPassword, email],
-          function(err) {
-            if (err) {
-              console.error("SQLite insert error:", err); // <-- log the real error
-              return res.status(500).send("Database error while inserting user");
-            }
-            res.status(201).send("User registered successfully");
-          }
-        );
-
+        res.status(201).send("User registered successfully");
       }
     );
+  }
+);
+
   } catch (err) {
     res.status(500).send("Error hashing password");
   }
