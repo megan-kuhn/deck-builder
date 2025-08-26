@@ -22,6 +22,7 @@
 │       │   ├── getSelectedColors.js
 │       │   ├── index.js
 │       │   └── renderColorFilters.js
+│       ├── login.js
 │       ├── modal
 │       │   └── modal.js
 │       ├── pagination
@@ -31,6 +32,7 @@
 │       ├── search
 │       │   ├── applySearchAndFilters.js
 │       │   └── initSearch.js
+│       ├── signup.js
 │       ├── state
 │       │   ├── apiState.js
 │       │   ├── dataState.js
@@ -47,11 +49,14 @@
 │   ├── css
 │   │   ├── main.css
 │   │   └── main.css.map
+│   ├── images
+│   │   └── logo.svg
 │   ├── index.html
 │   └── signup.html
 ├── scss
 │   ├── abstracts
 │   │   ├── _functions.scss
+│   │   ├── _index.scss
 │   │   ├── _mixins.scss
 │   │   └── _variables.scss
 │   ├── base
@@ -85,4 +90,4 @@
 ├── structure.txt
 └── zshrc
 
-27 directories, 59 files
+28 directories, 63 files

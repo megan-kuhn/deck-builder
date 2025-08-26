@@ -1,0 +1,38 @@
+@use '../abstracts/index' as *;
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $Spacing--M;
+  justify-content: space-between;
+  align-items: center;
+  padding: $Spacing--S $Spacing--PageMargin;
+  background-color: $Background--Alt;
+}
+
+.main-nav {
+  &__home,
+  &__settings {
+    display: block;
+    height: 1.5rem;
+    width: fit-content;
+
+    span {
+      @include visually-hidden();
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  &__group {
+    display: flex;
+    gap: $Spacing--S;
+  }
+
+  &__settings {
+    @include button-reset();
+  }
+}

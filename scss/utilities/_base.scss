@@ -1,7 +1,9 @@
+@use '../abstracts/index' as *;
+
 .visually-hidden {
-  font-size: .1px;
-  height: .1px;
-  width: .1px;
-  color: transparent;
-  pointer-events: none;
+  @include visually-hidden();
+}
+
+.button-reset {
+  @include button-reset();
 }

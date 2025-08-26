@@ -1,0 +1,13 @@
+@use '../abstracts/index' as *;
+
+footer {
+  padding: $Spacing--S $Spacing--PageMargin;
+  background-color: $Background--Alt;
+
+  p {
+    margin: 0;
+    color: $FontColor--Muted;
+    font-size: $FontSize--S;
+    text-align: center;
+  }
+}

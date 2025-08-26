@@ -62,6 +62,8 @@ $Spacing--M: 1rem;
 $Spacing--L: 1.5rem;
 $Spacing--XL: 2rem;
 
+$Spacing--PageMargin: clamp($Spacing--S, 3vw, $Spacing--XL);
+
 // ------------------------------------------------------
 //  Typography
 // ------------------------------------------------------
