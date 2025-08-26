@@ -91,7 +91,64 @@ body {
   font-size: 1rem;
   color: #212529;
   background: #f8f9fa;
-  padding: 1rem;
+}
+
+main {
+  padding: 1rem clamp(0.5rem, 3vw, 2rem);
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem clamp(0.5rem, 3vw, 2rem);
+  background-color: #e9ecef;
+}
+
+.main-nav__home, .main-nav__settings {
+  display: block;
+  height: 1.5rem;
+  width: fit-content;
+}
+.main-nav__home span, .main-nav__settings span {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+.main-nav__home img, .main-nav__settings img {
+  height: 100%;
+  width: auto;
+}
+.main-nav__group {
+  display: flex;
+  gap: 0.5rem;
+}
+.main-nav__settings {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+footer {
+  padding: 0.5rem clamp(0.5rem, 3vw, 2rem);
+  background-color: #e9ecef;
+}
+footer p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.875rem;
+  text-align: center;
 }
 
 [class^=button] {
@@ -308,11 +365,24 @@ select {
 }
 
 .visually-hidden {
-  font-size: 0.1px;
-  height: 0.1px;
-  width: 0.1px;
-  color: transparent;
-  pointer-events: none;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */
