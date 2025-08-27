@@ -1,47 +1,64 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts/index' as *;
+
+@mixin button-primary {
+  background: $ButtonBackground--Primary;
+  color: $ButtonText--Primary;
+}
+
+@mixin button-secondary {
+  background: $ButtonBackground--Secondary;
+  color: $ButtonText--Primary;
+}
 
 @mixin button-small {
   font-size: $FontSize--S;
   border-radius: $BorderRadius--XS;
   padding: $Spacing--XS $Spacing--S;
-  
 }
 
-[class^="button"] {
-  display: flex;
-  font-size: $FontSize--M;
-  line-height: $LineHeight--M;
-  border: 0;
-  border-radius: $BorderRadius--S;
-  color: $ButtonText--Primary;
-  box-shadow: none;
-  padding: $Spacing--S $Spacing--M;
-  height: fit-content;
-  width: fit-content;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
-}
-
-.button--primary {
-  background: $ButtonBackground--Primary;
-}
-
-.button--secondary {
-  background: $ButtonBackground--Secondary;
-}
-
-.button--nextpage {
-  background: $ButtonBackground--Primary;
+@mixin button-full-width {
   width: 100%;
 }
 
-.button--addtolist {
-  background: $ButtonBackground--Secondary;
-  
-  @include button-small;
+[class^="button"] {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: $FontSize--M;
+  line-height: $LineHeight--M;
+  text-align: center;
+  text-decoration: none;
+  color: $ButtonText--Primary;
+  border: 0;
+  box-shadow: none;
+  border-radius: $BorderRadius--S;
+  padding: $Spacing--S $Spacing--M;  
+}
 
-  margin-top: $Spacing--XS
+.button {
+  &--primary {
+    @include button-primary();
+  }
+
+  &--secondary {
+    @include button-secondary();
+  }
+
+  &--full-width {
+    @include button-full-width();
+  }
+
+  &--next-page {
+    @include button-primary();
+    @include button-full-width();
+  }
+
+  &--add-to-list {
+    @include button-secondary;
+    @include button-small;
+    margin-top: $Spacing--XS
+  }
 }

@@ -1,0 +1,8 @@
+@use '../abstracts/index' as *;
+
+#card-container-search {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $Spacing--M;
+  margin: $Spacing--XL 0;
+}

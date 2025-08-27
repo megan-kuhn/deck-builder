@@ -2,7 +2,7 @@
 
 import { renderCard } from '../../components/card.js';
 
-export function displayCards(cards, containerId = "card-container") {
+export function displayCards(cards, containerId = "card-container-search") {
   const container = document.getElementById(containerId);
   if (!container || !Array.isArray(cards)) return;
 

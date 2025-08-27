@@ -25,84 +25,86 @@
     </button>
   </header>
   <main>
-    <h1>Deck Builder</h1>
-    <!-- Card list -->
-    <h2>Card list</h2>
-    <div id="card-list"></div>
-    <h2>Find cards</h2>
-    <form id="search-form">
-      <!-- Search bar -->
-      <fieldset>
-        <legend class="visually-hidden">Search</legend>
-        <div class="form__row">
-          <input type="text" id="search-input" placeholder="Search cards by name or keyword..." />
-          <button type="submit" class="button--primary">Search</button>
-          <button id="clear-search-button" type="button" class="button--secondary">Clear Search</button>
-        </div>
-      </fieldset>
-
-      <!-- Filters -->
-      <fieldset>
-        <legend class="legend--large">Filters</legend>
-
-        <!-- Mana color checkboxes -->
+    <aside aria-labelledby="card-container-list__toggle">
+      <button 
+          id="card-container-list__toggle" 
+          aria-expanded="false" 
+          aria-controls="card-container-list__inner">
+          My Deck&#9660;
+      </button>
+      <div id="card-container-list__inner" class="is-collapsed"></div>
+    </aside>
+    <div class="wrapper">
+      <h1>Deck Builder</h1>
+      <form id="search-form">
+        <!-- Search bar -->
         <fieldset>
-          <legend class="legend--small">Mana colors:</legend>
+          <legend class="visually-hidden">Search</legend>
           <div class="form__row">
-            <div id="color-filter">
-              <!-- checkboxes will be injected by JS here -->
-            </div>
+            <input type="text" id="search-input" placeholder="Search cards by name or keyword..." />
+            <button type="submit" class="button--primary">Search</button>
+            <button id="clear-search-button" type="button" class="button--secondary">Clear Search</button>
           </div>
         </fieldset>
-
-        <!-- Card type select list -->
-        <div class="form__row">
-          <label>
-            Card type
-            <select id="type-filter">
-              <option value="">Any Card Type</option>
-              <option value="creature">Creature</option>
-              <option value="instant">Instant</option>
-              <option value="sorcery">Sorcery</option>
-              <option value="land">Land</option>
-              <option value="artifact">Artifact</option>
-              <option value="enchantment">Enchantment</option>
-              <option value="planeswalker">Planeswalker</option>
-            </select>
-          </label>
+        <!-- Filters -->
+        <fieldset>
+          <legend class="legend--large">Filters</legend>
+          <!-- Mana color checkboxes -->
+          <fieldset>
+            <legend class="legend--small">Mana colors:</legend>
+            <div class="form__row">
+              <div id="color-filter">
+                <!-- checkboxes will be injected by JS here -->
+              </div>
+            </div>
+          </fieldset>
+          <!-- Card type selection -->
+          <div class="form__row">
+            <label>
+              Card type
+              <select id="type-filter">
+                <option value="">Any Card Type</option>
+                <option value="creature">Creature</option>
+                <option value="instant">Instant</option>
+                <option value="sorcery">Sorcery</option>
+                <option value="land">Land</option>
+                <option value="artifact">Artifact</option>
+                <option value="enchantment">Enchantment</option>
+                <option value="planeswalker">Planeswalker</option>
+              </select>
+            </label>
+          </div>
+          <!-- Reset button -->
+          <div class="form__row">
+            <button id="reset-filters-button" type="button" class="button--secondary">Clear All Filters</button>
+          </div>
+        </fieldset>
+      </form>
+      <!-- Search card results list -->
+      <div id="card-container-search"></div> 
+      <!-- Pagination container -->
+      <div id="pagination-container"></div>
+      <!-- Login modal -->
+      <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
+        <div class="modal__content">
+          <h2 id="login-modal-title">Login</h2>
+          <form id="login-form">
+            <label for="username">
+              Username
+              <input id="username" name="username" type="text" required />
+            </label>
+            <label for="password">
+              Password
+              <input id="password" name="password" type="password" required />
+            </label>
+            <button type="submit" class="button--primary">Log In</button>
+            <button type="button" id="login-modal-close-button" class="button--secondary">Close</button>
+            <a href="signup.html" class="button--secondary">Create an Account</a>
+          </form>
         </div>
-
-        <!-- Reset button -->
-        <div class="form__row">
-          <button id="reset-filters-button" type="button" class="button--secondary">Clear All Filters</button>
-        </div>
-        
-      </fieldset>
-    </form>
-    <!-- Card container -->
-    <div id="card-container"></div> 
-    <!-- Pagination container -->
-    <div id="pagination-container"></div>
-    <!-- Login modal -->
-    <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
-      <div class="modal__content">
-        <h2 id="login-modal-title">Login</h2>
-        <form id="login-form">
-          <label for="username">
-            Username
-            <input id="username" name="username" type="text" required />
-          </label>
-          <label for="password">
-            Password
-            <input id="password" name="password" type="password" required />
-          </label>
-          <button type="submit" class="button--primary">Log In</button>
-          <button type="button" id="login-modal-close-button" class="button--secondary">Close</button>
-          <a href="signup.html" class="button--secondary">Create an Account</a>
-        </form>
       </div>
+    </main>
     </div>
-  </main>
   <footer>
     <p>&copy; 2025 Deck Builder. All rights reserved.</p>
   </footer>

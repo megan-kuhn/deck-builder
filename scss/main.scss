@@ -13,8 +13,9 @@
 @use 'layout/grid' as *;
 
 @use 'components/button' as *;
-@use 'components/card-list' as *;
-@use 'components/cards' as *;
+@use 'components/card-container-search' as *;
+@use 'components/card-container-list' as *;
+@use 'components/card' as *;
 @use 'components/form' as *;
 @use 'components/modal' as *;
 @use 'components/search' as *;
