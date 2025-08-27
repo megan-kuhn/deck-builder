@@ -1,11 +1,4 @@
-@use '../abstracts/variables' as *;
-
-#card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: $Spacing--M;
-  margin: $Spacing--XL 0;
-}
+@use '../abstracts/index' as *;
 
 .single-card-container {
   display: flex;
@@ -17,7 +10,7 @@
 }
 
 .card {
-  h3 {
+  &__heading {
     font-size: $FontSize--S;
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -28,9 +21,14 @@
     margin-bottom: .25em;
   }
 
-  img {
+  &__image {
     width: 100%;
     border-radius: 4%;
     overflow: clip;
+  }
+
+  &__quantity {
+    font-size: $FontSize--S;
+    margin-top: .25em;
   }
 }

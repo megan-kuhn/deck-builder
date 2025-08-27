@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts/index' as *;
 
 html {
   font-size: 16px;
@@ -21,7 +21,7 @@ body {
   background: $Background--Main;
 }
 
-main {
+.wrapper {
   padding: $Spacing--M $Spacing--PageMargin;
 }
 

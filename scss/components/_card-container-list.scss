@@ -1,0 +1,23 @@
+@use '../abstracts/index' as *;
+@use '../components/button' as *;
+
+#card-container-list {
+  &__toggle {
+    @include button-secondary();
+    @include button-full-width();
+    padding: $Spacing--S $Spacing--PageMargin;
+    border-radius: 0;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: $Spacing--M;
+    padding: $Spacing--M $Spacing--PageMargin;
+    margin: $Spacing--XL 0;
+
+    &.is-collapsed {
+      @include is-collapsed();
+    }
+  }
+}

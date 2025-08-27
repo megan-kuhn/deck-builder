@@ -22,7 +22,7 @@ import { initColorFilters } from './filters/index.js';
 import { setupLoadMoreButton } from './pagination/index.js';
 import { updateLoadMoreButtonVisibility } from './ui/index.js';
 import { setupModal } from './modal/modal.js'; // Adjust path if needed
-
+import { initCardListToggle } from "../components/cardListToggle.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.log('launching');
@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     closeButtonId: 'login-modal-close-button'
   });
   
+  initCardListToggle();
   initCardListView();
 
   initColorFilters(applySearchAndFilters);

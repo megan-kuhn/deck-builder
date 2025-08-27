@@ -8,8 +8,8 @@ export function createCardElement(cardData) {
   cardEl.classList.add('card');
 
   cardEl.innerHTML = `
-    <h3>${cardData.name}</h3>
-    <img src="${cardData.image_uris?.normal || ''}" alt="${cardData.name}" />
+    <h3 class="card__heading">${cardData.name}</h3>
+    <img class="card__image" src="${cardData.image_uris?.normal || ''}" alt="${cardData.name}" />
   `;
 
   return cardEl;
@@ -26,7 +26,7 @@ export function renderCard(cardData) {
 
   // Create the button
   const button = document.createElement('button');
-  button.classList.add('button--addtolist');
+  button.classList.add('button--add-to-list');
   button.textContent = 'Add to List';
   button.addEventListener('click', () => {
     addCardToList(cardData);

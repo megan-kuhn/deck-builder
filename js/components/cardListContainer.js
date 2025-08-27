@@ -1,10 +1,10 @@
-// components/cardListView.js
+// components/cardListContainer.js
 
 import { getCardList } from '../data/cardList.js';
 import { createCardElement } from './card.js';
 
 export function renderCardList(limit = 100) { 
-  const container = document.getElementById('card-list');
+  const container = document.getElementById('card-container-list__inner');
   if (!container) return;
 
   const cards = getCardList();
@@ -21,7 +21,7 @@ export function renderCardList(limit = 100) {
 
     const cardEl = createCardElement(card);
     const quantity = document.createElement('span');
-    quantity.classList.add('card-list-quantity');
+    quantity.classList.add('card__quantity');
     quantity.textContent = `x${card.quantity}`;
 
     cardWrapper.appendChild(cardEl);

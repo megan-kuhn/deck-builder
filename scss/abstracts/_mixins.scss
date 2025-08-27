@@ -20,4 +20,8 @@
   cursor: pointer;
 }
 
+@mixin is-collapsed {
+  display: none;
+}
+
 
