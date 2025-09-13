@@ -15,6 +15,7 @@ import { getCurrentPageSlice } from './state/selectors.js';
 import { displayCards } from './dom/displayCards.js';
 import { clearCards } from './dom/clearCards.js';
 import { initCardListView } from './dom/initCardListView.js';
+import { initCardDetailsModal } from "../components/cardDetailsModal.js";
 import { initSearch } from './search/initSearch.js';
 import { applySearchAndFilters } from './search/applySearchAndFilters.js';
 import { initResetButtons } from './ui/reset.js';
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   
   initCardListToggle();
   initCardListView();
+  initCardDetailsModal();
 
   initColorFilters(applySearchAndFilters);
 
@@ -46,14 +48,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   setupLoadMoreButton();
 
-const data = await fetchCards();
-const success = updateStateFromApiResponse(data);
+  const data = await fetchCards();
+  const success = updateStateFromApiResponse(data);
 
-if (success) {
-  clearCards();
-  displayCards(getCurrentPageSlice());
-  updateLoadMoreButtonVisibility();
-}
+  if (success) {
+    clearCards();
+    displayCards(getCurrentPageSlice());
+    updateLoadMoreButtonVisibility();
+  }
 
   initSearch();
   initResetButtons(applySearchAndFilters);
