@@ -3,7 +3,7 @@
 .modal {
   display: none;
 
-  &--open {
+  &.open {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,10 +13,9 @@
     top: 0;
     width: 100%; 
     height: 100%; 
-    overflow: auto; 
-    display: flex;
-    padding: $Spacing--L;
-    background: $Background--ModalScreen;
+    overflow: hidden;
+    padding: 3vw;
+    background: $Background--ModalScreenLight;
   }
 
   &__content {
@@ -24,10 +23,18 @@
     padding: $Spacing--L;
     border-radius: $BorderRadius--M;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: min-max(100%, 400px);
+    overflow-y: auto;
 
     h2:first-child {
       margin-top: 0;
     }
   }
+}
+
+/* Prevent page scroll when modal is open */
+.body--no-scroll {
+  overflow: hidden;
+  /* Optional: lock touch scrolling on mobile */
+  position: fixed;
+  width: 100%;
 }

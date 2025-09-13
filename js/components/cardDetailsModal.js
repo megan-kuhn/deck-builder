@@ -1,0 +1,40 @@
+// js/components/cardDetailsModal.js
+import { setupModal } from "../src/modal/modal.js";
+
+let openModalFn;
+
+export function initCardDetailsModal() {
+  const modalBody = document.getElementById("card-details-body");
+
+  // Setup the modal and store its open function
+  const { openModal } = setupModal({
+    modalId: "card-details-modal",
+    closeButtonId: "card-details-close"
+  });
+  openModalFn = openModal;
+
+  // Event delegation for "View Details" buttons
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".button--detail-view");
+    if (!btn) return;
+
+    const cardContainer = btn.closest(".single-card-container");
+    if (!cardContainer) return;
+
+    const cardData = btn._cardData; // We'll attach cardData in card.js
+    if (!cardData) return;
+
+    // Populate modal with card details
+    modalBody.innerHTML = `
+      <h3>${cardData.name}</h3>
+      <img src="${cardData.image_uris?.normal || ''}" alt="${cardData.name}" />
+      <p>Type: ${cardData.type_line || 'Unknown'}</p>
+      <p>Set: ${cardData.set_name || 'Unknown'}</p>
+      <p>Mana cost: ${cardData.mana_cost || 'N/A'}</p>
+      <p>Oracle text: ${cardData.oracle_text || ''}</p>
+    `;
+
+    // Open modal
+    openModalFn();
+  });
+}

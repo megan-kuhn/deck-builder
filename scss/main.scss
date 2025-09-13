@@ -18,11 +18,12 @@
 @use 'components/card' as *;
 @use 'components/form' as *;
 @use 'components/modal' as *;
+@use 'components/card-detail-view' as *;
 @use 'components/search' as *;
 
 @use 'pages/deckbuilder' as *;
 
 @use 'themes/default' as *;
 
-@use 'utilities/base' as *;
+@use 'utilities/base' as *; 
  

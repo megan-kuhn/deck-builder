@@ -1,8 +1,7 @@
-// components/card.js
-
+// js/components/card.js
 import { addCardToList } from '../events/cardListEvents.js';
 
-// Base function that renders the card visual
+// Base function that renders the visual part of a card
 export function createCardElement(cardData) {
   const cardEl = document.createElement('div');
   cardEl.classList.add('card');
@@ -15,26 +14,30 @@ export function createCardElement(cardData) {
   return cardEl;
 }
 
-// Public function that adds the button and events for the search view
+// Main function to render a card with buttons
 export function renderCard(cardData) {
-  // Create outer wrapper
   const wrapper = document.createElement('div');
   wrapper.classList.add('single-card-container');
+  wrapper.dataset.cardId = cardData.id; // optional, useful for tracking
 
-  // Get the visual card element
   const cardEl = createCardElement(cardData);
 
-  // Create the button
-  const button = document.createElement('button');
-  button.classList.add('button--add-to-list');
-  button.textContent = 'Add to List';
-  button.addEventListener('click', () => {
-    addCardToList(cardData);
-  });
+  // Detail View button
+  const viewDetailsButton = document.createElement('button');
+  viewDetailsButton.classList.add('button--detail-view');
+  viewDetailsButton.textContent = 'View Details';
+  viewDetailsButton._cardData = cardData;
 
-  // Append card and button to wrapper
+  // Add to List button
+  const addToListButton = document.createElement('button');
+  addToListButton.classList.add('button--add-to-list');
+  addToListButton.textContent = 'Add to List';
+  addToListButton.addEventListener('click', () => addCardToList(cardData));
+
+  // Append everything
   wrapper.appendChild(cardEl);
-  wrapper.appendChild(button);
+  wrapper.appendChild(viewDetailsButton);
+  wrapper.appendChild(addToListButton);
 
   return wrapper;
 }

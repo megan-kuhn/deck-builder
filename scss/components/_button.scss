@@ -61,4 +61,10 @@
     @include button-small;
     margin-top: $Spacing--XS
   }
+
+  &--detail-view {
+    @include button-secondary;
+    @include button-small;
+    margin-top: $Spacing--XS;
+  }
 }

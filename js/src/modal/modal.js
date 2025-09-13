@@ -1,12 +1,14 @@
+// js/src/modal/modal.js - Accessible Modal Implementation
+
 let activeModal = null;
 let previouslyHiddenSiblings = [];
 
 export function setupModal({ openButtonId, modalId, closeButtonId }) {
-  const openBtn = document.getElementById(openButtonId);
+  const openBtn = openButtonId ? document.getElementById(openButtonId) : null;
   const modal = document.getElementById(modalId);
   const closeBtn = document.getElementById(closeButtonId);
 
-  if (!openBtn || !modal || !closeBtn) return;
+  if (!modal || !closeBtn) return;
 
   // Helper: Get all focusable elements in modal
   function getFocusableElements() {
@@ -34,26 +36,30 @@ export function setupModal({ openButtonId, modalId, closeButtonId }) {
     previouslyHiddenSiblings = [];
   }
 
-  // Open modal
-  openBtn.addEventListener('click', () => {
-    modal.setAttribute('aria-hidden', 'false');
-    modal.classList.add('modal--open');
-    modal.style.display = 'flex';
-    activeModal = modal;
-    hideSiblings();
-    // Focus first focusable element
-    getFocusableElements()[0]?.focus();
-  });
 
-  // Close modal
-  function closeModal() {
-    modal.setAttribute('aria-hidden', 'true');
-    modal.classList.remove('modal--open');
-    modal.style.display = 'none';
-    activeModal = null;
-    restoreSiblings();
-    openBtn.focus();
-  }
+function openModal() {
+  modal.setAttribute('aria-hidden', 'false');
+  modal.classList.add('open');
+  modal.style.display = 'flex';
+  document.body.classList.add('body--no-scroll'); // 🔒 lock scroll
+  activeModal = modal;
+  hideSiblings();
+  getFocusableElements()[0]?.focus();
+}
+
+function closeModal() {
+  modal.setAttribute('aria-hidden', 'true');
+  modal.classList.remove('open');
+  modal.style.display = 'none';
+  document.body.classList.remove('body--no-scroll'); // 🔓 unlock scroll
+  activeModal = null;
+  restoreSiblings();
+  if (openBtn) openBtn.focus();
+}
+
+
+  // Attach openBtn if it exists
+  if (openBtn) openBtn.addEventListener('click', openModal);
 
   closeBtn.addEventListener('click', closeModal);
 
@@ -64,16 +70,12 @@ export function setupModal({ openButtonId, modalId, closeButtonId }) {
       if (focusable.length === 0) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
-      if (e.shiftKey) {
-        if (document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     }
   });
@@ -90,4 +92,7 @@ export function setupModal({ openButtonId, modalId, closeButtonId }) {
     const isDestructive = modal.classList.contains('modal--destructive');
     if (e.target === modal && !isDestructive) closeModal();
   });
+
+  // Return control functions
+  return { openModal, closeModal };
 }
