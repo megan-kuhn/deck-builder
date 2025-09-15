@@ -1,30 +1,31 @@
 .
 ├── README.md
 ├── js
-│   ├── components
-│   │   ├── card.js
-│   │   └── cardListView.js
-│   ├── data
-│   │   └── cardList.js
-│   ├── events
-│   │   └── cardListEvents.js
 │   └── src
 │       ├── api
 │       │   ├── fetchCards.js
 │       │   ├── index.js
 │       │   └── updateState.js
 │       ├── app.js
+│       ├── components
+│       │   ├── card.js
+│       │   ├── cardDetailsModal.js
+│       │   ├── cardListContainer.js
+│       │   └── cardListToggle.js
+│       ├── data
+│       │   └── cardList.js
 │       ├── dom
 │       │   ├── clearCards.js
 │       │   ├── displayCards.js
 │       │   └── initCardListView.js
+│       ├── events
+│       │   ├── addToListHandler.js
+│       │   └── cardListEvents.js
 │       ├── filters
 │       │   ├── getSelectedColors.js
 │       │   ├── index.js
 │       │   └── renderColorFilters.js
 │       ├── login.js
-│       ├── modal
-│       │   └── modal.js
 │       ├── pagination
 │       │   ├── index.js
 │       │   ├── loadMoreButtonClickHandler.js
@@ -40,6 +41,7 @@
 │       │   └── selectors.js
 │       └── ui
 │           ├── index.js
+│           ├── modal.js
 │           ├── reset.js
 │           ├── triggerUpdateAfterSearch.js
 │           └── updateLoadMoreButton.js
@@ -50,6 +52,7 @@
 │   │   ├── main.css
 │   │   └── main.css.map
 │   ├── images
+│   │   ├── icon_settings.svg
 │   │   └── logo.svg
 │   ├── index.html
 │   └── signup.html
@@ -65,8 +68,10 @@
 │   │   └── _typography.scss
 │   ├── components
 │   │   ├── _button.scss
-│   │   ├── _card-list.scss
-│   │   ├── _cards.scss
+│   │   ├── _card-container-list.scss
+│   │   ├── _card-container-search.scss
+│   │   ├── _card-detail-view.scss
+│   │   ├── _card.scss
 │   │   ├── _form.scss
 │   │   ├── _modal.scss
 │   │   └── _search.scss
@@ -90,4 +95,4 @@
 ├── structure.txt
 └── zshrc
 
-28 directories, 63 files
+27 directories, 69 files

@@ -1,4 +1,4 @@
-// components/cardListContainer.js
+// js/src/components/cardListContainer.js
 
 import { getCardList } from '../data/cardList.js';
 import { createCardElement } from './card.js';

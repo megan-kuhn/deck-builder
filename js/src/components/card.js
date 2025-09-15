@@ -1,5 +1,6 @@
-// js/components/card.js
-import { addCardToList } from '../events/cardListEvents.js';
+// js/src/components/card.js
+
+import { attachAddToListHandler } from '../ui/addToListHandler.js';
 
 // Base function that renders the visual part of a card
 export function createCardElement(cardData) {
@@ -32,7 +33,8 @@ export function renderCard(cardData) {
   const addToListButton = document.createElement('button');
   addToListButton.classList.add('button--add-to-list');
   addToListButton.textContent = 'Add to List';
-  addToListButton.addEventListener('click', () => addCardToList(cardData));
+  
+  attachAddToListHandler(addToListButton, cardData);
 
   // Append everything
   wrapper.appendChild(cardEl);

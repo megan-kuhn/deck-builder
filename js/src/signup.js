@@ -1,4 +1,4 @@
-// src/signup.js
+// js/src/signup.js
 
 const form = document.getElementById('signup-form');
 const message = document.getElementById('message');

@@ -1,4 +1,4 @@
-// src/search/applySearchAndFilters.js
+// js/src/search/applySearchAndFilters.js
 
 import { fetchCards } from '../api/index.js'; 
 import { setCards } from '../state/dataState.js';

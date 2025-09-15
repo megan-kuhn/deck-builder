@@ -1,4 +1,4 @@
-// src/search/initSearch.js
+// js/src/search/initSearch.js
 import { applySearchAndFilters } from './applySearchAndFilters.js';
 
 export function initSearch() {

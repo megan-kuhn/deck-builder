@@ -1,4 +1,4 @@
-/* src/app.js
+/* js/app.js
 
 - Main application bootstrap module:
 - Runs on DOMContentLoaded event
@@ -10,20 +10,20 @@
 - Provides seamless user experience by wiring all core UI and data fetching together
 */
 
-import { fetchCards, updateStateFromApiResponse } from './api/index.js'; 
-import { getCurrentPageSlice } from './state/selectors.js';
-import { displayCards } from './dom/displayCards.js';
-import { clearCards } from './dom/clearCards.js';
-import { initCardListView } from './dom/initCardListView.js';
-import { initCardDetailsModal } from "../components/cardDetailsModal.js";
-import { initSearch } from './search/initSearch.js';
-import { applySearchAndFilters } from './search/applySearchAndFilters.js';
-import { initResetButtons } from './ui/reset.js';
-import { initColorFilters } from './filters/index.js';
-import { setupLoadMoreButton } from './pagination/index.js';
-import { updateLoadMoreButtonVisibility } from './ui/index.js';
-import { setupModal } from './modal/modal.js'; // Adjust path if needed
-import { initCardListToggle } from "../components/cardListToggle.js";
+import { fetchCards, updateStateFromApiResponse } from './src/api/index.js'; 
+import { getCurrentPageSlice } from './src/state/selectors.js';
+import { displayCards } from './src/dom/displayCards.js';
+import { clearCards } from './src/dom/clearCards.js';
+import { initCardListView } from './src/dom/initCardListView.js';
+import { initCardDetailsModal } from "./src/components/cardDetailsModal.js";
+import { initSearch } from './src/search/initSearch.js';
+import { applySearchAndFilters } from './src/search/applySearchAndFilters.js';
+import { initResetButtons } from './src/ui/reset.js';
+import { initColorFilters } from './src/filters/index.js';
+import { setupLoadMoreButton } from './src/pagination/index.js';
+import { updateLoadMoreButtonVisibility } from './src/ui/index.js';
+import { setupModal } from './src/ui/modal.js'; // Adjust path if needed
+import { initCardListToggle } from "./src/components/cardListToggle.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.log('launching');

@@ -1,4 +1,4 @@
-// src/pagination/setupLoadMoreButton.js
+// js/src/pagination/setupLoadMoreButton.js
 
 import { loadMoreButtonClickHandler } from './loadMoreButtonClickHandler.js';
 

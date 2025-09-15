@@ -1,4 +1,5 @@
-// js/components/cardListToggle.js
+// js/src/components/cardListToggle.js
+
 export function initCardListToggle() {
   const toggleBtn = document.getElementById("card-container-list__toggle");
   const panel = document.getElementById("card-container-list__inner");

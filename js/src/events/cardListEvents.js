@@ -1,4 +1,4 @@
-// events/cardListEvents.js
+// js/src/events/cardListEvents.js
 
 import { addCard } from '../data/cardList.js';
 import { renderCardList } from '../components/cardListContainer.js';

@@ -1,7 +1,7 @@
-// src/state/pagination.js
+// js/src/state/pagination.js
 
 let currentPage = 1;
-const pageSize = 16;
+const pageSize = 24;
 
 export function resetPagination() {
   currentPage = 1;

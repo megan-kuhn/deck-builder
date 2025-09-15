@@ -1,4 +1,4 @@
-// src/filters/getSelectedColors.js
+// js/src/filters/getSelectedColors.js
 
 export function getSelectedColors() {
   const checkboxes = document.querySelectorAll('#color-filter input[type="checkbox"]');

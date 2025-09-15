@@ -1,6 +1,6 @@
-// src/dom/displayCards.js
+// js/src/dom/displayCards.js
 
-import { renderCard } from '../../components/card.js';
+import { renderCard } from '../components/card.js';
 
 export function displayCards(cards, containerId = "card-container-search") {
   const container = document.getElementById(containerId);

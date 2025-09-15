@@ -1,4 +1,4 @@
-// src/api/updateState.js
+// js/src/api/updateState.js
 
 import { setNextPageUrl } from '../state/apiState.js'; 
 import { setCards } from '../state/dataState.js';

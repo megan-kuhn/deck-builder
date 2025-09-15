@@ -1,4 +1,4 @@
-// src/ui/updateLoadMoreButton.js
+// js/src/ui/updateLoadMoreButton.js
 
 import { getLoadMoreButton } from '../pagination/setupLoadMoreButton.js';
 import { getNextPageUrl } from '../state/apiState.js';
