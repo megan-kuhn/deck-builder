@@ -1,12 +1,21 @@
 .
 ├── README.md
+├── docs
+│   ├── css
+│   │   ├── main.css
+│   │   └── main.css.map
+│   ├── images
+│   │   ├── icon_settings.svg
+│   │   └── logo.svg
+│   ├── index.html
+│   └── signup.html
 ├── js
+│   ├── app.js
 │   └── src
 │       ├── api
 │       │   ├── fetchCards.js
 │       │   ├── index.js
 │       │   └── updateState.js
-│       ├── app.js
 │       ├── components
 │       │   ├── card.js
 │       │   ├── cardDetailsModal.js
@@ -19,7 +28,6 @@
 │       │   ├── displayCards.js
 │       │   └── initCardListView.js
 │       ├── events
-│       │   ├── addToListHandler.js
 │       │   └── cardListEvents.js
 │       ├── filters
 │       │   ├── getSelectedColors.js
@@ -40,6 +48,7 @@
 │       │   ├── pagination.js
 │       │   └── selectors.js
 │       └── ui
+│           ├── addToListHandler.js
 │           ├── index.js
 │           ├── modal.js
 │           ├── reset.js
@@ -47,15 +56,6 @@
 │           └── updateLoadMoreButton.js
 ├── package-lock.json
 ├── package.json
-├── docs
-│   ├── css
-│   │   ├── main.css
-│   │   └── main.css.map
-│   ├── images
-│   │   ├── icon_settings.svg
-│   │   └── logo.svg
-│   ├── index.html
-│   └── signup.html
 ├── scss
 │   ├── abstracts
 │   │   ├── _functions.scss
