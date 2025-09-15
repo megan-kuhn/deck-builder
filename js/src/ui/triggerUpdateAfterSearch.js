@@ -1,4 +1,4 @@
-// src/ui/triggerUpdateAfterSearch.js
+// js/src/ui/triggerUpdateAfterSearch.js
 
 import { displayCards } from '../dom/displayCards.js';
 import { clearCards } from '../dom/clearCards.js';

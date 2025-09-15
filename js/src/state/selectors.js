@@ -1,4 +1,4 @@
-// src/state/selectors.js
+// js/src/state/selectors.js
 
 import { getCards } from './dataState.js';
 import { getCurrentPage, getPageSize } from './pagination.js';

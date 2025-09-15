@@ -1,4 +1,4 @@
-// src/api/fetchCards.js
+// js/src/api/fetchCards.js
 
 export async function fetchCards(queryOrUrl = 'game:paper') {
   let url;

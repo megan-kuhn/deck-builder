@@ -1,5 +1,7 @@
-// js/components/cardDetailsModal.js
-import { setupModal } from "../src/modal/modal.js";
+// js/src/components/cardDetailsModal.js
+
+import { setupModal } from "../ui/modal.js";
+import { attachAddToListHandler } from '../ui/addToListHandler.js';
 
 let openModalFn;
 
@@ -32,7 +34,11 @@ export function initCardDetailsModal() {
       <p>Set: ${cardData.set_name || 'Unknown'}</p>
       <p>Mana cost: ${cardData.mana_cost || 'N/A'}</p>
       <p>Oracle text: ${cardData.oracle_text || ''}</p>
+      <button class="button--add-to-list">Add to List</button>
     `;
+
+    const modalAddButton = modalBody.querySelector('.button--add-to-list');
+    attachAddToListHandler(modalAddButton, cardData);
 
     // Open modal
     openModalFn();

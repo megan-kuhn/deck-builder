@@ -1,4 +1,4 @@
-// data/cardList.js
+// js/src/data/cardList.js
 
 let cardList = [];
 

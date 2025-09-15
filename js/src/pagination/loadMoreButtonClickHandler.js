@@ -1,4 +1,4 @@
-// src/pagination/loadMoreButtonClickHandler.js
+// js/src/pagination/loadMoreButtonClickHandler.js
 
 import { fetchCards } from '../api/index.js';
 import { incrementPage } from '../state/pagination.js';

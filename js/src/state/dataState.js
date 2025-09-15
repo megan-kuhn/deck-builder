@@ -1,4 +1,4 @@
-// src/state/dataState.js
+// js/src/state/dataState.js
 
 let cards = [];
 

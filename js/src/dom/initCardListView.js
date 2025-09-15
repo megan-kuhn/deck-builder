@@ -1,6 +1,6 @@
-// src/dom/initCardListView.js
+// js/src/dom/initCardListView.js
 
-import { renderCardList } from '../../components/cardListContainer.js';
+import { renderCardList } from '../components/cardListContainer.js';
 
 export function initCardListView() {
   renderCardList();

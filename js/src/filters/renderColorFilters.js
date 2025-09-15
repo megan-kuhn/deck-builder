@@ -1,4 +1,4 @@
-// src/filters/renderColorFilters.js
+// js/src/filters/renderColorFilters.js
 
 const colors = [
   { value: 'W', label: 'White' },

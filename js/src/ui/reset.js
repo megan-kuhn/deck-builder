@@ -1,4 +1,4 @@
-// src/ui/reset.js
+// js/src/ui/reset.js
 
 import { applySearchAndFilters } from '../search/applySearchAndFilters.js';
 
