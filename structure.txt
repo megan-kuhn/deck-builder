@@ -47,7 +47,7 @@
 │           └── updateLoadMoreButton.js
 ├── package-lock.json
 ├── package.json
-├── public
+├── docs
 │   ├── css
 │   │   ├── main.css
 │   │   └── main.css.map

@@ -19,8 +19,8 @@ app.use(bodyParser.json());
 // Serve JS files from root js folder
 app.use('/js', express.static(path.join(__dirname, '../js')));
 
-// Serve static frontend files (CSS, images, etc.) from public
-app.use(express.static(path.join(__dirname, '../public')));
+// Serve static frontend files (CSS, images, etc.) from docs
+app.use(express.static(path.join(__dirname, '../docs')));
 
 // ---------------------------
 // 2️⃣ Database setup
@@ -112,12 +112,12 @@ app.post('/login', (req, res) => {
 
 // Root route serves index.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  res.sendFile(path.join(__dirname, '../docs/index.html'));
 });
 
 // Explicit route for signup.html
 app.get('/signup.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/signup.html'));
+  res.sendFile(path.join(__dirname, '../docs/signup.html'));
 });
 
 // ---------------------------
