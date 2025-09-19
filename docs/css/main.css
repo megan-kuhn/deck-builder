@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -107,37 +108,9 @@ header {
   background-color: #e9ecef;
 }
 
-.main-nav__home, .main-nav__settings {
-  display: block;
-  height: 1.5rem;
-  width: fit-content;
-}
-.main-nav__home span, .main-nav__settings span {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-.main-nav__home img, .main-nav__settings img {
-  height: 100%;
-  width: auto;
-}
 .main-nav__group {
   display: flex;
   gap: 0.5rem;
-}
-.main-nav__settings {
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
 }
 
 footer {
@@ -151,7 +124,8 @@ footer p {
   text-align: center;
 }
 
-[class^=button] {
+button, .button {
+  background: none;
   height: fit-content;
   width: fit-content;
   display: flex;
@@ -162,11 +136,10 @@ footer p {
   line-height: 1.4;
   text-align: center;
   text-decoration: none;
-  color: #ffffff;
+  color: black;
   border: 0;
   box-shadow: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
+  padding: 0;
 }
 
 .button--primary {
@@ -189,7 +162,7 @@ footer p {
   background: #495057;
   color: #ffffff;
   font-size: 0.875rem;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 0.25rem 0.5rem;
   margin-top: 0.25rem;
 }
@@ -197,9 +170,149 @@ footer p {
   background: #495057;
   color: #ffffff;
   font-size: 0.875rem;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 0.25rem 0.5rem;
   margin-top: 0.25rem;
+}
+
+#home-button,
+#settings-button {
+  display: block;
+  height: 1.5rem;
+  width: fit-content;
+  border-radius: 50%;
+}
+#home-button span,
+#settings-button span {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+#home-button img,
+#settings-button img {
+  height: 100%;
+  width: auto;
+}
+
+#new-deck-button {
+  background: #495057;
+  color: #ffffff;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+}
+
+#login-modal-open-button {
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+}
+
+#profile-link {
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  display: none;
+}
+
+#login-modal-sign-in-button {
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+#login-modal-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background: #000000;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  margin: 12px 16px;
+  z-index: 1;
+}
+#login-modal-close-button::after {
+  content: "✕";
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+#create-account-button {
+  background: #495057;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+#card-details-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background: #000000;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  margin: 12px 16px;
+  z-index: 1;
+}
+#card-details-close-button::after {
+  content: "✕";
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+#search-button {
+  background: #000000;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+#clear-search-button {
+  background: #495057;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+#reset-filters-button {
+  background: #495057;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+#next-page-button {
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
 }
 
 #card-container-search {
@@ -343,6 +456,7 @@ select {
   display: none;
 }
 .modal.open {
+  background: rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -354,17 +468,79 @@ select {
   height: 100%;
   overflow: hidden;
   padding: 3vw;
-  background: rgba(255, 255, 255, 0.8);
+}
+.modal__scroll-container {
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  overflow: clip;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  padding: 0;
+}
+.modal__scroll-container--small, #login-modal .modal__scroll-container {
+  border-radius: 4px;
+  height: auto;
+  width: clamp(300px, 100vw, 400px);
+}
+.modal__scroll-container--large, #card-details-modal .modal__scroll-container {
+  border-radius: 8px;
+  height: 90vh;
+  width: clamp(600px, 80vw, 900px);
 }
 .modal__content {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: auto;
+  scrollbar-width: thin; /* Firefox only */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Firefox only */
+  /* Webkit */
+}
+.modal__content::-webkit-scrollbar {
+  width: 6px; /* vertical scrollbar width */
+  height: 6px; /* horizontal scrollbar height */
+}
+.modal__content::-webkit-scrollbar-track {
+  background: transparent; /* or your background color */
+}
+.modal__content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+.modal__content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal__content:focus {
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+.modal__content--small, #login-modal .modal__content {
+  padding: 3vh 3vw;
+}
+.modal__content--large, #card-details-modal .modal__content {
+  padding: 6vh 6vw;
 }
 .modal__content h2:first-child {
   margin-top: 0;
+}
+
+#card-details-modal .modal__scroll-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  box-shadow: inset 0 3vw 3vw -3vw rgb(255, 255, 255), inset 0 -3vw 3vw -3vw rgb(255, 255, 255);
+}
+#card-details-modal .modal__content {
+  position: relative;
+}
+#card-details-modal .modal__content .card-details__image {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Prevent page scroll when modal is open */
@@ -373,32 +549,6 @@ select {
   /* Optional: lock touch scrolling on mobile */
   position: fixed;
   width: 100%;
-}
-
-.modal--details.open {
-  background: rgba(0, 0, 0, 0.8);
-}
-.modal--details .modal__contentcontainer {
-  height: 90vh;
-  max-width: 100%;
-  position: relative;
-  border-radius: 6px;
-  overflow: clip;
-}
-.modal--details .modal__contentcontainer::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  pointer-events: none;
-  box-shadow: inset 0 30px 20px -5px rgba(255, 255, 255, 0.6), inset 0 -30px 20px -5px rgba(255, 255, 255, 0.6); /* bottom inner shadow */
-}
-.modal--details .modal__content {
-  max-height: 100%;
-  max-width: 100%;
-  overflow-y: auto;
 }
 
 #search-input {
@@ -424,13 +574,24 @@ select {
   border: 0 !important;
 }
 
-.button-reset {
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
+.scrollable {
+  scrollbar-width: thin; /* Firefox only */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Firefox only */
+  /* Webkit */
+}
+.scrollable::-webkit-scrollbar {
+  width: 6px; /* vertical scrollbar width */
+  height: 6px; /* horizontal scrollbar height */
+}
+.scrollable::-webkit-scrollbar-track {
+  background: transparent; /* or your background color */
+}
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /*# sourceMappingURL=main.css.map */

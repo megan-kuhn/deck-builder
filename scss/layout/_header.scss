@@ -11,28 +11,8 @@ header {
 }
 
 .main-nav {
-  &__home,
-  &__settings {
-    display: block;
-    height: 1.5rem;
-    width: fit-content;
-
-    span {
-      @include visually-hidden();
-    }
-
-    img {
-      height: 100%;
-      width: auto;
-    }
-  }
-
   &__group {
     display: flex;
     gap: $Spacing--S;
-  }
-
-  &__settings {
-    @include button-reset();
   }
 }
