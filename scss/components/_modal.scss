@@ -4,6 +4,7 @@
   display: none;
 
   &.open {
+    background: $Background--ModalScreenLight;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,20 +16,93 @@
     height: 100%; 
     overflow: hidden;
     padding: 3vw;
-    background: $Background--ModalScreenLight;
+  }
+
+  &__scroll-container {
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow: clip;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: $Background--Surface;
+    padding: 0;
+
+    &--small {
+      border-radius: $BorderRadius--S;
+      height: auto;
+      width: clamp(300px, 100vw, 400px);
+    }
+
+    &--large {
+      border-radius: $BorderRadius--L;
+      height: 90vh;
+      width: clamp(600px, 80vw, 900px);
+    }
   }
 
   &__content {
-    background: $Background--Surface;
-    padding: $Spacing--L;
-    border-radius: $BorderRadius--M;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: auto;
+    @include scrollable;
+
+    &:focus {
+      outline-offset: -2px;
+      border-radius: $BorderRadius--L;
+    }
+
+    &--small {
+      padding: 3vh 3vw;
+    }
+
+    &--large {
+      padding: 6vh 6vw;
+    }
 
     h2:first-child {
       margin-top: 0;
     }
   }
+}
+
+#login-modal {
+  .modal__scroll-container {
+    @extend .modal__scroll-container--small;
+  }
+
+  .modal__content {
+    @extend .modal__content--small ;
+  }
+}
+
+#card-details-modal {
+  .modal__scroll-container { 
+    @extend .modal__scroll-container--large;
+
+    &::after { // add an inner shadow
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;;
+      pointer-events: none;
+      box-shadow: 
+        inset 0 3vw 3vw -3vw rgba(255, 255, 255, 1),   // top fade
+        inset 0 -3vw 3vw -3vw rgba(255, 255, 255, 1);  // bottom fade
+    }
+  }
+
+  .modal__content {
+    @extend .modal__content--large;
+    position: relative;
+
+    .card-details__image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  }  
 }
 
 /* Prevent page scroll when modal is open */

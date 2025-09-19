@@ -8,52 +8,52 @@
 │   │   ├── icon_settings.svg
 │   │   └── logo.svg
 │   ├── index.html
+│   ├── js
+│   │   ├── app.js
+│   │   └── src
+│   │       ├── api
+│   │       │   ├── fetchCards.js
+│   │       │   ├── index.js
+│   │       │   └── updateState.js
+│   │       ├── components
+│   │       │   ├── card.js
+│   │       │   ├── cardDetailsModal.js
+│   │       │   ├── cardListContainer.js
+│   │       │   └── cardListToggle.js
+│   │       ├── data
+│   │       │   └── cardList.js
+│   │       ├── dom
+│   │       │   ├── clearCards.js
+│   │       │   ├── displayCards.js
+│   │       │   └── initCardListView.js
+│   │       ├── events
+│   │       │   └── cardListEvents.js
+│   │       ├── filters
+│   │       │   ├── getSelectedColors.js
+│   │       │   ├── index.js
+│   │       │   └── renderColorFilters.js
+│   │       ├── login.js
+│   │       ├── pagination
+│   │       │   ├── index.js
+│   │       │   ├── loadMoreButtonClickHandler.js
+│   │       │   └── setupLoadMoreButton.js
+│   │       ├── search
+│   │       │   ├── applySearchAndFilters.js
+│   │       │   └── initSearch.js
+│   │       ├── signup.js
+│   │       ├── state
+│   │       │   ├── apiState.js
+│   │       │   ├── dataState.js
+│   │       │   ├── pagination.js
+│   │       │   └── selectors.js
+│   │       └── ui
+│   │           ├── addToListHandler.js
+│   │           ├── index.js
+│   │           ├── modal.js
+│   │           ├── reset.js
+│   │           ├── triggerUpdateAfterSearch.js
+│   │           └── updateLoadMoreButton.js
 │   └── signup.html
-├── js
-│   ├── app.js
-│   └── src
-│       ├── api
-│       │   ├── fetchCards.js
-│       │   ├── index.js
-│       │   └── updateState.js
-│       ├── components
-│       │   ├── card.js
-│       │   ├── cardDetailsModal.js
-│       │   ├── cardListContainer.js
-│       │   └── cardListToggle.js
-│       ├── data
-│       │   └── cardList.js
-│       ├── dom
-│       │   ├── clearCards.js
-│       │   ├── displayCards.js
-│       │   └── initCardListView.js
-│       ├── events
-│       │   └── cardListEvents.js
-│       ├── filters
-│       │   ├── getSelectedColors.js
-│       │   ├── index.js
-│       │   └── renderColorFilters.js
-│       ├── login.js
-│       ├── pagination
-│       │   ├── index.js
-│       │   ├── loadMoreButtonClickHandler.js
-│       │   └── setupLoadMoreButton.js
-│       ├── search
-│       │   ├── applySearchAndFilters.js
-│       │   └── initSearch.js
-│       ├── signup.js
-│       ├── state
-│       │   ├── apiState.js
-│       │   ├── dataState.js
-│       │   ├── pagination.js
-│       │   └── selectors.js
-│       └── ui
-│           ├── addToListHandler.js
-│           ├── index.js
-│           ├── modal.js
-│           ├── reset.js
-│           ├── triggerUpdateAfterSearch.js
-│           └── updateLoadMoreButton.js
 ├── package-lock.json
 ├── package.json
 ├── scss

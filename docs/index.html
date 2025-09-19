@@ -10,24 +10,25 @@
 <body>
   <header>
     <nav id="main-nav">
-      <a href="index.html" class="main-nav__home">
+      <a id="home-button" href="index.html" class="button">
         <span>Home</span>
         <img src="images/logo.svg" alt>
       </a>
     </nav>
     <div class="main-nav__group">
-      <button class="main-nav__new-deck">New Deck&#43;</button>
-      <button class="main-nav__sign-in" id="login-modal-open-button">Sign In</button>
+      <button id="login-modal-open-button">Sign In</button>
+      <a id="profile-link" href="" class="button">My Profile</a>
+      <button id="new-deck-button">New Deck&#43;</button>
     </div>
-    <button class="main-nav__settings">
+    <button id="settings-button">
       <span>Settings</span>
       <img src="images/icon_settings.svg" alt>
     </button>
   </header>
+
   <main>
     <aside aria-labelledby="card-container-list__toggle">
-      <button 
-          id="card-container-list__toggle" 
+      <button id="card-container-list__toggle" 
           aria-expanded="false" 
           aria-controls="card-container-list__inner">
           My Deck&#9660;
@@ -42,8 +43,8 @@
           <legend class="visually-hidden">Search</legend>
           <div class="form__row">
             <input type="text" id="search-input" placeholder="Search cards by name or keyword..." />
-            <button type="submit" class="button--primary">Search</button>
-            <button id="clear-search-button" type="button" class="button--secondary">Clear Search</button>
+            <button id="search-button" type="submit">Search</button>
+            <button id="clear-search-button">Clear Search</button>
           </div>
         </fieldset>
         <!-- Filters -->
@@ -76,7 +77,7 @@
           </div>
           <!-- Reset button -->
           <div class="form__row">
-            <button id="reset-filters-button" type="button" class="button--secondary">Clear All Filters</button>
+            <button id="reset-filters-button">Clear All Filters</button>
           </div>
         </fieldset>
       </form>
@@ -84,10 +85,12 @@
       <div id="card-container-search"></div> 
       <!-- Pagination container -->
       <div id="pagination-container"></div>
-      <!-- Login modal -->
-      <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
+    </div>
+    <!-- Login modal -->
+    <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
+      <div class="modal__scroll-container" role="region" tabindex="0">
         <div class="modal__content">
-          <h2 id="login-modal-title">Login</h2>
+          <h2 id="login-modal-title">Sign In</h2>
           <form id="login-form">
             <label for="username">
               Username
@@ -97,24 +100,25 @@
               Password
               <input id="password" name="password" type="password" required />
             </label>
-            <button type="submit" class="button--primary">Log In</button>
-            <button type="button" id="login-modal-close-button" class="button--secondary">Close</button>
-            <a href="signup.html" class="button--secondary">Create an Account</a>
+            <button id="login-modal-sign-in-button" type="submit">Sign In</button>
+            <button id="login-modal-close-button"><span class="visually-hidden">Close</span></button>
+            <a id="create-account-button" href="signup.html" class="button">Create an Account</a>
           </form>
         </div>
       </div>
-      <!-- Card detail modal -->
-      <div id="card-details-modal" class="modal modal--details" role="dialog" aria-modal="true" aria-labelledby="card-details-title" aria-hidden="true">
-        <div class="modal__contentcontainer" tabindex="-1">
-          <div class="modal__content" role="region" tabindex="0">
-            <h2 id="card-details-title">Card Details</h2>
-            <div id="card-details-body"></div>
-            <button type="button" id="card-details-close" class="button--secondary">Close</button>
-          </div>
+    </div>
+    <!-- Card detail modal -->
+    <div id="card-details-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="card-details-title" aria-hidden="true">
+      <div class="modal__scroll-container">
+        <h2 id="card-details-title" class="visually-hidden">Card Details</h2>
+        <button id="card-details-close-button"><span class="visually-hidden">Close</span></button>
+        <div id="card-details-body" class="modal__content" role="region" tabindex="0">
+          <!-- Card details will be injected by JS here -->
         </div>
       </div>
-    </main>
     </div>
+  </main>
+
   <footer>
     <p>&copy; 2025 Deck Builder. All rights reserved.</p>
   </footer>

@@ -7,7 +7,7 @@ let loadMoreBtn;
 export function setupLoadMoreButton() {
   loadMoreBtn = document.createElement("button");
   loadMoreBtn.textContent = "Next Page";
-  loadMoreBtn.classList.add("button--next-page");
+  loadMoreBtn.id = "next-page-button";
   loadMoreBtn.style.display = 'none';
 
   const paginationContainer = document.getElementById('pagination-container');

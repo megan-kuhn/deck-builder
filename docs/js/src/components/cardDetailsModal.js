@@ -11,7 +11,7 @@ export function initCardDetailsModal() {
   // Setup the modal and store its open function
   const { openModal } = setupModal({
     modalId: "card-details-modal",
-    closeButtonId: "card-details-close"
+    closeButtonId: "card-details-close-button"
   });
   openModalFn = openModal;
 
@@ -28,8 +28,8 @@ export function initCardDetailsModal() {
 
     // Populate modal with card details
     modalBody.innerHTML = `
-      <h3>${cardData.name}</h3>
-      <img src="${cardData.image_uris?.normal || ''}" alt="${cardData.name}" />
+      <h3 class="visually-hidden">${cardData.name}</h3>
+      <img src="${cardData.image_uris?.normal || ''}" alt="${cardData.name}" class="card-details__image" />
       <p>Type: ${cardData.type_line || 'Unknown'}</p>
       <p>Set: ${cardData.set_name || 'Unknown'}</p>
       <p>Mana cost: ${cardData.mana_cost || 'N/A'}</p>
@@ -42,5 +42,6 @@ export function initCardDetailsModal() {
 
     // Open modal
     openModalFn();
+    modalBody.focus(); // Focus modal content for accessibility
   });
 }
