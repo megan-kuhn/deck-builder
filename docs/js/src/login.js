@@ -23,14 +23,14 @@ if (loginForm) {
       const text = await res.text();
 
       if (res.ok) {
-        // ✅ Store user in state + localStorage
-        const userData = { username }; // minimal user object; add more fields if server sends them
+        const userData = { username }; 
+        console.log("Login successful:", userData);
         setUser(userData);
         localStorage.setItem("user", JSON.stringify(userData));
-
-        // ✅ Update UI to hide sign-in button & show profile link
         updateAuthUI();
-        console.log('User logged in:', userData);
+        closeModal();    
+      } else {
+        showErrorMessage(await res.text());
       }
 
       // Show alert

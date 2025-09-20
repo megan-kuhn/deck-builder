@@ -45,13 +45,15 @@
 │   │       │   ├── apiState.js
 │   │       │   ├── dataState.js
 │   │       │   ├── pagination.js
-│   │       │   └── selectors.js
+│   │       │   ├── selectors.js
+│   │       │   └── userState.js
 │   │       └── ui
 │   │           ├── addToListHandler.js
 │   │           ├── index.js
 │   │           ├── modal.js
 │   │           ├── reset.js
 │   │           ├── triggerUpdateAfterSearch.js
+│   │           ├── updateAuthUI.js
 │   │           └── updateLoadMoreButton.js
 │   └── signup.html
 ├── package-lock.json
@@ -70,7 +72,6 @@
 │   │   ├── _button.scss
 │   │   ├── _card-container-list.scss
 │   │   ├── _card-container-search.scss
-│   │   ├── _card-detail-view.scss
 │   │   ├── _card.scss
 │   │   ├── _form.scss
 │   │   ├── _modal.scss
@@ -95,4 +96,4 @@
 ├── structure.txt
 └── zshrc
 
-27 directories, 69 files
+27 directories, 70 files

@@ -1,63 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Signup</title>
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="icon" type="image/png" href="https://picsum.photos/16/16" />
-</head>
-<body>
-  <main>
-    <h1>Signup</h1>
-
-    <!-- Signup form -->
-    <form id="signup-form">
-      <label for="email">
-        Email
-        <input id="signup-email" name="signup-email" type="email" required />
-      </label>
-      <label for="username">
-        Username
-        <input id="signup-username" name="signup-username" type="text" required />
-      </label>
-      <label for="password">
-        Password
-        <input id="signup-password" name="signup-password" type="password" required />
-      </label>
-      <button type="submit" class="button--primary">Sign Up</button>
-    </form>
-
-    <h2>Already have an account?</h2>
-    <button id="login-modal-open-button" class="button--secondary">Login</button>
-
-    <!-- Login modal -->
-    <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
-      <div class="modal__content">
-        <h2 id="login-modal-title">Login</h2>
-        <form id="login-form">
-          <label for="username">
-            Username
-            <input id="username" name="username" type="text" required />
-          </label>
-          <label for="password">
-            Password
-            <input id="password" name="password" type="password" required />
-          </label>
-          <button type="submit" class="button--primary">Log In</button>
-          <button type="button" id="login-modal-close-button" class="button--secondary">Close</button>
-        </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" type="image/png" href="https://picsum.photos/16/16" />
+  </head>
+  <body>
+    <header>
+      <nav id="main-nav">
+        <a id="home-button" href="http://localhost:8080/" class="button">
+          <span>Home</span>
+          <img src="images/logo.svg" alt>
+        </a>
+      </nav>
+      <div class="main-nav__group">
+        <button id="login-modal-open-button">Sign In</button>
+        <button id="new-deck-button">New Deck&#43;</button>
       </div>
-    </div>
+      <button id="settings-button">
+        <span>Settings</span>
+        <img src="images/icon_settings.svg" alt>
+      </button>
+    </header>
 
-    <p id="message"></p>
-  </main>
+    <main>
+      <h1>Signup</h1>
 
-  <!-- Signup JS -->
-  <script type="module" src="js/src/app.js"></script>
-  <script type="module" src="js/src/signup.js"></script>
-  <script type="module" src="js/src/login.js"></script>
+      <!-- Signup form -->
+      <form id="signup-form">
+        <label for="email">
+          Email
+          <input id="signup-email" name="signup-email" type="email" required />
+        </label>
+        <label for="username">
+          Username
+          <input id="signup-username" name="signup-username" type="text" required />
+        </label>
+        <label for="password">
+          Password
+          <input id="signup-password" name="signup-password" type="password" required />
+        </label>
+        <button type="submit" class="button--primary">Sign Up</button>
+      </form>
 
+      <h2>Already have an account?</h2>
+      <button id="login-modal-open-button" class="button--secondary">Login</button>
 
-</body>
+      <!-- Login modal -->
+      <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
+        <div class="modal__content">
+          <h2 id="login-modal-title">Login</h2>
+          <form id="login-form">
+            <label for="username">
+              Username
+              <input id="username" name="username" type="text" required />
+            </label>
+            <label for="password">
+              Password
+              <input id="password" name="password" type="password" required />
+            </label>
+            <button type="submit" class="button--primary">Log In</button>
+            <button type="button" id="login-modal-close-button" class="button--secondary">Close</button>
+          </form>
+        </div>
+      </div>
+
+      <p id="message"></p>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Deck Builder. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="js/src/app.js"></script>
+    <script type="module" src="js/src/signup.js"></script>
+    <script type="module" src="js/src/login.js"></script>
+
+  </body>
 </html>
