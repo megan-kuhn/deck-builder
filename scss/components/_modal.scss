@@ -45,6 +45,7 @@
     max-width: 100%;
     overflow: auto;
     @include scrollable;
+    border: 1px solid white;
 
     &:focus {
       outline-offset: -2px;
