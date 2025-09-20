@@ -6,7 +6,7 @@ export default function updateAuthUI() {
   const profileLink = document.querySelector("#profile-link");
 
   const user = getUser();
-  console.log("Updating auth UI, current user:", user);
+  console.log("Updating auth UI");
 
   if (!loginBtn || !profileLink) return;
 
