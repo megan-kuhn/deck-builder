@@ -2,7 +2,6 @@
 import { setUser } from "./state/userState.js";
 import updateAuthUI from "./ui/updateAuthUI.js";
 
-// Grab form and message container
 const loginForm = document.getElementById('login-form');
 const message = document.getElementById('message'); // optional <p> for feedback
 
@@ -34,16 +33,14 @@ if (loginForm) {
         body: JSON.stringify({ username, password }),
       });
 
-      const text = await res.text();
-
       if (res.ok) {
-        // ✅ Only update user state if login was successful
-        const userData = { username }; // Add token or other server data if available
+        // ✅ Wait for server data so we store validated info
+        const userData = await res.json().catch(() => ({ username }));
+
         setUser(userData);
         localStorage.setItem("user", JSON.stringify(userData));
         updateAuthUI();
 
-        // Optional: close modal if you have a function
         if (typeof closeModal === 'function') closeModal();
 
         if (message) {
@@ -51,14 +48,15 @@ if (loginForm) {
           message.style.color = 'green';
         }
 
-        console.log('User logged in:', userData);
+        alert('Login successful!');
+
       } else {
-        // Show server error message without changing state
+        const errText = await res.text();
         if (message) {
-          message.textContent = text;
+          message.textContent = errText;
           message.style.color = 'red';
         } else {
-          alert(text);
+          alert(errText);
         }
       }
     } catch (err) {

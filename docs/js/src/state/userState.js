@@ -9,7 +9,6 @@ let currentUser = {
 // --- SETTERS / MUTATORS ---
 export function setUser(user) {
   currentUser = { ...currentUser, ...user };
-  console.log("setUser called, current state:", currentUser);
 }
 
 export function clearUser() {

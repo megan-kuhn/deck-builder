@@ -9,7 +9,7 @@
 - Sets up the dynamic "Load More" button to handle pagination
 - Provides seamless user experience by wiring all core UI and data fetching together
 */
-import { login, logout } from "./src/auth/auth.js";
+import { logout } from "./src/auth/auth.js";
 import updateAuthUI from './src/ui/updateAuthUI.js';
 import { getUser } from './src/state/userState.js';
 import { fetchCards, updateStateFromApiResponse } from './src/api/index.js'; 
@@ -30,34 +30,11 @@ import { initProfilePage } from './src/dom/initProfilePage.js';
   
 document.addEventListener("DOMContentLoaded", async () => {
   console.log('launching');
-  console.log("Logged in as", getUser());
-  console.log("LocalStorage user on load:", localStorage.getItem("user"));
 
   updateAuthUI();
 
-  const loginBtn = document.querySelector("#login-modal-open-button");
   const logoutBtn = document.querySelector("#logout-button"); // add a logout button to your HTML
-  if (loginBtn) {
-    loginBtn.addEventListener("click", () => {
-      const loginForm = document.getElementById('login-form'); // your form ID
 
-      if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const username = loginForm.querySelector('#username').value;
-          const password = loginForm.querySelector('#password').value;
-
-          // Only call login after you verify credentials
-          // For now, simulate an API call:
-          const userData = {
-            username,
-            //authToken: 'test-token' // replace with real token from API
-          };
-          login(userData);
-        });
-      }
-    });
-  }
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => logout());
   }
