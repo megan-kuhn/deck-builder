@@ -1,13 +1,13 @@
 // js/src/auth/login.js
-
 import { setUser } from "../state/userState.js";
 import updateAuthUI from "../ui/updateAuthUI.js";
 
 const loginForm = document.getElementById('login-form');
-const message = document.getElementById('message'); // optional <p> for feedback
+const message = document.getElementById('login-message'); // optional <p> for feedback
+
+console.log("Login.js loaded, loginForm:", loginForm);
 
 if (loginForm) {
-  console.log("Login form found, setting up submit handler");
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -35,24 +35,9 @@ if (loginForm) {
         body: JSON.stringify({ username, password }),
       });
 
-      if (res.ok) {
-        // ✅ Wait for server data so we store validated info
-        const userData = await res.json().catch(() => ({ username }));
+      console.log('Login response', res.status, res.statusText);
 
-        setUser(userData);
-        localStorage.setItem("user", JSON.stringify(userData));
-        updateAuthUI();
-
-        if (typeof closeModal === 'function') closeModal();
-
-        if (message) {
-          message.textContent = 'Login successful!';
-          message.style.color = 'green';
-        }
-
-        alert('Login successful!');
-
-      } else {
+      if (!res.ok) {
         const errText = await res.text();
         if (message) {
           message.textContent = errText;
@@ -60,7 +45,32 @@ if (loginForm) {
         } else {
           alert(errText);
         }
+        return; // exit early on failure
       }
+
+      // ✅ Only proceed if login is successful
+      let userData;
+      try {
+        userData = await res.json();
+      } catch {
+        userData = { username }; // fallback
+      }
+
+      setUser(userData);
+      localStorage.setItem("user", JSON.stringify(userData));
+      updateAuthUI();
+
+      // Close modal if function exists
+      if (typeof closeModal === 'function') closeModal();
+
+      // ✅ Only show success message once
+      if (message) {
+        message.textContent = 'Login successful!';
+        message.style.color = 'green';
+      }
+      alert('Login successful!');
+      console.log('User logged in:', userData);
+
     } catch (err) {
       console.error('Login request failed:', err);
       if (message) {

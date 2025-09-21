@@ -1,7 +1,7 @@
 // js/src/signup.js
 
 const form = document.getElementById('signup-form');
-const message = document.getElementById('message');
+const message = document.getElementById('signup-message');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();

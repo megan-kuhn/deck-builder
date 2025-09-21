@@ -17,6 +17,7 @@
       </nav>
       <div class="main-nav__group">
         <button id="login-modal-open-button">Sign In</button>
+        <a id="profile-link" href="my-profile.html" class="button">My Profile</a>
         <button id="new-deck-button">New Deck&#43;</button>
       </div>
       <button id="settings-button">
@@ -45,29 +46,29 @@
         <button type="submit" class="button--primary">Sign Up</button>
       </form>
 
-      <h2>Already have an account?</h2>
-      <button id="login-modal-open-button" class="button--secondary">Login</button>
+      <p id="signup-message"></p>
 
       <!-- Login modal -->
       <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
-        <div class="modal__content">
-          <h2 id="login-modal-title">Login</h2>
-          <form id="login-form">
-            <label for="username">
-              Username
-              <input id="username" name="username" type="text" required />
-            </label>
-            <label for="password">
-              Password
-              <input id="password" name="password" type="password" required />
-            </label>
-            <button type="submit" class="button--primary">Log In</button>
-            <button type="button" id="login-modal-close-button" class="button--secondary">Close</button>
-          </form>
+        <div class="modal__scroll-container" role="region" tabindex="0">
+          <div class="modal__content">
+            <h2 id="login-modal-title">Sign In</h2>
+            <form id="login-form">
+              <label for="username">
+                Username
+                <input id="username" name="username" type="text" required />
+              </label>
+              <label for="password">
+                Password
+                <input id="password" name="password" type="password" required />
+              </label>
+              <button id="login-modal-sign-in-button" type="submit">Sign In</button>
+              <button id="login-modal-close-button" type="button"><span class="visually-hidden">Close</span></button>
+              <a id="create-account-button" href="signup.html" class="button">Create an Account</a>
+            </form>
+          </div>
         </div>
       </div>
-
-      <p id="message"></p>
     </main>
 
     <footer>
@@ -75,8 +76,8 @@
     </footer>
 
     <script type="module" src="js/src/app.js"></script>
-    <script type="module" src="js/src/signup.js"></script>
     <script type="module" src="js/src/auth/login.js"></script>
+    <script type="module" src="js/src/signup.js"></script>
 
   </body>
 </html>
