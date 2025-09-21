@@ -1,11 +1,13 @@
-// js/src/login.js
-import { setUser } from "./state/userState.js";
-import updateAuthUI from "./ui/updateAuthUI.js";
+// js/src/auth/login.js
+
+import { setUser } from "../state/userState.js";
+import updateAuthUI from "../ui/updateAuthUI.js";
 
 const loginForm = document.getElementById('login-form');
 const message = document.getElementById('message'); // optional <p> for feedback
 
 if (loginForm) {
+  console.log("Login form found, setting up submit handler");
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 

@@ -15,6 +15,9 @@
 │   │       │   ├── fetchCards.js
 │   │       │   ├── index.js
 │   │       │   └── updateState.js
+│   │       ├── auth
+│   │       │   ├── login.js
+│   │       │   └── logout.js
 │   │       ├── components
 │   │       │   ├── card.js
 │   │       │   ├── cardDetailsModal.js
@@ -25,14 +28,14 @@
 │   │       ├── dom
 │   │       │   ├── clearCards.js
 │   │       │   ├── displayCards.js
-│   │       │   └── initCardListView.js
+│   │       │   ├── initCardListView.js
+│   │       │   └── initProfilePage.js
 │   │       ├── events
 │   │       │   └── cardListEvents.js
 │   │       ├── filters
 │   │       │   ├── getSelectedColors.js
 │   │       │   ├── index.js
 │   │       │   └── renderColorFilters.js
-│   │       ├── login.js
 │   │       ├── pagination
 │   │       │   ├── index.js
 │   │       │   ├── loadMoreButtonClickHandler.js
@@ -50,11 +53,14 @@
 │   │       └── ui
 │   │           ├── addToListHandler.js
 │   │           ├── index.js
+│   │           ├── logout.js
 │   │           ├── modal.js
+│   │           ├── renderProfilePage.js
 │   │           ├── reset.js
 │   │           ├── triggerUpdateAfterSearch.js
 │   │           ├── updateAuthUI.js
 │   │           └── updateLoadMoreButton.js
+│   ├── my-profile.html
 │   └── signup.html
 ├── package-lock.json
 ├── package.json
@@ -96,4 +102,4 @@
 ├── structure.txt
 └── zshrc
 
-27 directories, 70 files
+28 directories, 75 files
