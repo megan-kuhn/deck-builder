@@ -54,7 +54,11 @@ function closeModal() {
   document.body.classList.remove('body--no-scroll'); // 🔓 unlock scroll
   activeModal = null;
   restoreSiblings();
-  if (openBtn) openBtn.focus();
+
+  // ✅ Only try to focus if the open button still exists in DOM
+  if (openBtn && document.body.contains(openBtn)) {
+    setTimeout(() => openBtn.focus(), 50);
+  }
 }
 
 
