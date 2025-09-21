@@ -9,6 +9,7 @@
 - Sets up the dynamic "Load More" button to handle pagination
 - Provides seamless user experience by wiring all core UI and data fetching together
 */
+import './src/auth/login.js';
 import { logout } from "./src/auth/logout.js";
 import updateAuthUI from './src/ui/updateAuthUI.js';
 import { fetchCards, updateStateFromApiResponse } from './src/api/index.js'; 

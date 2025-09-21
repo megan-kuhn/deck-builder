@@ -36,31 +36,29 @@ export function setupModal({ openButtonId, modalId, closeButtonId }) {
     previouslyHiddenSiblings = [];
   }
 
-
-function openModal() {
-  modal.setAttribute('aria-hidden', 'false');
-  modal.classList.add('open');
-  modal.style.display = 'flex';
-  document.body.classList.add('body--no-scroll'); // 🔒 lock scroll
-  activeModal = modal;
-  hideSiblings();
-  getFocusableElements()[0]?.focus();
-}
-
-function closeModal() {
-  modal.setAttribute('aria-hidden', 'true');
-  modal.classList.remove('open');
-  modal.style.display = 'none';
-  document.body.classList.remove('body--no-scroll'); // 🔓 unlock scroll
-  activeModal = null;
-  restoreSiblings();
-
-  // ✅ Only try to focus if the open button still exists in DOM
-  if (openBtn && document.body.contains(openBtn)) {
-    setTimeout(() => openBtn.focus(), 50);
+  function openModal() {
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('open');
+    modal.style.display = 'flex';
+    document.body.classList.add('body--no-scroll'); // 🔒 lock scroll
+    activeModal = modal;
+    hideSiblings();
+    getFocusableElements()[0]?.focus();
   }
-}
 
+  function closeModal() {
+    modal.setAttribute('aria-hidden', 'true');
+    modal.classList.remove('open');
+    modal.style.display = 'none';
+    document.body.classList.remove('body--no-scroll'); // 🔓 unlock scroll
+    activeModal = null;
+    restoreSiblings();
+
+    // ✅ Only try to focus if the open button still exists in DOM
+    if (openBtn && document.body.contains(openBtn)) {
+      setTimeout(() => openBtn.focus(), 50);
+    }
+  }
 
   // Attach openBtn if it exists
   if (openBtn) openBtn.addEventListener('click', openModal);

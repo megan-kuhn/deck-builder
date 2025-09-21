@@ -18,9 +18,7 @@ export function clearUser() {
     decks: [],
     preferences: {}
   };
-    localStorage.removeItem("user"); // remove stored user
-
-  console.log("clearUser called, current state reset.");
+  localStorage.removeItem("user"); // remove stored user
 }
 
 export function setDecks(decks) {

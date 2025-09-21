@@ -2,7 +2,6 @@
 import { getUser } from "../state/userState.js";
 
 export const renderProfilePage = () => {
-  console.log("Rendering profile page");
   const { username, decks } = getUser();
   const container = document.getElementById("profile-container");
 
@@ -15,7 +14,4 @@ export const renderProfilePage = () => {
       }
     </div>
   `;
-
-  console.log("Rendering profile page with user:", getUser());
-
 };
