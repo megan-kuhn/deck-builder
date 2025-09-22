@@ -1,0 +1,33 @@
+@use '../abstracts/index' as *;
+
+#mana-colors-filter {
+  border: 1px solid $BorderColor--Default;
+  border-radius: $BorderRadius--S;
+  padding: $Spacing--S $Spacing--M;
+
+  legend {
+    margin: 0 auto;
+    background: inherit;
+    padding: 0 $Spacing--M;
+  }
+}
+
+#color-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $Spacing--M;
+  width: 100%;
+}
+
+#color-filter label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: $Spacing--S;
+}
+
+#color-filter input {
+  width: 1rem;
+  height: 1rem;
+  border-radius: $BorderRadius--XS;
+}

@@ -60,8 +60,14 @@ if (loginForm) {
       localStorage.setItem("user", JSON.stringify(userData));
       updateAuthUI();
 
-      // Close modal if function exists
-      if (typeof closeModal === 'function') closeModal();
+      if (window.loginModalControls?.closeModal) {
+        window.loginModalControls.closeModal();
+        
+        // ✅ Redirect only if we are on signup.html
+        if (window.location.pathname.endsWith("signup.html")) {
+          window.location.href = "/"; // or "/index.html" if that's your homepage
+        }
+      }
 
       // ✅ Only show success message once
       if (message) {

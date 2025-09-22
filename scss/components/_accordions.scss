@@ -1,0 +1,29 @@
+@use '../abstracts/index' as *;
+
+details  {
+  > summary { 
+    list-style: none; 
+    cursor: pointer;
+    border-radius: $BorderRadius--S;
+    line-height: 1.4;
+
+    &::marker {
+      content: "";
+      display: none;
+    }
+
+    &::-webkit-details-marker { 
+      display: none; 
+    }
+
+    &::after {
+      content: '▼';
+      float: right;
+      margin-left: $Spacing--XS;
+    }
+  } 
+
+  &[open] > summary::after {
+    content: '▲';
+  }
+}

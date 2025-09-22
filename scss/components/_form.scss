@@ -33,6 +33,7 @@ fieldset {
 .form__row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: $Spacing--S;
 }
 
@@ -65,25 +66,4 @@ input[type="url"],
 input[type="tel"],
 select {
   height: 2.5em;
-}
-
-// Specific form elements
-#color-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $Spacing--M;
-  width: 100%;
-}
-
-#color-filter label {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: $Spacing--S;
-}
-
-#color-filter input {
-  width: 1rem;
-  height: 1rem;
-  border-radius: $BorderRadius--XS;
 }
