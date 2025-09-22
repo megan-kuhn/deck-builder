@@ -25,11 +25,11 @@
         <img src="images/icon_settings.svg" alt>
       </button>
     </header>
-<button id="logout-button" style="display:none;">Logout</button>
+    <button id="logout-button" style="display:none;">Logout</button>
 
     <main>
-      <aside aria-labelledby="card-container-list__toggle">
-        <button id="card-container-list__toggle" 
+      <aside aria-labelledby="card-container-list-toggle">
+        <button id="card-container-list-toggle" 
             aria-expanded="false" 
             aria-controls="card-container-list__inner">
             My Deck&#9660;
@@ -49,38 +49,41 @@
             </div>
           </fieldset>
           <!-- Filters -->
-          <fieldset>
-            <legend class="legend--large">Filters</legend>
-            <!-- Mana color checkboxes -->
+          <details id="filters">
+            <summary>Filters</summary>
             <fieldset>
-              <legend class="legend--small">Mana colors:</legend>
-              <div class="form__row">
-                <div id="color-filter">
-                  <!-- checkboxes will be injected by JS here -->
+              <legend class="visually-hidden">Filters</legend>
+              <!-- Mana color checkboxes -->
+              <fieldset id="mana-colors-filter">
+                <legend class="legend--small">Mana colors:</legend>
+                <div class="form__row">
+                  <div id="color-filter">
+                    <!-- checkboxes will be injected by JS here -->
+                  </div>
                 </div>
+              </fieldset>
+              <!-- Card type selection -->
+              <div class="form__row">
+                <label>
+                  Card type
+                  <select id="type-filter">
+                    <option value="">Any Card Type</option>
+                    <option value="creature">Creature</option>
+                    <option value="instant">Instant</option>
+                    <option value="sorcery">Sorcery</option>
+                    <option value="land">Land</option>
+                    <option value="artifact">Artifact</option>
+                    <option value="enchantment">Enchantment</option>
+                    <option value="planeswalker">Planeswalker</option>
+                  </select>
+                </label>
+              </div>
+              <!-- Reset button -->
+              <div class="form__row">
+                <button id="reset-filters-button">Clear All Filters</button>
               </div>
             </fieldset>
-            <!-- Card type selection -->
-            <div class="form__row">
-              <label>
-                Card type
-                <select id="type-filter">
-                  <option value="">Any Card Type</option>
-                  <option value="creature">Creature</option>
-                  <option value="instant">Instant</option>
-                  <option value="sorcery">Sorcery</option>
-                  <option value="land">Land</option>
-                  <option value="artifact">Artifact</option>
-                  <option value="enchantment">Enchantment</option>
-                  <option value="planeswalker">Planeswalker</option>
-                </select>
-              </label>
-            </div>
-            <!-- Reset button -->
-            <div class="form__row">
-              <button id="reset-filters-button">Clear All Filters</button>
-            </div>
-          </fieldset>
+          </details>
         </form>
         <!-- Search card results list -->
         <div id="card-container-search"></div> 

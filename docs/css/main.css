@@ -53,7 +53,6 @@ table {
   border-spacing: 0;
 }
 
-h1,
 h2,
 h3,
 h4,
@@ -65,8 +64,11 @@ p {
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 5rem);
+  font-size: clamp(2.5rem, 7vw, 4rem);
   font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0.5em 0 0.25em;
 }
 
 h2 {
@@ -94,8 +96,18 @@ body {
   background: #f8f9fa;
 }
 
+main {
+  min-height: 100vh;
+}
+
 .wrapper {
   padding: 1rem clamp(0.5rem, 3vw, 2rem);
+}
+
+.wrapper--tight {
+  padding: 3vh clamp(clamp(0.5rem, 3vw, 2rem), 6vw, 400px);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 header {
@@ -232,6 +244,7 @@ button, .button {
   font-size: 1rem;
   border-radius: 6px;
   padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
 }
 
 #login-modal-close-button {
@@ -315,14 +328,36 @@ button, .button {
   margin-top: 1rem;
 }
 
+#signup-submit-button {
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
+#filters {
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background: #e9ecef;
+}
+#filters > summary {
+  width: fit-content;
+  margin: 0 auto;
+}
+
 #card-container-search {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 3rem 0;
 }
 
-#card-container-list__toggle {
+#card-container-list-toggle {
   background: #495057;
   color: #ffffff;
   width: 100%;
@@ -399,6 +434,7 @@ fieldset {
 .form__row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -430,26 +466,6 @@ input[type=url],
 input[type=tel],
 select {
   height: 2.5em;
-}
-
-#color-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 100%;
-}
-
-#color-filter label {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 0.5rem;
-}
-
-#color-filter input {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 2px;
 }
 
 .modal {
@@ -552,6 +568,24 @@ select {
   width: 100%;
 }
 
+#search-form {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+#search-form fieldset {
+  background: #e9ecef;
+  padding: 1rem;
+  border-radius: 6px;
+}
+#search-form fieldset fieldset {
+  width: fit-content;
+  margin: 0 auto;
+}
+#search-form .form__row {
+  justify-content: center;
+}
+
 #search-input {
   width: 100%;
   max-width: 100%;
@@ -561,6 +595,59 @@ select {
   background: #ffffff;
   height: 2.5em;
   padding: 0.5em;
+}
+
+#mana-colors-filter {
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+}
+#mana-colors-filter legend {
+  margin: 0 auto;
+  background: inherit;
+  padding: 0 1rem;
+}
+
+#color-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+}
+
+#color-filter label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+#color-filter input {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+details > summary::marker {
+  content: "";
+  display: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary::after {
+  content: "▼";
+  float: right;
+  margin-left: 0.25rem;
+}
+details[open] > summary::after {
+  content: "▲";
 }
 
 .visually-hidden {

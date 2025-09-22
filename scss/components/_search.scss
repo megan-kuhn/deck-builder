@@ -1,5 +1,26 @@
 @use '../abstracts/index' as *;
 
+#search-form {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  fieldset {
+    background: $Background--Alt;
+    padding: $Spacing--M;
+    border-radius: $BorderRadius--M;
+
+    fieldset {
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+
+  .form__row {
+    justify-content: center;
+  }
+}
+
 #search-input {
   width: 100%;
   max-width: 100%;

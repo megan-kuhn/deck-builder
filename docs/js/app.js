@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   updateAuthUI();
 
   const logoutBtn = document.querySelector("#logout-button"); // add a logout button to your HTML
-
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => logout());
   }
 
-  setupModal({
+  // ✅ Store modal controls globally
+  window.loginModalControls = setupModal({
     openButtonId: 'login-modal-open-button',
     modalId: 'login-modal',
     closeButtonId: 'login-modal-close-button'
@@ -47,7 +47,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   
   initCardListToggle();
   initCardListView();
-  initCardDetailsModal();
+ 
+  const cardDetailsModalEl = document.getElementById("card-details-modal");
+  if (cardDetailsModalEl) {
+    initCardDetailsModal();
+  }
 
   initColorFilters(applySearchAndFilters);
 

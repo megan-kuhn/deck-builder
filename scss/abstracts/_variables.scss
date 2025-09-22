@@ -62,6 +62,8 @@ $Spacing--S: 0.5rem;
 $Spacing--M: 1rem;
 $Spacing--L: 1.5rem;
 $Spacing--XL: 2rem;
+$Spacing--XXL: 2.5rem;
+$Spacing--XXXL: 3rem;
 
 $Spacing--PageMargin: clamp($Spacing--S, 3vw, $Spacing--XL);
 
@@ -78,6 +80,7 @@ $FontSize--M: 1rem;      // 16px
 $FontSize--L: 1.25rem;   // 20px
 $FontSize--XL: 1.5rem;   // 24px
 $FontSize--XXL: 2rem;    // 32px
+$FontSize--XXXL: 2.5rem;  // 40px
 
 $LineHeight--S: 1.2;
 $LineHeight--M: 1.4;

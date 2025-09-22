@@ -1,7 +1,7 @@
 // js/src/components/cardListToggle.js
 
 export function initCardListToggle() {
-  const toggleBtn = document.getElementById("card-container-list__toggle");
+  const toggleBtn = document.getElementById("card-container-list-toggle");
   const panel = document.getElementById("card-container-list__inner");
 
   if (!toggleBtn || !panel) return;

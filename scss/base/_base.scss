@@ -21,7 +21,17 @@ body {
   background: $Background--Main;
 }
 
+main { 
+  min-height: 100vh;
+}
+
 .wrapper {
   padding: $Spacing--M $Spacing--PageMargin;
+}
+
+.wrapper--tight {
+  padding: 3vh clamp($Spacing--PageMargin, 6vw, 400px);
+  max-width: 600px;
+  margin: 0 auto;
 }
 

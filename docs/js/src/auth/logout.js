@@ -9,4 +9,7 @@ export function logout() {
   clearUser();
   localStorage.removeItem("user");
   updateAuthUI(); // update buttons immediately
+
+  // Redirect to home page
+  window.location.href = "/"; // or "/index.html" if your homepage is that
 }

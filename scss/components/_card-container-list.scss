@@ -2,7 +2,7 @@
 @use '../components/button' as *;
 
 #card-container-list {
-  &__toggle {
+  &-toggle {
     @include button-secondary();
     @include button-full-width();
     padding: $Spacing--S $Spacing--PageMargin;
