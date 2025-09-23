@@ -21,8 +21,7 @@
 │   │       ├── components
 │   │       │   ├── card.js
 │   │       │   ├── cardDetailsModal.js
-│   │       │   ├── cardListContainer.js
-│   │       │   └── cardListToggle.js
+│   │       │   └── cardListContainer.js
 │   │       ├── data
 │   │       │   └── cardList.js
 │   │       ├── dom
@@ -75,10 +74,12 @@
 │   │   ├── _reset.scss
 │   │   └── _typography.scss
 │   ├── components
+│   │   ├── _accordions.scss
 │   │   ├── _button.scss
 │   │   ├── _card-container-list.scss
 │   │   ├── _card-container-search.scss
 │   │   ├── _card.scss
+│   │   ├── _filters.scss
 │   │   ├── _form.scss
 │   │   ├── _modal.scss
 │   │   └── _search.scss
@@ -102,4 +103,4 @@
 ├── structure.txt
 └── zshrc
 
-28 directories, 75 files
+28 directories, 76 files
