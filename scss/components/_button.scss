@@ -114,11 +114,6 @@ button {
   }
 }
 
-#new-deck-button {
-  @include button-secondary;
-  @include button-small;
-}
-
 #login-modal-open-button {
   @include button-primary;
   @include button-small;
@@ -131,14 +126,22 @@ button {
   display: none; // hidden until user is logged in
 }
 
-#login-modal-sign-in-button {
+#new-deck-button {
+  @include button-secondary;
+  @include button-small;
+}
+
+#login-modal-sign-in-button,
+#save-new-deck-button {
   @include button-primary;
   @include button-full-width;
   @include button-medium;
   margin-top: .5rem;
 }
 
-#login-modal-close-button {
+#login-modal-close-button,
+#new-deck-modal-close-button,
+#card-details-close-button {
   @include button--x-close;
 }
 
@@ -146,10 +149,6 @@ button {
   @include button-secondary;
   @include button-full-width;
   @include button-medium;
-}
-
-#card-details-close-button {
-  @include button--x-close;
 }
 
 #search-button {
@@ -167,13 +166,7 @@ button {
   @include button-medium;
 }
 
-#next-page-button {
-  @include button-primary;
-  @include button-full-width;
-  @include button-medium;
-  margin-top: $Spacing--M;
-}
-
+#next-page-button,
 #signup-submit-button {
   @include button-primary;
   @include button-full-width;

@@ -26,54 +26,70 @@ import { setupLoadMoreButton } from './src/pagination/index.js';
 import { updateLoadMoreButtonVisibility } from './src/ui/index.js';
 import { setupModal } from './src/ui/modal.js'; // Adjust path if needed
 import { initProfilePage } from './src/dom/initProfilePage.js';
+import { initNewDeckModal, openNewDeckModal } from "./src/components/newDeckModal.js";
+import { handleNewDeckName } from "./src/ui/newDeckHandler.js";
   
 document.addEventListener("DOMContentLoaded", async () => {
   console.log('launching');
 
+  // --- AUTH & LOGOUT ---
   updateAuthUI();
-
-  const logoutBtn = document.querySelector("#logout-button"); // add a logout button to your HTML
+  const logoutBtn = document.querySelector("#logout-button");
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => logout());
   }
 
-  // ✅ Store modal controls globally
+  // --- LOGIN MODAL ---
   window.loginModalControls = setupModal({
     openButtonId: 'login-modal-open-button',
     modalId: 'login-modal',
     closeButtonId: 'login-modal-close-button'
   });
-  
+
+  // --- CARD LIST & DETAILS ---
   initCardListView();
- 
   const cardDetailsModalEl = document.getElementById("card-details-modal");
   if (cardDetailsModalEl) {
     initCardDetailsModal();
   }
 
+  // --- FILTERS & SEARCH ---
   initColorFilters(applySearchAndFilters);
-
   const form = document.getElementById('search-form');
   if (form) form.reset();
-
   const checkboxes = document.querySelectorAll('#color-filter input[type="checkbox"]');
   checkboxes.forEach(cb => (cb.checked = false));
+  initSearch();
+  initResetButtons(applySearchAndFilters);
 
+  // --- PAGINATION ---
   setupLoadMoreButton();
-
   const data = await fetchCards();
   const success = updateStateFromApiResponse(data);
-
   if (success) {
     clearCards();
     displayCards(getCurrentPageSlice());
     updateLoadMoreButtonVisibility();
   }
 
-  initSearch();
-  initResetButtons(applySearchAndFilters);
-
+  // --- PROFILE PAGE INIT ---
   if (window.location.pathname.endsWith("my-profile.html")) {
     initProfilePage();
   }
+
+  // --- NEW DECK FLOW ---
+  initNewDeckModal(); // sets up the modal and its form
+
+  const newDeckBtn = document.getElementById("new-deck-button");
+  if (newDeckBtn) {
+    newDeckBtn.addEventListener("click", () => {
+      openNewDeckModal(); // open the new deck modal
+    });
+  }
+
+  // Handle deck name submission globally
+  document.addEventListener("deckNameSubmitted", (e) => {
+    handleNewDeckName(e.detail.name); // your custom logic
+  });
 });
+

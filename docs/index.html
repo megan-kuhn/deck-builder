@@ -111,11 +111,35 @@
       </div>
       <!-- Card detail modal -->
       <div id="card-details-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="card-details-title" aria-hidden="true">
-        <div class="modal__scroll-container">
+        <div class="modal__scroll-container" role="region" tabindex="0">
           <h2 id="card-details-title" class="visually-hidden">Card Details</h2>
           <button id="card-details-close-button"><span class="visually-hidden">Close</span></button>
           <div id="card-details-body" class="modal__content" role="region" tabindex="0">
             <!-- Card details will be injected by JS here -->
+          </div>
+        </div>
+      </div>
+      <!-- New Deck Modal -->
+      <div id="new-deck-modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="new-deck-modal-title">
+        <div class="modal__scroll-container" role="region" tabindex="0">
+          <div class="modal__content">
+            <h2>Name Your New Deck</h2>
+            <button id="new-deck-modal-close-button"><span class="visually-hidden">Close</span></button>
+            <form id="new-deck-form" novalidate>
+              <label>
+                Deck Name
+                <input
+                  id="deck-name-input"
+                  name="deck-name"
+                  type="text"
+                  maxlength="80"
+                  placeholder="Enter deck name"
+                  required
+                />
+              </label>
+              <p id="deck-name-error" aria-live="polite" style="display: none"></p>
+              <button type="submit" id="save-new-deck-button">Save</button>
+            </form>
           </div>
         </div>
       </div>

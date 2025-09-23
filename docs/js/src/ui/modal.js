@@ -1,4 +1,4 @@
-// js/src/modal/modal.js - Accessible Modal Implementation
+// js/src/ui/modal.js - Accessible Modal Implementation
 
 let activeModal = null;
 let previouslyHiddenSiblings = [];
