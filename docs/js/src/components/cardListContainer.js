@@ -4,7 +4,7 @@ import { getCardList } from '../data/cardList.js';
 import { createCardElement } from './card.js';
 
 export function renderCardList(limit = 100) { 
-  const container = document.getElementById('card-container-list__inner');
+  const container = document.getElementById('card-list-container');
   if (!container) return;
 
   const cards = getCardList();

@@ -180,15 +180,3 @@ button {
   @include button-medium;
   margin-top: $Spacing--M;
 }
-
-#filters {
-  @include button-medium();
-  @include button-full-width();
-
-  background: $Background--Alt;
-
-  > summary {
-    width: fit-content; 
-    margin: 0 auto;
-  }
-}
