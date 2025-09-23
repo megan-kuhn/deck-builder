@@ -25,16 +25,14 @@
         <img src="images/icon_settings.svg" alt>
       </button>
     </header>
-    <button id="logout-button" style="display:none;">Logout</button>
+    <!--<button id="logout-button" style="display:none;">Logout</button>-->
 
     <main>
-      <aside aria-labelledby="card-container-list-toggle">
-        <button id="card-container-list-toggle" 
-            aria-expanded="false" 
-            aria-controls="card-container-list__inner">
-            My Deck&#9660;
-        </button>
-        <div id="card-container-list__inner" class="is-collapsed"></div>
+      <aside>
+        <details class="card-list-toggle">
+          <summary>My Deck</summary>
+          <div id="card-list-container" class="is-collapsed"></div>
+        </details>
       </aside>
       <div class="wrapper">
         <h1>Deck Builder</h1>

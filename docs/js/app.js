@@ -25,7 +25,6 @@ import { initColorFilters } from './src/filters/index.js';
 import { setupLoadMoreButton } from './src/pagination/index.js';
 import { updateLoadMoreButtonVisibility } from './src/ui/index.js';
 import { setupModal } from './src/ui/modal.js'; // Adjust path if needed
-import { initCardListToggle } from "./src/components/cardListToggle.js";
 import { initProfilePage } from './src/dom/initProfilePage.js';
   
 document.addEventListener("DOMContentLoaded", async () => {
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     closeButtonId: 'login-modal-close-button'
   });
   
-  initCardListToggle();
   initCardListView();
  
   const cardDetailsModalEl = document.getElementById("card-details-modal");

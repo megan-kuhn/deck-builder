@@ -1,4 +1,5 @@
 @use '../abstracts/index' as *;
+@use '../components/button' as *;
 
 details  {
   > summary { 
@@ -17,13 +18,43 @@ details  {
     }
 
     &::after {
-      content: '▼';
-      float: right;
-      margin-left: $Spacing--XS;
+      margin-left: $Spacing--S;
+      display: inline-block;
+      width: .75em;
+      height: .5em;
+      content: "";
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 12'%3E%3Cpolygon points='10 12 0 2.35 1.87 0 10 7.85 18.13 0 20 2.35 10 12'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
     }
   } 
 
   &[open] > summary::after {
-    content: '▲';
+    transform: rotate(180deg);
+  }
+}
+
+
+#filters {
+  @include button-medium();
+  @include button-full-width();
+  background: $Background--Alt;
+
+  > summary {
+    width: fit-content; 
+    margin: 0 auto;
+  }
+}
+
+.card-list-toggle {
+  @include button-medium();
+  @include button-full-width();
+  background: $Background--Alt;
+  border-top: 1px solid $BorderColor--Default;
+
+  > summary {
+    width: fit-content;
+    margin: 0 auto;
   }
 }

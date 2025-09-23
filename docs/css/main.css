@@ -338,18 +338,6 @@ button, .button {
   margin-top: 1rem;
 }
 
-#filters {
-  font-size: 1rem;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  background: #e9ecef;
-}
-#filters > summary {
-  width: fit-content;
-  margin: 0 auto;
-}
-
 #card-container-search {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -357,22 +345,12 @@ button, .button {
   margin: 3rem 0;
 }
 
-#card-container-list-toggle {
-  background: #495057;
-  color: #ffffff;
-  width: 100%;
-  padding: 0.5rem clamp(0.5rem, 3vw, 2rem);
-  border-radius: 0;
-}
-#card-container-list__inner {
+#card-list-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
   padding: 1rem clamp(0.5rem, 3vw, 2rem);
   margin: 2rem 0;
-}
-#card-container-list__inner.is-collapsed {
-  display: none;
 }
 
 .single-card-container {
@@ -577,10 +555,11 @@ select {
   background: #e9ecef;
   padding: 1rem;
   border-radius: 6px;
+  width: 100%;
+  margin: 0 auto;
 }
 #search-form fieldset fieldset {
   width: fit-content;
-  margin: 0 auto;
 }
 #search-form .form__row {
   justify-content: center;
@@ -642,12 +621,43 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 details > summary::after {
-  content: "▼";
-  float: right;
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+  width: 0.75em;
+  height: 0.5em;
+  content: "";
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 12'%3E%3Cpolygon points='10 12 0 2.35 1.87 0 10 7.85 18.13 0 20 2.35 10 12'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 details[open] > summary::after {
-  content: "▲";
+  transform: rotate(180deg);
+}
+
+#filters {
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background: #e9ecef;
+}
+#filters > summary {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.card-list-toggle {
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background: #e9ecef;
+  border-top: 1px solid #dee2e6;
+}
+.card-list-toggle > summary {
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .visually-hidden {
