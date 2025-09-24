@@ -1,6 +1,6 @@
 @use '../abstracts/index' as *;
 
-#card-container-search {
+#search-results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: $Spacing--M;

@@ -170,7 +170,7 @@ button, .button {
   color: #ffffff;
   width: 100%;
 }
-.button--add-to-list {
+.button--add-to-deck {
   background: #495057;
   color: #ffffff;
   font-size: 0.875rem;
@@ -315,14 +315,14 @@ button, .button {
   margin-top: 1rem;
 }
 
-#card-container-search {
+#search-results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
   margin: 3rem 0;
 }
 
-#card-list-container {
+.deck-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
@@ -626,7 +626,7 @@ details[open] > summary::after {
   margin: 0 auto;
 }
 
-.card-list-toggle {
+#active-deck-toggle {
   font-size: 1rem;
   border-radius: 6px;
   padding: 0.5rem 1rem;
@@ -634,7 +634,7 @@ details[open] > summary::after {
   background: #e9ecef;
   border-top: 1px solid #dee2e6;
 }
-.card-list-toggle > summary {
+#active-deck-toggle > summary {
   width: fit-content;
   margin: 0 auto;
 }

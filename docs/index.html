@@ -29,9 +29,9 @@
 
     <main>
       <aside>
-        <details class="card-list-toggle">
-          <summary>My Deck</summary>
-          <div id="card-list-container" class="is-collapsed"></div>
+        <details id="active-deck-toggle">
+          <summary id="active-deck-name">My Deck</summary>
+          <div id="active-deck" class="deck-container" class="is-collapsed"></div>
         </details>
       </aside>
       <div class="wrapper">
@@ -83,8 +83,8 @@
             </fieldset>
           </details>
         </form>
-        <!-- Search card results list -->
-        <div id="card-container-search"></div> 
+        <!-- Search card results -->
+        <div id="search-results"></div> 
         <!-- Pagination container -->
         <div id="pagination-container"></div>
       </div>

@@ -26,6 +26,7 @@ export function initNewDeckModal() {
     safeOverlayAttach(input); // now input exists
   });
 
+  // Submit handler
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const name = input.value.trim();
@@ -40,8 +41,6 @@ export function initNewDeckModal() {
     document.dispatchEvent(
       new CustomEvent("deckNameSubmitted", { detail: { name } })
     );
-
-    console.log("New deck name submitted:", name);
 
     // reset & close
     input.value = "";

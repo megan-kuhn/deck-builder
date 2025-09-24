@@ -34,10 +34,10 @@ export function initCardDetailsModal() {
       <p>Set: ${cardData.set_name || 'Unknown'}</p>
       <p>Mana cost: ${cardData.mana_cost || 'N/A'}</p>
       <p>Oracle text: ${cardData.oracle_text || ''}</p>
-      <button class="button--add-to-list">Add to List</button>
+      <button class="button--add-to-deck">Add to Deck</button>
     `;
 
-    const modalAddButton = modalBody.querySelector('.button--add-to-list');
+    const modalAddButton = modalBody.querySelector('.button--add-to-deck');
     attachAddToListHandler(modalAddButton, cardData);
 
     // Open modal
