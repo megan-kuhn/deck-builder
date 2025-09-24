@@ -1,6 +1,6 @@
 // js/src/components/card.js
 
-import { attachAddToListHandler } from '../ui/addToListHandler.js';
+import { attachAddToDeckHandler } from '../ui/addToDeckHandler.js';
 
 // Base function that renders the visual part of a card
 export function createCardElement(cardData) {
@@ -30,16 +30,16 @@ export function renderCard(cardData) {
   viewDetailsButton._cardData = cardData;
 
   // Add to deck button
-  const addToListButton = document.createElement('button');
-  addToListButton.classList.add('button--add-to-deck');
-  addToListButton.textContent = 'Add to Deck';
+  const addToDeckButton = document.createElement('button');
+  addToDeckButton.classList.add('button--add-to-deck');
+  addToDeckButton.textContent = 'Add to Deck';
   
-  attachAddToListHandler(addToListButton, cardData);
+  attachAddToDeckHandler(addToDeckButton, cardData);
 
   // Append everything
   wrapper.appendChild(cardEl);
   wrapper.appendChild(viewDetailsButton);
-  wrapper.appendChild(addToListButton);
+  wrapper.appendChild(addToDeckButton);
 
   return wrapper;
 }

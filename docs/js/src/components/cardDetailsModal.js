@@ -1,7 +1,7 @@
 // js/src/components/cardDetailsModal.js
 
 import { setupModal } from "../ui/modal.js";
-import { attachAddToListHandler } from '../ui/addToListHandler.js';
+import { attachAddToDeckHandler } from '../ui/addToDeckHandler.js';
 
 let openModalFn;
 
@@ -38,7 +38,7 @@ export function initCardDetailsModal() {
     `;
 
     const modalAddButton = modalBody.querySelector('.button--add-to-deck');
-    attachAddToListHandler(modalAddButton, cardData);
+    attachAddToDeckHandler(modalAddButton, cardData);
 
     // Open modal
     openModalFn();

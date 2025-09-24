@@ -1,8 +1,8 @@
-// js/src/dom/displayCards.js
+// js/src/dom/displaySearchResults.js
 
 import { renderCard } from '../components/card.js';
 
-export function displayCards(cards, containerId = "search-results") {
+export function displaySearchResults(cards, containerId = "search-results") {
   const container = document.getElementById(containerId);
   if (!container || !Array.isArray(cards)) return;
 

@@ -1,17 +1,17 @@
-// js/src/components/cardListContainer.js
+// js/src/components/deckContainer.js
 
-import { getCardList } from '../data/cardList.js';
+import { getDeck } from '../data/deck.js';
 import { createCardElement } from './card.js';
 
-export function renderCardList(limit = 100) { 
+export function renderDeck(limit = 100) { 
   let container = document.getElementById('active-deck');
   if (!container) return;
 
-  const cards = getCardList();
+  const cards = getDeck();
   container.innerHTML = '';
 
   if (cards.length === 0) {
-    container.textContent = 'No cards added to list';
+    container.textContent = 'No cards added to deck yet.';
     return;
   }
 

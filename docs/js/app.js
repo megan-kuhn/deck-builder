@@ -14,9 +14,9 @@ import { logout } from "./src/auth/logout.js";
 import updateAuthUI from './src/ui/updateAuthUI.js';
 import { fetchCards, updateStateFromApiResponse } from './src/api/index.js'; 
 import { getCurrentPageSlice } from './src/state/selectors.js';
-import { displayCards } from './src/dom/displayCards.js';
-import { clearCards } from './src/dom/clearCards.js';
-import { initCardListView } from './src/dom/initCardListView.js';
+import { displaySearchResults } from './src/dom/displaySearchResults.js';
+import { clearSearchResults } from './src/dom/clearSearchResults.js';
+import { initDeckView } from './src/dom/initDeckView.js';
 import { initCardDetailsModal } from "./src/components/cardDetailsModal.js";
 import { initSearch } from './src/search/initSearch.js';
 import { applySearchAndFilters } from './src/search/applySearchAndFilters.js';
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // --- CARD LIST & DETAILS ---
-  initCardListView();
+  initDeckView();
   const cardDetailsModalEl = document.getElementById("card-details-modal");
   if (cardDetailsModalEl) {
     initCardDetailsModal();
@@ -67,8 +67,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const data = await fetchCards();
   const success = updateStateFromApiResponse(data);
   if (success) {
-    clearCards();
-    displayCards(getCurrentPageSlice());
+    clearSearchResults();
+    displaySearchResults(getCurrentPageSlice());
     updateLoadMoreButtonVisibility();
   }
 

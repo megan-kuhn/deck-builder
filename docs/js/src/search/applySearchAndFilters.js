@@ -3,7 +3,7 @@
 import { fetchCards } from '../api/index.js'; 
 import { setCards } from '../state/dataState.js';
 import { resetPagination } from '../state/pagination.js';
-import { clearCards } from '../dom/clearCards.js';
+import { clearSearchResults } from '../dom/clearSearchResults.js';
 import { getSelectedColors } from '../filters/index.js';
 import { triggerUpdateAfterSearch, updateLoadMoreButtonVisibility } from '../ui/index.js';
 import { updateStateFromApiResponse } from '../api/updateState.js';
@@ -34,7 +34,7 @@ export async function applySearchAndFilters() {
   const success = updateStateFromApiResponse(response);
 
   if (!success) {
-    clearCards();
+    clearSearchResults();
     return;
   }
 
