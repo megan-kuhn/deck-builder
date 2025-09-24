@@ -13,8 +13,8 @@
 @use 'layout/grid' as *;
 
 @use 'components/button' as *;
-@use 'components/card-container-search' as *;
-@use 'components/card-container-list' as *;
+@use 'components/search-results' as *;
+@use 'components/deck-container' as *;
 @use 'components/card' as *;
 @use 'components/form' as *;
 @use 'components/modal' as *;

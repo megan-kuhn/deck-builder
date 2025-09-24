@@ -4,7 +4,7 @@ import { getCardList } from '../data/cardList.js';
 import { createCardElement } from './card.js';
 
 export function renderCardList(limit = 100) { 
-  const container = document.getElementById('card-list-container');
+  let container = document.getElementById('active-deck');
   if (!container) return;
 
   const cards = getCardList();

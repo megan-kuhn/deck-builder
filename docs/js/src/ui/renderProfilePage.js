@@ -7,7 +7,7 @@ export const renderProfilePage = () => {
 
   container.innerHTML = `
     <h1>${username ? username : "Guest"}</h1>
-    <div id="deck-list">
+    <div class="deck-container">
       ${decks.length > 0 ? 
         decks.map(deck => `<div class="deck">${deck.name}</div>`).join("") :
         "<p>No decks yet.</p>"

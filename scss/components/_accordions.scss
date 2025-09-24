@@ -47,7 +47,7 @@ details  {
   }
 }
 
-.card-list-toggle {
+#active-deck-toggle {
   @include button-medium();
   @include button-full-width();
   background: $Background--Alt;

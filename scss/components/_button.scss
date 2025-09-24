@@ -84,7 +84,7 @@ button {
     @include button-full-width();
   }
 
-  &--add-to-list {
+  &--add-to-deck {
     @include button-secondary;
     @include button-small;
     margin-top: $Spacing--XS

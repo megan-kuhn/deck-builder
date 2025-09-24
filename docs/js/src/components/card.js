@@ -29,10 +29,10 @@ export function renderCard(cardData) {
   viewDetailsButton.textContent = 'View Details';
   viewDetailsButton._cardData = cardData;
 
-  // Add to List button
+  // Add to deck button
   const addToListButton = document.createElement('button');
-  addToListButton.classList.add('button--add-to-list');
-  addToListButton.textContent = 'Add to List';
+  addToListButton.classList.add('button--add-to-deck');
+  addToListButton.textContent = 'Add to Deck';
   
   attachAddToListHandler(addToListButton, cardData);
 
