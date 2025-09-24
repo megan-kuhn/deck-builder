@@ -21,7 +21,8 @@
 │   │       ├── components
 │   │       │   ├── card.js
 │   │       │   ├── cardDetailsModal.js
-│   │       │   └── cardListContainer.js
+│   │       │   ├── cardListContainer.js
+│   │       │   └── newDeckModal.js
 │   │       ├── data
 │   │       │   └── cardList.js
 │   │       ├── dom
@@ -54,6 +55,7 @@
 │   │           ├── index.js
 │   │           ├── logout.js
 │   │           ├── modal.js
+│   │           ├── newDeckHandler.js
 │   │           ├── renderProfilePage.js
 │   │           ├── reset.js
 │   │           ├── triggerUpdateAfterSearch.js
@@ -103,4 +105,4 @@
 ├── structure.txt
 └── zshrc
 
-28 directories, 76 files
+28 directories, 78 files
