@@ -1,6 +1,7 @@
 // js/src/components/newDeckModal.js
 
 import { setupModal } from "../ui/modal.js";
+import { safeOverlayAttach } from '../../utils/safeOverlay.js';
 
 let openModalFn, closeModalFn;
 
@@ -16,8 +17,14 @@ export function initNewDeckModal() {
   closeModalFn = modalControls.closeModal;
 
   const form = document.getElementById("new-deck-form");
-  const input = document.getElementById("deck-name-input");
+  const input = document.getElementById("deck-name-input"); // <-- move this above
   const error = document.getElementById("deck-name-error");
+
+  // Attach overlay only after modal is fully shown
+  const modal = document.getElementById("new-deck-modal");
+  modal.addEventListener("shown.bs.modal", () => {
+    safeOverlayAttach(input); // now input exists
+  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
