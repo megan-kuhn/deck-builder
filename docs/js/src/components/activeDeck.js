@@ -1,12 +1,10 @@
 // js/src/components/activeDeck.js
-
 import { renderDeck } from './deckContainer.js';
 import { getActiveDeck } from '../data/deck.js';
 
-let activeDeckEl = null; // store reference for later updates
+let activeDeckEl = null;
 
 export function createActiveDeckElement(deck) {
-  // create container
   const details = document.createElement('details');
   details.id = 'active-deck-toggle';
   details.open = true;
@@ -28,18 +26,15 @@ export function createActiveDeckElement(deck) {
   return details;
 }
 
-// render or re-render the deck UI
 export function renderActiveDeck() {
   const deck = getActiveDeck();
   if (!deck) return;
 
   renderDeck();
-  // update name in case it changed
   const summary = activeDeckEl.querySelector('#active-deck-name');
   if (summary) summary.textContent = deck.name;
 }
 
-// remove the active deck element (e.g., if no active deck)
 export function removeActiveDeck() {
   if (activeDeckEl?.parentNode) {
     activeDeckEl.parentNode.removeChild(activeDeckEl);

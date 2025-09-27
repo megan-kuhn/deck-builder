@@ -9,7 +9,7 @@ export function initCardDetailsModal() {
   const modalBody = document.getElementById("card-details-body");
 
   // Setup the modal and store its open function
-  const { openModal } = setupModal({
+  const { openModal } = setupModal({ 
     modalId: "card-details-modal",
     closeButtonId: "card-details-close-button"
   });
