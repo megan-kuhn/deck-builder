@@ -4,8 +4,6 @@
 // No DOM manipulation or modal logic here — just business logic + state.
 
 import { isLoggedIn } from '../state/userState.js';
-import { createDeck } from '../data/deck.js';
-import { createActiveDeckElement, renderActiveDeck, removeActiveDeck } from '../components/activeDeck.js';
 
 export function handleNewDeckName(deckName) {
   // Trim just in case (modal already does this, but it's safe)
@@ -14,23 +12,17 @@ export function handleNewDeckName(deckName) {
 
   console.log("📦 [newDeckHandler] Received deck name:", cleanName);
 
-  if (isLoggedIn()) {
-    console.log("✅ User is logged in");
-  } else {
-    console.log("❌ User is NOT logged in");
-  }
+    if (isLoggedIn()) {
+      console.log("✅ User is logged in");
+    } else {
+      console.log("❌ User is NOT logged in");
+    }
 
-  // 1️⃣ Remove previous active deck UI
-  removeActiveDeck();
+    // TODO: Hook into your state management
+    // Example: add to local state or trigger an API call
+    // saveDeck({ name: cleanName });
 
-  // 2️⃣ Create the new deck in state
-  const newDeck = createDeck(cleanName);
-
-  // 3️⃣ Render the new active deck accordion
-  const container = document.getElementById('deck-section');
-  if (container) {
-    container.appendChild(createActiveDeckElement(newDeck));
-    renderActiveDeck();
-  }
+    // Example placeholder:
+    alert(`Deck "${cleanName}" created!`);
 }
 
