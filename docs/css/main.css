@@ -634,7 +634,7 @@ details[open] > summary::after {
   margin: 0 auto;
 }
 
-#active-deck-toggle {
+.deck-element {
   font-size: 1rem;
   border-radius: 6px;
   padding: 0.5rem 1rem;
@@ -643,7 +643,7 @@ details[open] > summary::after {
   border-top: 1px solid #dee2e6;
   border-radius: 0;
 }
-#active-deck-toggle > summary {
+.deck-element > summary {
   width: fit-content;
   margin: 0 auto;
 }
