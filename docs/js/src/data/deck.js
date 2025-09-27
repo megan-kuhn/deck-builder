@@ -1,6 +1,9 @@
 // js/src/data/deck.js
+
 let decks = [];
 let activeDeckId = null;
+
+// --- Deck Array Management ---
 
 export function createDeck(name) {
   const newDeck = { id: crypto.randomUUID(), name, cards: [] };
@@ -9,36 +12,42 @@ export function createDeck(name) {
   return newDeck;
 }
 
-export function getDeck(id = activeDeckId) {
-  const deck = decks.find(d => d.id === id);
-  return deck?.cards || [];
+export function getDeck(id) {
+  return decks.find(d => d.id === id);
+}
+
+export function getAllDecks() {
+  return decks;
 }
 
 export function getActiveDeck() {
-  const deck = decks.find(d => d.id === activeDeckId);
-  console.log("📦 [deck] Active deck:", activeDeckId, deck);
-  return deck;
+  return getDeck(activeDeckId);
 }
 
 export function setActiveDeck(id) {
   activeDeckId = id;
 }
 
-export function addCard(card) {
-  const active = getActiveDeck();
-  if (!active) return;
+// --- Single Deck Operations ---
 
-  const existing = active.cards.find(c => c.id === card.id);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    active.cards.push({ ...card, quantity: 1 });
-  }
+export function addCardToDeck(deck, card) {
+  if (!deck) return;
+  const existing = deck.cards.find(c => c.id === card.id);
+  if (existing) existing.quantity++;
+  else deck.cards.push({ ...card, quantity: 1 });
+}
+
+export function removeCardFromDeck(deck, cardId) {
+  if (!deck) return;
+  deck.cards = deck.cards.filter(c => c.id !== cardId);
+}
+
+// --- Convenience functions for active deck ---
+
+export function addCard(card) {
+  addCardToDeck(getActiveDeck(), card);
 }
 
 export function removeCard(cardId) {
-  const active = getActiveDeck();
-  if (!active) return;
-
-  active.cards = active.cards.filter(c => c.id !== cardId);
+  removeCardFromDeck(getActiveDeck(), cardId);
 }

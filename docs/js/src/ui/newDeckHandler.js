@@ -4,32 +4,21 @@
 
 import { isLoggedIn } from '../state/userState.js';
 import { createDeck } from '../data/deck.js';
-import { createDeckElement, renderActiveDeck, removeActiveDeck } from '../components/activeDeck.js';
+import { createDeckElement, renderActiveDeck } from '../components/activeDeck.js';
 
 export function handleNewDeckName(deckName) {
-  // Trim just in case (modal already does this, but it's safe)
   const cleanName = deckName.trim();
-  if (!cleanName) return; // guard clause
+  if (!cleanName) return;
 
-  console.log("📦 [newDeckHandler] Received deck name:", cleanName);
+  if (!isLoggedIn()) console.warn('User not logged in');
 
-  if (isLoggedIn()) {
-    console.log("✅ User is logged in");
-  } else {
-    console.log("❌ User is NOT logged in");
-  }
-
-  // 1️⃣ Remove previous active deck accordion (if any)
-  removeActiveDeck();
-
-  // 2️⃣ Create the new deck in state and set it as active
   const newDeck = createDeck(cleanName);
 
-  // 3️⃣ Render the new active deck accordion
-  const container = document.getElementById('deck-section'); // where accordions live
-  if (container) {
-    const activeDeckEl = createDeckElement(newDeck);
-    container.appendChild(activeDeckEl);
-    renderActiveDeck(); // populate cards and update name
-  }
+  const container = document.getElementById('deck-section');
+  if (!container) return;
+
+  const deckEl = createDeckElement(newDeck);
+  container.appendChild(deckEl);
+
+  renderActiveDeck();
 }
