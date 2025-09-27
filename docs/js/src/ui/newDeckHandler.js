@@ -4,7 +4,7 @@
 
 import { isLoggedIn } from '../state/userState.js';
 import { createDeck } from '../data/deck.js';
-import { createActiveDeckElement, renderActiveDeck, removeActiveDeck } from '../components/activeDeck.js';
+import { createDeckElement, renderActiveDeck, removeActiveDeck } from '../components/activeDeck.js';
 
 export function handleNewDeckName(deckName) {
   // Trim just in case (modal already does this, but it's safe)
@@ -28,7 +28,7 @@ export function handleNewDeckName(deckName) {
   // 3️⃣ Render the new active deck accordion
   const container = document.getElementById('deck-section'); // where accordions live
   if (container) {
-    const activeDeckEl = createActiveDeckElement(newDeck);
+    const activeDeckEl = createDeckElement(newDeck);
     container.appendChild(activeDeckEl);
     renderActiveDeck(); // populate cards and update name
   }
