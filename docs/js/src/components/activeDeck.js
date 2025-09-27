@@ -21,29 +21,25 @@ export function createDeckElement(deck) {
   return details;
 }
 
-// Removes the active class from all decks
 export function removeActiveDeck() {
   const previous = document.querySelector('.deck-element.active');
   if (previous) previous.classList.remove('active');
 }
 
-// Marks a deck as active in the DOM
 export function setActiveDeckElement(deckId) {
   removeActiveDeck();
-  const newActive = document.querySelector(`.deck-element[data-deck-id="${deckId}"]`);
-  if (newActive) newActive.classList.add('active');
+  const element = document.querySelector(`.deck-element[data-deck-id="${deckId}"]`);
+  if (element) element.classList.add('active');
 }
 
-// Renders the cards for the current active deck
 export function renderActiveDeck() {
-  const active = getActiveDeck();
-  if (!active) return;
+  const deck = getActiveDeck();
+  if (!deck) return;
 
-  // Make sure the correct element is marked active
-  setActiveDeckElement(active.id);
+  setActiveDeckElement(deck.id);
 
-  const activeContainer = document.querySelector(`.deck-element.active .deck-container`);
-  if (!activeContainer) return;
+  const container = document.querySelector(`.deck-element.active .deck-container`);
+  if (!container) return;
 
-  renderDeck(activeContainer, active.cards);
+  renderDeck(container, deck.cards); // renderDeck now takes container + cards
 }
