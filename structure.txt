@@ -10,57 +10,59 @@
 │   ├── index.html
 │   ├── js
 │   │   ├── app.js
-│   │   └── src
-│   │       ├── api
-│   │       │   ├── fetchCards.js
-│   │       │   ├── index.js
-│   │       │   └── updateState.js
-│   │       ├── auth
-│   │       │   ├── login.js
-│   │       │   └── logout.js
-│   │       ├── components
-│   │       │   ├── card.js
-│   │       │   ├── cardDetailsModal.js
-│   │       │   ├── cardListContainer.js
-│   │       │   └── newDeckModal.js
-│   │       ├── data
-│   │       │   └── cardList.js
-│   │       ├── dom
-│   │       │   ├── clearCards.js
-│   │       │   ├── displayCards.js
-│   │       │   ├── initCardListView.js
-│   │       │   └── initProfilePage.js
-│   │       ├── events
-│   │       │   └── cardListEvents.js
-│   │       ├── filters
-│   │       │   ├── getSelectedColors.js
-│   │       │   ├── index.js
-│   │       │   └── renderColorFilters.js
-│   │       ├── pagination
-│   │       │   ├── index.js
-│   │       │   ├── loadMoreButtonClickHandler.js
-│   │       │   └── setupLoadMoreButton.js
-│   │       ├── search
-│   │       │   ├── applySearchAndFilters.js
-│   │       │   └── initSearch.js
-│   │       ├── signup.js
-│   │       ├── state
-│   │       │   ├── apiState.js
-│   │       │   ├── dataState.js
-│   │       │   ├── pagination.js
-│   │       │   ├── selectors.js
-│   │       │   └── userState.js
-│   │       └── ui
-│   │           ├── addToListHandler.js
-│   │           ├── index.js
-│   │           ├── logout.js
-│   │           ├── modal.js
-│   │           ├── newDeckHandler.js
-│   │           ├── renderProfilePage.js
-│   │           ├── reset.js
-│   │           ├── triggerUpdateAfterSearch.js
-│   │           ├── updateAuthUI.js
-│   │           └── updateLoadMoreButton.js
+│   │   ├── src
+│   │   │   ├── api
+│   │   │   │   ├── fetchCards.js
+│   │   │   │   ├── index.js
+│   │   │   │   └── updateState.js
+│   │   │   ├── auth
+│   │   │   │   ├── login.js
+│   │   │   │   └── logout.js
+│   │   │   ├── components
+│   │   │   │   ├── card.js
+│   │   │   │   ├── cardDetailsModal.js
+│   │   │   │   ├── deckContainer.js
+│   │   │   │   └── newDeckModal.js
+│   │   │   ├── data
+│   │   │   │   └── deck.js
+│   │   │   ├── dom
+│   │   │   │   ├── clearSearchResults.js
+│   │   │   │   ├── displaySearchResults.js
+│   │   │   │   ├── initDeckView.js
+│   │   │   │   └── initProfilePage.js
+│   │   │   ├── events
+│   │   │   │   └── deckEvents.js
+│   │   │   ├── filters
+│   │   │   │   ├── getSelectedColors.js
+│   │   │   │   ├── index.js
+│   │   │   │   └── renderColorFilters.js
+│   │   │   ├── pagination
+│   │   │   │   ├── index.js
+│   │   │   │   ├── loadMoreButtonClickHandler.js
+│   │   │   │   └── setupLoadMoreButton.js
+│   │   │   ├── search
+│   │   │   │   ├── applySearchAndFilters.js
+│   │   │   │   └── initSearch.js
+│   │   │   ├── signup.js
+│   │   │   ├── state
+│   │   │   │   ├── apiState.js
+│   │   │   │   ├── dataState.js
+│   │   │   │   ├── pagination.js
+│   │   │   │   ├── selectors.js
+│   │   │   │   └── userState.js
+│   │   │   └── ui
+│   │   │       ├── addToDeckHandler.js
+│   │   │       ├── index.js
+│   │   │       ├── logout.js
+│   │   │       ├── modal.js
+│   │   │       ├── newDeckHandler.js
+│   │   │       ├── renderProfilePage.js
+│   │   │       ├── reset.js
+│   │   │       ├── triggerUpdateAfterSearch.js
+│   │   │       ├── updateAuthUI.js
+│   │   │       └── updateLoadMoreButton.js
+│   │   └── utils
+│   │       └── safeOverlay.js
 │   ├── my-profile.html
 │   └── signup.html
 ├── package-lock.json
@@ -78,12 +80,12 @@
 │   ├── components
 │   │   ├── _accordions.scss
 │   │   ├── _button.scss
-│   │   ├── _card-container-list.scss
-│   │   ├── _card-container-search.scss
 │   │   ├── _card.scss
+│   │   ├── _deck-container.scss
 │   │   ├── _filters.scss
 │   │   ├── _form.scss
 │   │   ├── _modal.scss
+│   │   ├── _search-results.scss
 │   │   └── _search.scss
 │   ├── layout
 │   │   ├── _footer.scss
@@ -105,4 +107,4 @@
 ├── structure.txt
 └── zshrc
 
-28 directories, 78 files
+29 directories, 79 files

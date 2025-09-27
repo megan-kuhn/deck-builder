@@ -13,7 +13,7 @@
 @mixin button-small {
   font-size: $FontSize--S;
   border-radius: $BorderRadius--S;
-  padding: $Spacing--XS $Spacing--S;
+  padding: calc($Spacing--XS + 2px) $Spacing--S $Spacing--XS;
 }
 
 @mixin button-medium {
@@ -26,26 +26,6 @@
   width: 100%;
 }
 
-@mixin button--x-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: $Spacing--XS;
-  border-radius: 50%;
-  background: $ButtonBackground--Primary;
-  color: $ButtonText--Primary;
-  width: 40px;
-  height: 40px;
-  margin: 12px 16px;
-  z-index: 1;
-
-  &::after {
-    content: '✕';
-    font-size: $FontSize--L;
-    line-height: 1; 
-  }
-}
-
 button {
   background: none;
   height: fit-content;
@@ -54,6 +34,7 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-family: inherit;
   font-size: $FontSize--M;
   line-height: $LineHeight--M;
   text-align: center;
@@ -95,10 +76,35 @@ button {
     @include button-small;
     margin-top: $Spacing--XS;
   }
+
+  &--x-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $Spacing--XS;
+    border-radius: 50%;
+    background: $ButtonBackground--Primary;
+    color: $ButtonText--Primary;
+    width: 40px;
+    height: 40px;
+    margin: 12px 16px;
+    z-index: 1;
+
+    &::after {
+      @include filter-black-to-white(); 
+      display: inline-block;
+      content: "";
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Cpolygon points='47.34 4.95 42.39 0 23.67 18.72 4.95 0 0 4.95 18.72 23.67 0 42.39 4.95 47.34 23.67 28.62 42.39 47.34 47.34 42.39 28.62 23.67 47.34 4.95'/%3E%3C/svg%3E");
+      width: 1rem;
+      height: 1rem;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
 }
 
 #home-button,
-#settings-button {
+#settings-button { 
   display: block;
   height: 1.5rem;
   width: fit-content;
@@ -139,12 +145,6 @@ button {
   margin-top: .5rem;
 }
 
-#login-modal-close-button,
-#new-deck-modal-close-button,
-#card-details-close-button {
-  @include button--x-close;
-}
-
 #create-account-button {
   @include button-secondary;
   @include button-full-width;
@@ -172,4 +172,9 @@ button {
   @include button-full-width;
   @include button-medium;
   margin-top: $Spacing--M;
+}
+
+#logout-button {
+  @include button-secondary;
+  @include button-small;
 }

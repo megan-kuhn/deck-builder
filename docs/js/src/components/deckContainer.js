@@ -11,7 +11,7 @@ export function renderDeck(limit = 100) {
   container.innerHTML = '';
 
   if (cards.length === 0) {
-    container.textContent = 'No cards added to deck yet.';
+    container.textContent = 'No cards added yet.';
     return;
   }
 

@@ -39,4 +39,7 @@
   }
 }
 
+@mixin filter-black-to-white {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7495%) hue-rotate(159deg) brightness(104%) contrast(100%);
+}
 
