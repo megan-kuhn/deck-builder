@@ -2,6 +2,7 @@
 
 import { setupModal } from "../ui/modal.js";
 import { safeOverlayAttach } from '../../utils/safeOverlay.js';
+import { createDeck } from '../data/deck.js';
 
 let openModalFn, closeModalFn;
 

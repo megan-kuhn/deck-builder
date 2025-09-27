@@ -3,11 +3,11 @@
 import { getDeck } from '../data/deck.js';
 import { createCardElement } from './card.js';
 
-export function renderDeck(limit = 100) { 
-  let container = document.getElementById('active-deck');
+export function renderDeck(limit = 100) {
+  const container = document.querySelector('.deck-container');
   if (!container) return;
 
-  const cards = getDeck();
+  const cards = getDeck(); // imported from deck.js
   container.innerHTML = '';
 
   if (cards.length === 0) {
@@ -30,4 +30,3 @@ export function renderDeck(limit = 100) {
     container.appendChild(cardWrapper);
   });
 }
-
