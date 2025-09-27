@@ -17,7 +17,7 @@ export function handleNewDeckName(deckName) {
   if (isLoggedIn()) {
     console.log("✅ User is logged in");
   } else {
-    console.log("❌ User is NOT logged in");
+    console.log("❌ User is NOT logged in"); 
   }
 
   // 1️⃣ Remove previous active deck UI

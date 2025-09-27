@@ -1,7 +1,7 @@
 // js/src/components/activeDeck.js
 
 import { renderDeck } from './deckContainer.js';
-import { getActiveDeck, setActiveDeck } from '../data/deck.js';
+import { getActiveDeck } from '../data/deck.js';
 
 let activeDeckEl = null; // store reference for later updates
 

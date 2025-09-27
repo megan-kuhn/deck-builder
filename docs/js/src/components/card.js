@@ -22,7 +22,7 @@ export function renderCard(cardData) {
   wrapper.dataset.cardId = cardData.id; // optional, useful for tracking
 
   const cardEl = createCardElement(cardData);
-
+ 
   // Detail View button
   const viewDetailsButton = document.createElement('button');
   viewDetailsButton.classList.add('button--detail-view');
