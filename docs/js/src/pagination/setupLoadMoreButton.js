@@ -21,3 +21,4 @@ export function setupLoadMoreButton() {
 export function getLoadMoreButton() {
   return loadMoreBtn;
 }
+

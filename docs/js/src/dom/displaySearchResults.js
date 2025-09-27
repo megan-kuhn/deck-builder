@@ -13,3 +13,4 @@ export function displaySearchResults(cards, containerId = "search-results") {
     container.appendChild(cardEl);
   });
 }
+

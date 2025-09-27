@@ -9,3 +9,4 @@ export function setNextPageUrl(url) {
 export function getNextPageUrl() {
   return nextPageUrl;
 }
+

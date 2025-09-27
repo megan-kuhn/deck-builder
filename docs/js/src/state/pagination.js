@@ -18,3 +18,4 @@ export function getCurrentPage() {
 export function getPageSize() {
   return pageSize;
 }
+

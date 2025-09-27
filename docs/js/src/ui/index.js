@@ -2,3 +2,4 @@
 
 export { triggerUpdateAfterSearch } from './triggerUpdateAfterSearch.js';
 export { updateLoadMoreButtonVisibility } from './updateLoadMoreButton.js';
+

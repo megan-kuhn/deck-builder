@@ -45,3 +45,4 @@ export function initCardDetailsModal() {
     modalBody.focus(); // Focus modal content for accessibility
   });
 }
+

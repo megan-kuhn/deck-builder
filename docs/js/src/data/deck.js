@@ -19,3 +19,4 @@ export function getDeck() {
 export function removeCard(cardId) {
   deck = deck.filter(c => c.id !== cardId);
 }
+

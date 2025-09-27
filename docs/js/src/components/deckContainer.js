@@ -30,3 +30,4 @@ export function renderDeck(limit = 100) {
     container.appendChild(cardWrapper);
   });
 }
+

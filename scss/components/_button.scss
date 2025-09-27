@@ -89,7 +89,7 @@ button {
     height: 40px;
     margin: 12px 16px;
     z-index: 1;
-
+ 
     &::after {
       @include filter-black-to-white(); 
       display: inline-block;

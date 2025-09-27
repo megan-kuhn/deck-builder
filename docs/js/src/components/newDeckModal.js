@@ -52,3 +52,4 @@ export function initNewDeckModal() {
 export function openNewDeckModal() {
   if (openModalFn) openModalFn();
 }
+

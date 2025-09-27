@@ -7,3 +7,4 @@ export function addCardToDeck(card) {
   addCard(card);
   renderDeck();
 }
+

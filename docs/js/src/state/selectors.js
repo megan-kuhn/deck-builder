@@ -14,3 +14,4 @@ export function hasMoreLocalCards() {
   const end = getCurrentPage() * getPageSize();
   return end < totalCards;
 }
+

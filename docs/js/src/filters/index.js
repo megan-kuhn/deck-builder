@@ -2,3 +2,4 @@
 
 export { getSelectedColors } from './getSelectedColors.js';
 export { initColorFilters } from './renderColorFilters.js';
+

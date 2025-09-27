@@ -13,3 +13,4 @@ export function updateLoadMoreButtonVisibility() {
     loadMoreBtn.style.display = 'none';
   }
 }
+

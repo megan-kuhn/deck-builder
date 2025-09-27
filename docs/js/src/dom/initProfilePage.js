@@ -6,3 +6,4 @@ import { renderProfilePage } from "../ui/renderProfilePage.js";
 export const initProfilePage = () => {
   renderProfilePage();
 };
+
