@@ -43,3 +43,4 @@ export function renderCard(cardData) {
 
   return wrapper;
 }
+

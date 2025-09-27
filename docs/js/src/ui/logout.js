@@ -15,3 +15,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     logoutBtn.addEventListener("click", () => logout());
   }
 });
+

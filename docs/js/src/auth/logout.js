@@ -13,3 +13,4 @@ export function logout() {
   // Redirect to home page
   window.location.href = "/"; // or "/index.html" if your homepage is that
 }
+

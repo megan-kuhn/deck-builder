@@ -24,3 +24,4 @@ export async function fetchCards(queryOrUrl = 'game:paper') {
     return null;
   }
 }
+

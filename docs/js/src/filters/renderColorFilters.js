@@ -31,3 +31,4 @@ export function initColorFilters(onChangeCallback) {
     container.appendChild(labelEl);
   });
 }
+

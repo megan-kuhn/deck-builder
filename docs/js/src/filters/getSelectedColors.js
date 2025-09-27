@@ -7,3 +7,4 @@ export function getSelectedColors() {
     .map(cb => cb.value)
     .sort();
 }
+

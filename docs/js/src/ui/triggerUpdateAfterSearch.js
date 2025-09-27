@@ -10,3 +10,4 @@ export function triggerUpdateAfterSearch() {
   displaySearchResults(getCurrentPageSlice());
   updateLoadMoreButtonVisibility();
 }
+

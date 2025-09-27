@@ -9,3 +9,4 @@ export function setCards(newCards) {
 export function getCards() {
   return cards;
 }
+

@@ -35,7 +35,7 @@ details  {
   }
 }
 
-
+ 
 #filters {
   @include button-medium();
   @include button-full-width();
@@ -52,9 +52,11 @@ details  {
   @include button-full-width();
   background: $Background--Alt;
   border-top: 1px solid $BorderColor--Default;
+  border-radius: 0;
 
   > summary {
     width: fit-content;
     margin: 0 auto;
   }
 }
+

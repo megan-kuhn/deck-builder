@@ -12,14 +12,15 @@ export default function updateAuthUI() {
 
   if (isLoggedIn()) {
     loginBtn.style.display = "none";
-    profileLink.style.display = "inline-block";
+    profileLink.style.display = "flex";
     profileLink.textContent = `My Profile`;
 
-    if (logoutBtn) logoutBtn.style.display = "inline-block";
+    if (logoutBtn) logoutBtn.style.display = "flex";
   } else {
-    loginBtn.style.display = "inline-block";
+    loginBtn.style.display = "flex";
     profileLink.style.display = "none";
 
     if (logoutBtn) logoutBtn.style.display = "none";
   }
 }
+
