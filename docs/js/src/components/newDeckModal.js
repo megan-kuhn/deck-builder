@@ -14,7 +14,7 @@ export function initNewDeckModal() {
 
   if (!modalControls) return;
   openModalFn = modalControls.openModal;
-  closeModalFn = modalControls.closeModal;
+  closeModalFn = modalControls.closeModal; 
 
   const form = document.getElementById("new-deck-form");
   const input = document.getElementById("deck-name-input"); // <-- move this above

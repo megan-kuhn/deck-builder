@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (newDeckBtn) {
     newDeckBtn.addEventListener("click", () => {
       openNewDeckModal(); // open the new deck modal
-    });
+    }); 
   }
 
   // Handle deck name submission globally
