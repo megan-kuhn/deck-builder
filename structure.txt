@@ -5,64 +5,76 @@
 │   │   ├── main.css
 │   │   └── main.css.map
 │   ├── images
+│   │   ├── icon_close.svg
 │   │   ├── icon_settings.svg
 │   │   └── logo.svg
 │   ├── index.html
 │   ├── js
 │   │   ├── app.js
-│   │   ├── src
-│   │   │   ├── api
-│   │   │   │   ├── fetchCards.js
-│   │   │   │   ├── index.js
-│   │   │   │   └── updateState.js
-│   │   │   ├── auth
-│   │   │   │   ├── login.js
-│   │   │   │   └── logout.js
-│   │   │   ├── components
-│   │   │   │   ├── card.js
-│   │   │   │   ├── cardDetailsModal.js
-│   │   │   │   ├── deckContainer.js
-│   │   │   │   └── newDeckModal.js
-│   │   │   ├── data
-│   │   │   │   └── deck.js
-│   │   │   ├── dom
-│   │   │   │   ├── clearSearchResults.js
-│   │   │   │   ├── displaySearchResults.js
-│   │   │   │   ├── initDeckView.js
-│   │   │   │   └── initProfilePage.js
-│   │   │   ├── events
-│   │   │   │   └── deckEvents.js
-│   │   │   ├── filters
-│   │   │   │   ├── getSelectedColors.js
-│   │   │   │   ├── index.js
-│   │   │   │   └── renderColorFilters.js
-│   │   │   ├── pagination
-│   │   │   │   ├── index.js
-│   │   │   │   ├── loadMoreButtonClickHandler.js
-│   │   │   │   └── setupLoadMoreButton.js
-│   │   │   ├── search
-│   │   │   │   ├── applySearchAndFilters.js
-│   │   │   │   └── initSearch.js
-│   │   │   ├── signup.js
-│   │   │   ├── state
-│   │   │   │   ├── apiState.js
-│   │   │   │   ├── dataState.js
-│   │   │   │   ├── pagination.js
-│   │   │   │   ├── selectors.js
-│   │   │   │   └── userState.js
-│   │   │   └── ui
-│   │   │       ├── addToDeckHandler.js
-│   │   │       ├── index.js
-│   │   │       ├── logout.js
-│   │   │       ├── modal.js
-│   │   │       ├── newDeckHandler.js
-│   │   │       ├── renderProfilePage.js
-│   │   │       ├── reset.js
-│   │   │       ├── triggerUpdateAfterSearch.js
-│   │   │       ├── updateAuthUI.js
-│   │   │       └── updateLoadMoreButton.js
-│   │   └── utils
-│   │       └── safeOverlay.js
+│   │   └── features
+│   │       ├── api
+│   │       │   ├── fetchCards.js
+│   │       │   └── updateState.js
+│   │       ├── auth
+│   │       │   ├── login.js
+│   │       │   ├── logout.js
+│   │       │   ├── signup.js
+│   │       │   └── ui
+│   │       │       └── updateAuthUI.js
+│   │       ├── card
+│   │       │   ├── handlers
+│   │       │   │   └── addToDeckHandler.js
+│   │       │   └── ui
+│   │       │       ├── card.js
+│   │       │       └── cardDetailsModal.js
+│   │       ├── deck
+│   │       │   ├── data
+│   │       │   │   └── deck.js
+│   │       │   ├── events
+│   │       │   │   └── deckEvents.js
+│   │       │   ├── handlers
+│   │       │   │   └── newDeckHandler.js
+│   │       │   ├── initDeckView.js
+│   │       │   └── ui
+│   │       │       ├── activeDeck.js
+│   │       │       ├── deckContainer.js
+│   │       │       └── newDeckModal.js
+│   │       ├── filters
+│   │       │   ├── getSelectedColors.js
+│   │       │   └── ui
+│   │       │       └── renderColorFilters.js
+│   │       ├── pagination
+│   │       │   ├── events
+│   │       │   │   └── loadMoreButtonClickHandler.js
+│   │       │   └── ui
+│   │       │       ├── setupLoadMoreButton.js
+│   │       │       └── updateLoadMoreButton.js
+│   │       ├── profile
+│   │       │   ├── events
+│   │       │   │   └── logout.js
+│   │       │   ├── initProfilePage.js
+│   │       │   └── ui
+│   │       │       └── renderProfilePage.js
+│   │       ├── search
+│   │       │   ├── applySearchAndFilters.js
+│   │       │   ├── events
+│   │       │   │   └── triggerUpdateAfterSearch.js
+│   │       │   ├── initSearch.js
+│   │       │   └── ui
+│   │       │       ├── clearSearchResults.js
+│   │       │       └── displaySearchResults.js
+│   │       ├── shared
+│   │       │   ├── ui
+│   │       │   │   ├── modal.js
+│   │       │   │   └── reset.js
+│   │       │   └── utils
+│   │       │       └── safeOverlay.js
+│   │       └── state
+│   │           ├── apiState.js
+│   │           ├── dataState.js
+│   │           ├── pagination.js
+│   │           ├── selectors.js
+│   │           └── userState.js
 │   ├── my-profile.html
 │   └── signup.html
 ├── package-lock.json
@@ -107,5 +119,4 @@
 ├── structure.txt
 └── zshrc
 
-29 directories, 79 files
-
+43 directories, 77 files

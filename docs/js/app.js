@@ -9,25 +9,26 @@
 - Sets up the dynamic "Load More" button to handle pagination
 - Provides seamless user experience by wiring all core UI and data fetching together
 */
-import './src/auth/login.js';
-import { logout } from "./src/auth/logout.js";
-import updateAuthUI from './src/ui/updateAuthUI.js';
-import { fetchCards, updateStateFromApiResponse } from './src/api/index.js'; 
-import { getCurrentPageSlice } from './src/state/selectors.js';
-import { displaySearchResults } from './src/dom/displaySearchResults.js';
-import { clearSearchResults } from './src/dom/clearSearchResults.js';
-import { initDeckView } from './src/dom/initDeckView.js';
-import { initCardDetailsModal } from "./src/components/cardDetailsModal.js";
-import { initSearch } from './src/search/initSearch.js';
-import { applySearchAndFilters } from './src/search/applySearchAndFilters.js';
-import { initResetButtons } from './src/ui/reset.js';
-import { initColorFilters } from './src/filters/index.js';
-import { setupLoadMoreButton } from './src/pagination/index.js';
-import { updateLoadMoreButtonVisibility } from './src/ui/index.js';
-import { setupModal } from './src/ui/modal.js'; // Adjust path if needed
-import { initProfilePage } from './src/dom/initProfilePage.js';
-import { initNewDeckModal, openNewDeckModal } from "./src/components/newDeckModal.js";
-import { handleNewDeckName } from "./src/ui/newDeckHandler.js";
+import './features/auth/login.js';
+import { logout } from "./features/auth/logout.js";
+import updateAuthUI from './features/auth/ui/updateAuthUI.js';
+import { fetchCards } from './features/api/fetchCards.js'; 
+import { updateStateFromApiResponse } from './features/api/updateState.js'; 
+import { getCurrentPageSlice } from './features/state/selectors.js';
+import { displaySearchResults } from './features/search/ui/displaySearchResults.js';
+import { clearSearchResults } from './features/search/ui/clearSearchResults.js';
+import { initDeckView } from './features/deck/initDeckView.js';
+import { initCardDetailsModal } from "./features/card/ui/cardDetailsModal.js";
+import { initSearch } from './features/search/initSearch.js';
+import { applySearchAndFilters } from './features/search/applySearchAndFilters.js';
+import { initResetButtons } from './features/shared/ui/reset.js';
+import { initColorFilters } from './features/filters/ui/renderColorFilters.js';
+import { setupLoadMoreButton } from './features/pagination/ui/setupLoadMoreButton.js';
+import { updateLoadMoreButtonVisibility } from './features/pagination/ui/updateLoadMoreButton.js';
+import { setupModal } from './features/shared/ui/modal.js'; // Adjust path if needed
+import { initProfilePage } from './features/profile/initProfilePage.js';
+import { initNewDeckModal, openNewDeckModal } from "./features/deck/ui/newDeckModal.js";
+import { handleNewDeckName } from "./features/deck/handlers/newDeckHandler.js";
   
 document.addEventListener("DOMContentLoaded", async () => {
   console.log('launching');
