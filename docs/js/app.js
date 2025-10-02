@@ -11,7 +11,7 @@
 */
 import './features/auth/login.js';
 import { logout } from "./features/auth/logout.js";
-import updateAuthUI from './features/auth/ui/updateAuthUI.js';
+import updateAuthUI from './features/auth/updateAuthUI.js';
 import { fetchCards } from './features/api/fetchCards.js'; 
 import { updateStateFromApiResponse } from './features/api/updateState.js'; 
 import { getCurrentPageSlice } from './features/state/selectors.js';
@@ -22,7 +22,7 @@ import { initCardDetailsModal } from "./features/card/ui/cardDetailsModal.js";
 import { initSearch } from './features/search/initSearch.js';
 import { applySearchAndFilters } from './features/search/applySearchAndFilters.js';
 import { initResetButtons } from './features/shared/ui/reset.js';
-import { initColorFilters } from './features/filters/ui/renderColorFilters.js';
+import { initColorFilters } from './features/filters/renderColorFilters.js';
 import { setupLoadMoreButton } from './features/pagination/ui/setupLoadMoreButton.js';
 import { updateLoadMoreButtonVisibility } from './features/pagination/ui/updateLoadMoreButton.js';
 import { setupModal } from './features/shared/ui/modal.js'; // Adjust path if needed

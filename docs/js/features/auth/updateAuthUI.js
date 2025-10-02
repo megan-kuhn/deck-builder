@@ -1,6 +1,6 @@
-// js/features/auth/ui/updateAuthUI.js
+// js/features/auth/updateAuthUI.js
 
-import { isLoggedIn, getUser } from "../../state/userState.js";
+import { isLoggedIn, getUser } from "../state/userState.js";
 
 export default function updateAuthUI() {
   const loginBtn = document.querySelector("#login-modal-open-button");
@@ -8,7 +8,6 @@ export default function updateAuthUI() {
   const profileLink = document.querySelector("#profile-link");
 
   const user = getUser();
-  console.log("Updating auth UI");
 
   if (!loginBtn || !profileLink) return;
 
