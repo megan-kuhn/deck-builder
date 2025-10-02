@@ -24,4 +24,3 @@ export default function updateAuthUI() {
     if (logoutBtn) logoutBtn.style.display = "none";
   }
 }
-

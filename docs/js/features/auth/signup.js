@@ -1,27 +1,32 @@
-// js/src/signup.js
+// docs/js/features/auth/signup.js
 
-const form = document.getElementById('signup-form');
-const message = document.getElementById('signup-message');
+export function initSignup() {
+  const form = document.getElementById('signup-form');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  if (!form) return; // <-- exit if no form on this page
 
-  const email = document.getElementById('signup-email').value;
-  const username = document.getElementById('signup-username').value;
-  const password = document.getElementById('signup-password').value;
+  const message = document.getElementById('signup-message');
 
-  try {
-    const res = await fetch('/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, username, password }),
-    });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-    const text = await res.text();
-    message.textContent = text;
-    message.style.color = res.ok ? 'green' : 'red';
-  } catch (err) {
-    message.textContent = 'Error connecting to server.';
-    message.style.color = 'red';
-  }
-});
+    const email = document.getElementById('signup-email').value;
+    const username = document.getElementById('signup-username').value;
+    const password = document.getElementById('signup-password').value;
+
+    try {
+      const res = await fetch('/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, username, password }),
+      });
+
+      const text = await res.text();
+      message.textContent = text;
+      message.style.color = res.ok ? 'green' : 'red';
+    } catch (err) {
+      message.textContent = 'Error connecting to server.';
+      message.style.color = 'red';
+    }
+  });
+}
