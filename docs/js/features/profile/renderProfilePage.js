@@ -1,6 +1,6 @@
 // js/features/profile/ui/renderProfilePage.js
 
-import { getUser } from "../../state/userState.js";
+import { getUser } from "../state/userState.js";
 
 export const renderProfilePage = () => {
   const { username, decks } = getUser();

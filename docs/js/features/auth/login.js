@@ -1,11 +1,9 @@
 // js/features/auth/login.js
 import { setUser } from "../state/userState.js";
-import updateAuthUI from "./ui/updateAuthUI.js";
+import updateAuthUI from "./updateAuthUI.js";
 
 const loginForm = document.getElementById('login-form');
 const message = document.getElementById('login-message'); // optional <p> for feedback
-
-console.log("Login.js loaded, loginForm:", loginForm);
 
 if (loginForm) {
   loginForm.addEventListener('submit', async (e) => {
