@@ -2,7 +2,7 @@
 
 import { applySearchAndFilters } from './applySearchAndFilters.js';
 
-export function initSearch() {
+export function initSearchForm() {
   const form = document.getElementById('search-form');
   const searchInput = document.getElementById('search-input');
   const typeFilter = document.getElementById('type-filter');

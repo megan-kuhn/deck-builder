@@ -26,6 +26,4 @@ export function initAuth() {
     modalId: 'login-modal',
     closeButtonId: 'login-modal-close-button'
   });
-
-  console.log("Auth init ✅");
 }

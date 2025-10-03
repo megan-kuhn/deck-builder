@@ -13,7 +13,6 @@ export async function initApi(initialQuery = "game:paper") {
       return null;
     }
 
-    console.log("API init ✅");
     return data; // return it so UI/bootstrap can decide what to do next
   } catch (err) {
     console.error("API init failed:", err);

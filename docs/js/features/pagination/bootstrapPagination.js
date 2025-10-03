@@ -12,6 +12,4 @@ export function initPagination() {
     loadMoreBtn.addEventListener('click', loadMoreButtonClickHandler);
   }
   updateLoadMoreButtonVisibility();
-  
-  console.log("Pagination init ✅");
 }

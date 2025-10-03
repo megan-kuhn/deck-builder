@@ -2,10 +2,17 @@
 
 import { setupModal } from "../../shared/ui/modal.js";
 import { safeOverlayAttach } from '../../shared/utils/safeOverlay.js';
+import { handleNewDeckName } from '../handlers/newDeckHandler.js';
 
 let openModalFn, closeModalFn;
 
 export function initNewDeckModal() {
+  const modal = document.getElementById("new-deck-modal");
+  const newDeckBtn = document.getElementById("new-deck-button");
+
+  // Only run if the modal and button exist
+  if (!modal || !newDeckBtn) return;
+
   const modalControls = setupModal({
     modalId: "new-deck-modal",
     closeButtonId: "new-deck-modal-close-button",
@@ -19,7 +26,6 @@ export function initNewDeckModal() {
   const input = document.getElementById("deck-name-input");
   const error = document.getElementById("deck-name-error");
 
-  const modal = document.getElementById("new-deck-modal");
   modal.addEventListener("shown.bs.modal", () => {
     safeOverlayAttach(input);
   });
@@ -34,14 +40,16 @@ export function initNewDeckModal() {
       return;
     }
 
-    document.dispatchEvent(new CustomEvent("deckNameSubmitted", { detail: { name } }));
+    // Dispatch event and handle it immediately here
+    handleNewDeckName(name);
 
     input.value = "";
     error.style.display = "none";
     closeModalFn();
   });
-}
 
-export function openNewDeckModal() {
-  if (openModalFn) openModalFn();
+  // Automatically attach click to open the modal
+  newDeckBtn.addEventListener("click", () => {
+    if (openModalFn) openModalFn();
+  });
 }

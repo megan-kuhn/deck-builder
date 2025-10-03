@@ -4,6 +4,8 @@
 import { renderProfilePage } from "./renderProfilePage.js";
 
 export const initProfilePage = () => {
-  renderProfilePage();
+  const profileContainer = document.getElementById("profile-container");
+  if (profileContainer) {
+    renderProfilePage();
+  }
 };
-

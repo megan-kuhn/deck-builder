@@ -1,4 +1,4 @@
-// js/src/events/addToDeckHandler.js
+// js/features/card/handlers/addToDeckHandler.js
 
 import { addCardToDeck } from '../../deck/events/deckEvents.js';
 
