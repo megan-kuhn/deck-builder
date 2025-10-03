@@ -6,7 +6,14 @@ import { attachAddToDeckHandler } from '../handlers/addToDeckHandler.js';
 let openModalFn;
 
 export function initCardDetailsModal() {
+  const modal = document.getElementById("card-details-modal");
   const modalBody = document.getElementById("card-details-body");
+
+  // Bail out early if the modal or body isn’t found
+  if (!modal || !modalBody) {
+    console.warn("Card details modal not found — skipping initCardDetailsModal.");
+    return;
+  }
 
   // Setup the modal and store its open function
   const { openModal } = setupModal({ 
