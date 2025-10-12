@@ -1,10 +1,10 @@
-// js/features/auth/updateAuthUI.js
+// js/features/auth/ui/updateAuthUI.js
 
-import { isLoggedIn, getUser } from "../state/userState.js";
+import { isLoggedIn, getUser } from "../../state/userState.js";
 
 export default function updateAuthUI() {
   const loginBtn = document.querySelector("#login-modal-open-button");
-  const logoutBtn = document.querySelector("#logout-button"); // optional button
+  const logoutBtn = document.querySelector("#logout-button"); 
   const profileLink = document.querySelector("#profile-link");
 
   const user = getUser();

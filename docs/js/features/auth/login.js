@@ -1,6 +1,6 @@
 // js/features/auth/login.js
 import { setUser } from "../state/userState.js";
-import updateAuthUI from "./updateAuthUI.js";
+import updateAuthUI from "./ui/updateAuthUI.js";
 
 export function initLogin() {
   const loginForm = document.getElementById('login-form');
