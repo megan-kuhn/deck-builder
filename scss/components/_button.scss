@@ -149,6 +149,7 @@ button {
   @include button-secondary;
   @include button-full-width;
   @include button-medium;
+  margin-top: $Spacing--S;
 }
 
 #search-button {

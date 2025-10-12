@@ -278,6 +278,7 @@ button, .button {
   font-size: 1rem;
   border-radius: 6px;
   padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
 }
 
 #search-button {
@@ -504,6 +505,16 @@ select {
 }
 .modal__content h2:first-child {
   margin-top: 0;
+}
+
+#login-modal {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#login-modal .hidden {
+  display: none;
+}
+#login-modal .active {
+  display: block;
 }
 
 #card-details-modal .modal__scroll-container::after {

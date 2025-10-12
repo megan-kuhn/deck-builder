@@ -76,7 +76,7 @@ app.post('/register', async (req, res) => {
           console.error("SQLite insert error:", err);
           return res.status(500).send("Database error while inserting user");
         }
-        res.status(201).send("User registered successfully");
+        res.status(201).send("Your account has been created!");
       }
     );
   }

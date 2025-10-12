@@ -89,20 +89,44 @@
       <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
         <div class="modal__scroll-container" role="region" tabindex="0">
           <div class="modal__content">
-            <h2 id="login-modal-title">Sign In</h2>
-            <form id="login-form">
-              <label for="username">
-                Username
-                <input id="username" name="username" type="text" required />
-              </label>
-              <label for="password">
-                Password
-                <input id="password" name="password" type="password" required />
-              </label>
-              <button id="login-modal-sign-in-button" type="submit">Sign In</button>
-              <button id="login-modal-close-button" class="button--x-close" type="button"><span class="visually-hidden">Close</span></button>
-              <a id="create-account-button" href="signup.html" class="button">Create an Account</a>
-            </form>
+            <!-- Login -->
+            <div id="login-section" class="active">
+              <h2 id="login-modal-title">Sign In</h2>
+              <form id="login-form">
+                <label for="username">
+                  Username
+                  <input id="username" name="username" type="text" required />
+                </label>
+                <label for="password">
+                  Password
+                  <input id="password" name="password" type="password" required />
+                </label>
+                <button id="login-modal-sign-in-button" type="submit">Sign In</button>
+                <button id="login-modal-close-button" class="button--x-close" type="button"><span class="visually-hidden">Close</span></button>
+              </form> 
+              <button id="create-account-button" class="switch-to-signup">Create an Account</button>
+            </div>
+            <!-- Sign up -->
+            <div id="signup-section" class="hidden">
+              <button class="switch-to-login">&larr; Back to Sign In</button>
+              <h2 id="signup-form-title">Create an Account</h2>
+              <form id="signup-form">
+                <label for="email">
+                  Email
+                  <input id="signup-email" name="signup-email" type="email" required />
+                </label>
+                <label for="username">
+                  Username
+                  <input id="signup-username" name="signup-username" type="text" required />
+                </label>
+                <label for="password">
+                  Password 
+                  <input id="signup-password" name="signup-password" type="password" required />
+                </label>
+                <button id="signup-submit-button" class="switch-to-login" type="submit">Sign Up</button>
+              </form>
+              <p id="signup-message"></p>
+            </div>
           </div>
         </div>
       </div>

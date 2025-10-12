@@ -77,6 +77,18 @@
   }
 }
 
+#login-modal {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  
+  .hidden {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+}
+
 #card-details-modal {
   .modal__scroll-container { 
     @extend .modal__scroll-container--large;
