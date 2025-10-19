@@ -65,16 +65,11 @@ button {
     @include button-full-width();
   }
 
-  &--add-to-deck {
-    @include button-secondary;
-    @include button-small;
-    margin-top: $Spacing--XS
-  }
-
+  &--add-to-deck,
   &--detail-view {
     @include button-secondary;
     @include button-small;
-    margin-top: $Spacing--XS;
+    flex: 1;
   }
 
   &--x-close {
@@ -137,6 +132,13 @@ button {
   @include button-small;
 }
 
+#add-to-selected-deck-button,
+#add-to-deck_save-new-deck-button {
+  @include button-primary;
+  @include button-full-width;
+  @include button-medium;
+}
+
 #login-modal-sign-in-button,
 #save-new-deck-button {
   @include button-primary;
@@ -150,22 +152,6 @@ button {
   @include button-full-width;
   @include button-medium;
   margin-top: $Spacing--S;
-}
-
-#add-to-deck_save-new-deck-button  {
-  @include button-secondary;
-  @include button-full-width;
-  @include button-medium;
-}
-
-
-.current-deck-list-item {
-  @extend .button;
-  @include button-primary;
-  @include button-full-width;
-  @include button-medium;
-  margin-top: $Spacing--S;
-  text-align: left;
 }
 
 #search-button {

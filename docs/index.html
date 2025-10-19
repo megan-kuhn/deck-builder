@@ -37,8 +37,8 @@
           <!-- Search bar -->
           <fieldset>
             <legend class="visually-hidden">Search</legend>
+            <input type="text" id="search-input" placeholder="Search cards by name or keyword..." />
             <div class="form__row">
-              <input type="text" id="search-input" placeholder="Search cards by name or keyword..." />
               <button id="search-button" type="submit">Search</button>
               <button id="clear-search-button">Clear Search</button>
             </div>
@@ -158,7 +158,7 @@
                   required
                 />
               </label>
-              <p id="deck-name-error" aria-live="polite" style="display: none"></p>
+              <p id="deck-name-error" aria-live="polite" style="display: none" class="error"></p>
               <button type="submit" id="save-new-deck-button">Create New Deck</button>
             </form>
           </div>
@@ -174,9 +174,8 @@
             <!-- Existing decks list -->
             <div id="existing-decks-container">
               <h3>Add to an existing deck:</h3>
-              <ul id="existing-decks-list">
-                <!-- Decks will be rendered here -->
-              </ul>
+              <select id="existing-decks-select"></select>
+              <button id="add-to-selected-deck-button">Add to Selected Deck</button>
               <p id="add-to-deck_existing-deck-success-message" class="success" style="display:none;"></p>
             </div>
 
@@ -194,7 +193,7 @@
                   required
                 />
               </label>
-              <p id="add-to-deck_deck-name-error" aria-live="polite" style="display: none"></p>
+              <p id="add-to-deck_deck-name-error" aria-live="polite" style="display: none" class="error"></p>
               <button type="submit" id="add-to-deck_save-new-deck-button">Add to New Deck</button>
             </form>
             <p id="add-to-deck_new-deck-success-message" class="success" style="display:none;"></p>

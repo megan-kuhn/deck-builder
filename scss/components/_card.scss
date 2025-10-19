@@ -31,5 +31,12 @@
     font-size: $FontSize--S;
     margin-top: .25em;
   }
+
+  &__button-row {
+    display: flex;
+    justify-content: center;
+    gap: $Spacing--XS;
+    margin-top: $Spacing--XS;
+  }
 }
 

@@ -4,14 +4,12 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: $Spacing--M;
+  //gap: $Spacing--M;
 }
 
 fieldset {
   display: flex;
   flex-direction: column;
-  gap: $Spacing--M;
-  margin: $Spacing--M 0;
 }
 
 .legend {
@@ -56,6 +54,8 @@ select {
   border: $BorderWidth--XS solid $BorderColor--Default;
   background: $White;
   padding: $Spacing--S;
+  width: 100%;
+  margin: 0 0 $Spacing--M;
 }
 
 input[type="text"],
