@@ -1,4 +1,4 @@
-// js/src/dom/initDeckView.js
+// js/features/deck/initDeckView.js
 
 import { renderDeck } from './ui/deckContainer.js';
 
