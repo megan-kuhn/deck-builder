@@ -1,9 +1,9 @@
-// js/s../handlers/newDeckHandler.js
+// js/features/deck/handlers/newDeckHandler.js
 // This module handles what happens after a new deck name is submitted.
 // No DOM manipulation or modal logic here — just business logic + state.
 
 import { isLoggedIn } from '../../state/userState.js';
-import { createDeck } from '../data/deck.js';
+import { createDeck } from '../data/deckList.js';
 import { createDeckElement, renderActiveDeck } from '../ui/activeDeck.js';
 
 export function handleNewDeckName(deckName) {

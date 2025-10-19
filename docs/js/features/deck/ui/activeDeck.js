@@ -1,6 +1,6 @@
 // js/features/deck/ui/activeDeck.js
 
-import { getActiveDeck } from '../data/deck.js';
+import { getActiveDeck } from '../data/deckList.js';
 import { renderDeck } from './deckContainer.js';
 
 export function createDeckElement(deck) {

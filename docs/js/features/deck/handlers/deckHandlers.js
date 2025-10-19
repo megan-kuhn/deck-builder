@@ -1,6 +1,7 @@
-// js/features/deck/events/deckEvents.js
+// js/features/deck/handlers/deckHandlers.js
 
-import { addCard, removeCard, getActiveDeck } from '../data/deck.js';
+import { getActiveDeck } from '../data/deckList.js';
+import { addCard, removeCard } from '../data/deck.js';
 import { renderDeck } from '../ui/deckContainer.js';
 
 export function addCardToDeck(card) {
