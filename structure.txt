@@ -13,50 +13,54 @@
 │   │   ├── app.js
 │   │   └── features
 │   │       ├── api
+│   │       │   ├── bootstrapApi.js
 │   │       │   ├── fetchCards.js
 │   │       │   └── updateState.js
 │   │       ├── auth
+│   │       │   ├── bootstrapAuth.js
 │   │       │   ├── login.js
 │   │       │   ├── logout.js
 │   │       │   ├── signup.js
 │   │       │   └── ui
+│   │       │       ├── toggleAuthForms.js
 │   │       │       └── updateAuthUI.js
 │   │       ├── card
+│   │       │   ├── bootstrapCard.js
 │   │       │   ├── handlers
 │   │       │   │   └── addToDeckHandler.js
 │   │       │   └── ui
 │   │       │       ├── card.js
 │   │       │       └── cardDetailsModal.js
 │   │       ├── deck
+│   │       │   ├── bootstrapNewDeck.js
 │   │       │   ├── data
-│   │       │   │   └── deck.js
-│   │       │   ├── events
-│   │       │   │   └── deckEvents.js
+│   │       │   │   ├── deck.js
+│   │       │   │   └── deckList.js
 │   │       │   ├── handlers
+│   │       │   │   ├── deckHandlers.js
 │   │       │   │   └── newDeckHandler.js
 │   │       │   ├── initDeckView.js
 │   │       │   └── ui
 │   │       │       ├── activeDeck.js
 │   │       │       ├── deckContainer.js
+│   │       │       ├── newDeck.js
 │   │       │       └── newDeckModal.js
 │   │       ├── filters
 │   │       │   ├── getSelectedColors.js
-│   │       │   └── ui
-│   │       │       └── renderColorFilters.js
+│   │       │   └── renderColorFilters.js
 │   │       ├── pagination
+│   │       │   ├── bootstrapPagination.js
 │   │       │   ├── events
 │   │       │   │   └── loadMoreButtonClickHandler.js
 │   │       │   └── ui
 │   │       │       ├── setupLoadMoreButton.js
 │   │       │       └── updateLoadMoreButton.js
 │   │       ├── profile
-│   │       │   ├── events
-│   │       │   │   └── logout.js
 │   │       │   ├── initProfilePage.js
-│   │       │   └── ui
-│   │       │       └── renderProfilePage.js
+│   │       │   └── renderProfilePage.js
 │   │       ├── search
 │   │       │   ├── applySearchAndFilters.js
+│   │       │   ├── bootstrapSearch.js
 │   │       │   ├── events
 │   │       │   │   └── triggerUpdateAfterSearch.js
 │   │       │   ├── initSearch.js
@@ -75,8 +79,7 @@
 │   │           ├── pagination.js
 │   │           ├── selectors.js
 │   │           └── userState.js
-│   ├── my-profile.html
-│   └── signup.html
+│   └── my-profile.html
 ├── package-lock.json
 ├── package.json
 ├── scss
@@ -119,4 +122,4 @@
 ├── structure.txt
 └── zshrc
 
-43 directories, 77 files
+39 directories, 84 files

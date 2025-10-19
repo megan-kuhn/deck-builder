@@ -6,6 +6,10 @@ import { getActiveDeck } from './deckList.js';
 
 export function addCardToDeckData(deck, card) {
   if (!deck) return;
+
+  // Ensure cards array exists
+  if (!deck.cards) deck.cards = [];
+
   const existing = deck.cards.find(c => c.id === card.id);
   if (existing) existing.quantity++;
   else deck.cards.push({ ...card, quantity: 1 });
