@@ -4,7 +4,8 @@
 
 import { isLoggedIn } from '../../state/userState.js';
 import { createDeck } from '../data/deckList.js';
-import { createDeckElement, renderActiveDeck } from '../ui/activeDeck.js';
+import { createDeckElement } from '../ui/newDeck.js';
+import { renderActiveDeck } from '../ui/activeDeck.js';
 
 export function handleNewDeckName(deckName) {
   const cleanName = deckName.trim();
