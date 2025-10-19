@@ -11,7 +11,7 @@ export function initNewDeckModal() {
   const newDeckBtn = document.getElementById("new-deck-button");
 
   // Only run if the modal and button exist
-  if (!modal || !newDeckBtn) return;
+  if (!modal || !newDeckBtn) return; 
 
   const modalControls = setupModal({
     modalId: "new-deck-modal",

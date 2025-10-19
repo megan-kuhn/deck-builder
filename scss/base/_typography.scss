@@ -22,3 +22,8 @@ h2 {
   font-size: clamp($FontSize--XL, 3vw, 3rem);
   font-weight: $FontWeight--Bold;
 }
+
+h3 {
+  font-size: clamp($FontSize--L, 2vw, 2rem);
+  font-weight: $FontWeight--Bold;
+}

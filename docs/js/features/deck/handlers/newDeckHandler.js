@@ -6,14 +6,18 @@ import { isLoggedIn } from '../../state/userState.js';
 import { createDeck } from '../data/deckList.js';
 import { createDeckElement } from '../ui/newDeck.js';
 import { renderActiveDeck } from '../ui/activeDeck.js';
+import { addCardToDeckData } from '../data/deck.js';
 
-export function handleNewDeckName(deckName) {
+export function handleNewDeckName(deckName, cardToAdd = null) {
   const cleanName = deckName.trim();
   if (!cleanName) return;
 
   if (!isLoggedIn()) console.warn('User not logged in');
 
   const newDeck = createDeck(cleanName);
+
+  // Add the card if provided
+  if (cardToAdd) addCardToDeckData(newDeck, cardToAdd);
 
   const container = document.getElementById('deck-section');
   if (!container) return;
@@ -22,4 +26,6 @@ export function handleNewDeckName(deckName) {
   container.appendChild(deckEl);
 
   renderActiveDeck();
+
+  return newDeck;
 }
