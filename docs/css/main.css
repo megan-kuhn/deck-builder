@@ -75,6 +75,11 @@ h2 {
   font-weight: 700;
 }
 
+h3 {
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-weight: 700;
+}
+
 html {
   font-size: 16px;
 }
@@ -135,7 +140,7 @@ footer p {
   text-align: center;
 }
 
-button, .button {
+button, .button, .current-deck-list-item {
   background: none;
   height: fit-content;
   width: fit-content;
@@ -281,6 +286,26 @@ button, .button {
   margin-top: 0.5rem;
 }
 
+#add-to-deck_save-new-deck-button {
+  background: #495057;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+.current-deck-list-item {
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
 #search-button {
   background: #000000;
   color: #ffffff;
@@ -337,6 +362,10 @@ button, .button {
   gap: 1rem;
   padding: 1rem clamp(0.5rem, 3vw, 2rem);
   margin: 2rem 0;
+}
+
+#existing-decks-container {
+  margin: 0 0 2rem;
 }
 
 .single-card-container {
@@ -459,7 +488,8 @@ select {
   padding: 0;
 }
 .modal__scroll-container--small, #login-modal .modal__scroll-container,
-#new-deck-modal .modal__scroll-container {
+#new-deck-modal .modal__scroll-container,
+#add-to-deck-modal .modal__scroll-container {
   border-radius: 4px;
   height: auto;
   width: clamp(300px, 100vw, 400px);
@@ -497,13 +527,14 @@ select {
   border-radius: 8px;
 }
 .modal__content--small, #login-modal .modal__content,
-#new-deck-modal .modal__content {
+#new-deck-modal .modal__content,
+#add-to-deck-modal .modal__content {
   padding: 3vh 3vw;
 }
 .modal__content--large, #card-details-modal .modal__content {
   padding: 6vh 6vw;
 }
-.modal__content h2:first-child {
+.modal__content :is(h1, h2, h3, h4, h5, h6):first-of-type {
   margin-top: 0;
 }
 
@@ -689,6 +720,10 @@ details[open] > summary::after {
 }
 .scrollable::-webkit-scrollbar-thumb:hover {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.success {
+  color: #28a745;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -159,8 +159,45 @@
                 />
               </label>
               <p id="deck-name-error" aria-live="polite" style="display: none"></p>
-              <button type="submit" id="save-new-deck-button">Save</button>
+              <button type="submit" id="save-new-deck-button">Create New Deck</button>
             </form>
+          </div>
+        </div>
+      </div>
+      <!-- Add to Deck Modal -->
+      <div id="add-to-deck-modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="add-to-deck-modal-title">
+        <div class="modal__scroll-container" role="region" tabindex="0">
+          <div class="modal__content">
+            <h2 id="add-to-deck-modal-title" class="visually-hidden">Add Card</h2>
+            <button id="add-to-deck-modal-close-button" class="button--x-close"><span class="visually-hidden">Close</span></button>
+            
+            <!-- Existing decks list -->
+            <div id="existing-decks-container">
+              <h3>Add to an existing deck:</h3>
+              <ul id="existing-decks-list">
+                <!-- Decks will be rendered here -->
+              </ul>
+              <p id="add-to-deck_existing-deck-success-message" class="success" style="display:none;"></p>
+            </div>
+
+            <!-- New deck form -->
+            <h3>Add to a new deck:</h3>
+            <form id="add-to-deck_new-deck-form" novalidate>
+              <label>
+                Deck Name
+                <input
+                  id="add-to-deck_deck-name-input"
+                  name="deck-name"
+                  type="text"
+                  maxlength="80"
+                  placeholder="Enter deck name"
+                  required
+                />
+              </label>
+              <p id="add-to-deck_deck-name-error" aria-live="polite" style="display: none"></p>
+              <button type="submit" id="add-to-deck_save-new-deck-button">Add to New Deck</button>
+            </form>
+            <p id="add-to-deck_new-deck-success-message" class="success" style="display:none;"></p>
           </div>
         </div>
       </div>

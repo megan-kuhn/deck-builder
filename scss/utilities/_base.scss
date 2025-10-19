@@ -7,3 +7,7 @@
 .scrollable {
   @include scrollable();
 }
+
+.success {
+  color: $Success--Main;
+}

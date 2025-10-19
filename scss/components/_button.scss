@@ -152,6 +152,22 @@ button {
   margin-top: $Spacing--S;
 }
 
+#add-to-deck_save-new-deck-button  {
+  @include button-secondary;
+  @include button-full-width;
+  @include button-medium;
+}
+
+
+.current-deck-list-item {
+  @extend .button;
+  @include button-primary;
+  @include button-full-width;
+  @include button-medium;
+  margin-top: $Spacing--S;
+  text-align: left;
+}
+
 #search-button {
   @include button-primary;
   @include button-medium;
