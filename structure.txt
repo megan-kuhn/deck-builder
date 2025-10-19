@@ -42,6 +42,7 @@
 │   │       │   ├── initDeckView.js
 │   │       │   └── ui
 │   │       │       ├── activeDeck.js
+│   │       │       ├── addToDeckModal.js
 │   │       │       ├── deckContainer.js
 │   │       │       ├── newDeck.js
 │   │       │       └── newDeckModal.js
@@ -122,4 +123,4 @@
 ├── structure.txt
 └── zshrc
 
-39 directories, 84 files
+39 directories, 85 files

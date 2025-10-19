@@ -40,9 +40,11 @@ details  {
   @include button-medium();
   @include button-full-width();
   background: $Background--Alt;
+  margin-top: $Spacing--S;
 
   > summary {
-    width: fit-content; 
+    width: 100%;
+    text-align: center; 
     margin: 0 auto;
   }
 }
