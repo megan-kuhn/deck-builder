@@ -181,3 +181,19 @@ button {
   @include button-secondary;
   @include button-small;
 }
+
+.qty-stepper__btn {
+  height: 2.5em;
+  width: 2.5em;
+  flex-shrink: 0;
+  border: $BorderWidth--XS solid $BorderColor--Default;
+  background: $White;
+
+  &--decrement {
+    border-radius: 50% 4px 4px 50%;
+  }
+
+  &--increment {
+    border-radius: 4px 50% 50% 4px;
+  }
+}
