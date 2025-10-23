@@ -89,7 +89,7 @@ html {
   font-size: 1rem;
 }
 * :focus {
-  outline: 3px solid #007bff;
+  outline: 2px solid #007bff;
   outline-offset: 2px;
 }
 
@@ -331,6 +331,20 @@ button, .button {
   padding: calc(0.25rem + 2px) 0.5rem 0.25rem;
 }
 
+.qty-stepper__btn {
+  height: 2.5em;
+  width: 2.5em;
+  flex-shrink: 0;
+  border: 1px solid #dee2e6;
+  background: #ffffff;
+}
+.qty-stepper__btn--decrement {
+  border-radius: 50% 4px 4px 50%;
+}
+.qty-stepper__btn--increment {
+  border-radius: 4px 50% 50% 4px;
+}
+
 #search-results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -353,6 +367,7 @@ button, .button {
 .single-card-container {
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
   background: #e9ecef;
   padding: 0.5rem;
   border-radius: 8px;
@@ -367,7 +382,6 @@ button, .button {
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-top: 0;
-  margin-bottom: 0.25em;
 }
 .card__image {
   width: 100%;
@@ -382,7 +396,6 @@ button, .button {
   display: flex;
   justify-content: center;
   gap: 0.25rem;
-  margin-top: 0.25rem;
 }
 
 form {
@@ -446,6 +459,16 @@ input[type=url],
 input[type=tel],
 select {
   height: 2.5em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .modal {
@@ -677,6 +700,19 @@ details[open] > summary::after {
 .deck-element > summary {
   width: fit-content;
   margin: 0 auto;
+}
+
+.qty-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 1rem;
+}
+.qty-stepper__input {
+  text-align: center;
+  margin: 0;
+  max-width: 3.5em;
 }
 
 .visually-hidden {

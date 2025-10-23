@@ -7,7 +7,7 @@ import { getActiveDeck } from './deckList.js';
 export function addCardToDeckData(deck, card) {
   if (!deck) return;
 
-  // Ensure cards array exists
+  // Ensure cards array exists 
   if (!deck.cards) deck.cards = [];
 
   const existing = deck.cards.find(c => c.id === card.id);
@@ -19,6 +19,20 @@ export function removeCardFromDeckData(deck, cardId) {
   if (!deck) return;
   deck.cards = deck.cards.filter(c => c.id !== cardId);
 }
+
+export function updateCardQty(deck, cardId, newQty) {
+  if (!deck || !deck.cards) return;
+
+  const existing = deck.cards.find(c => c.id === cardId);
+  if (!existing) return;
+
+  if (newQty <= 0) {
+    deck.cards = deck.cards.filter(c => c.id !== cardId);
+  } else {
+    existing.quantity = newQty;
+  }
+}
+
 
 // --- Convenience functions for active deck ---
 

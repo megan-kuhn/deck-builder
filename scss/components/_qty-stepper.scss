@@ -1,0 +1,15 @@
+@use '../abstracts/index' as *;
+
+.qty-stepper {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: $Spacing--XS;
+  font-size: 1rem;
+
+  &__input {
+    text-align: center;
+    margin: 0;
+    max-width: 3.5em;
+  }
+}
