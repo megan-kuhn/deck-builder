@@ -99,6 +99,9 @@ export function initAddToDeckModal() {
     const deckName = newDeckInput.value.trim();
     if (!deckName) return;
 
+    // Check if this is the first deck
+    const hadNoDecks = getDecks().length === 0;
+
     const newDeck = handleNewDeckName(deckName, currentCard);
 
     newDeckSuccessMsg.textContent = `New deck "${deckName}" created and card added!`;
@@ -113,9 +116,12 @@ export function initAddToDeckModal() {
     // Reset input and button
     newDeckInput.value = '';
     addToNewDeckButton.textContent = 'Add to New Deck';
-    renderExistingDecks(); // Refresh the select list
-  });
 
+    // 🔹 Only refresh deck list if the user already had decks
+    if (!hadNoDecks) {
+      renderExistingDecks();
+    }
+  });
 
   // ---- OPEN MODAL ----
   function openModal(cardData) {
