@@ -1,7 +1,7 @@
 // js/features/shared/ui/modal.js
-
 let activeModal = null;
 let previouslyHiddenSiblings = [];
+let lastFocusedElement = null;
 
 export function setupModal({ openButtonId, modalId, closeButtonId }) {
   const openBtn = openButtonId ? document.getElementById(openButtonId) : null;
@@ -23,8 +23,8 @@ export function setupModal({ openButtonId, modalId, closeButtonId }) {
     const parent = modal.parentElement;
     if (!parent) return;
     Array.from(parent.children).forEach((el) => {
-      if (el !== modal && !el.hasAttribute('aria-hidden')) {
-        el.setAttribute('aria-hidden', 'true');
+      if (el !== modal && !el.hasAttribute("aria-hidden")) {
+        el.setAttribute("aria-hidden", "true");
         previouslyHiddenSiblings.push(el);
       }
     });
@@ -32,42 +32,60 @@ export function setupModal({ openButtonId, modalId, closeButtonId }) {
 
   // Helper: Restore aria-hidden on siblings
   function restoreSiblings() {
-    previouslyHiddenSiblings.forEach((el) => el.removeAttribute('aria-hidden'));
+    previouslyHiddenSiblings.forEach((el) => el.removeAttribute("aria-hidden"));
     previouslyHiddenSiblings = [];
   }
 
-  function openModal() {
-    modal.setAttribute('aria-hidden', 'false');
-    modal.classList.add('open');
-    modal.style.display = 'flex';
-    document.body.classList.add('body--no-scroll'); // 🔒 lock scroll
+  function openModal(triggerEl = null) {
+    // Remember who opened this modal
+    lastFocusedElement = triggerEl || document.activeElement;
+
+    modal.setAttribute("aria-hidden", "false");
+    modal.classList.add("open");
+    modal.style.display = "flex";
+    document.body.classList.add("body--no-scroll");
     activeModal = modal;
     hideSiblings();
-    getFocusableElements()[0]?.focus();
+
+    // Focus the first element inside
+    const focusable = getFocusableElements();
+    if (focusable.length > 0) {
+      focusable[0].focus();
+    }
   }
 
   function closeModal() {
-    modal.setAttribute('aria-hidden', 'true');
-    modal.classList.remove('open');
-    modal.style.display = 'none';
-    document.body.classList.remove('body--no-scroll'); // 🔓 unlock scroll
+    modal.setAttribute("aria-hidden", "true");
+    modal.classList.remove("open");
+    modal.style.display = "none";
     activeModal = null;
     restoreSiblings();
 
-    // ✅ Only try to focus if the open button still exists in DOM
-    if (openBtn && document.body.contains(openBtn)) {
+    requestAnimationFrame(() => {
+      document.body.classList.remove("body--no-scroll");
+    });
+
+    // Dispatch a close event for external cleanup hooks
+    modal.dispatchEvent(new Event("close"));
+
+    // Restore focus universally
+    if (lastFocusedElement && document.body.contains(lastFocusedElement)) {
+      setTimeout(() => lastFocusedElement.focus(), 50);
+    } else if (openBtn && document.body.contains(openBtn)) {
       setTimeout(() => openBtn.focus(), 50);
     }
   }
 
-  // Attach openBtn if it exists
-  if (openBtn) openBtn.addEventListener('click', openModal);
+  // Attach open button if present
+  if (openBtn) {
+    openBtn.addEventListener("click", (e) => openModal(e.currentTarget));
+  }
 
-  closeBtn.addEventListener('click', closeModal);
+  closeBtn.addEventListener("click", closeModal);
 
   // Keyboard trap
-  modal.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
+  modal.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") {
       const focusable = Array.from(getFocusableElements());
       if (focusable.length === 0) return;
       const first = focusable[0];
@@ -82,19 +100,20 @@ export function setupModal({ openButtonId, modalId, closeButtonId }) {
     }
   });
 
-  // Close on Escape key (only if this modal is active)
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && activeModal === modal && modal.style.display !== 'none') {
+  // Close on Escape (only active modal)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && activeModal === modal && modal.style.display !== "none") {
       closeModal();
     }
   });
 
-  // Optional: Close when clicking outside modal content (unless destructive)
-  modal.addEventListener('mousedown', (e) => {
-    const isDestructive = modal.classList.contains('modal--destructive');
-    if (e.target === modal && !isDestructive) closeModal();
+  // Close when clicking outside content (desktop + mobile)
+  ["mousedown", "touchstart"].forEach((evt) => {
+    modal.addEventListener(evt, (e) => {
+      const isDestructive = modal.classList.contains("modal--destructive");
+      if (e.target === modal && !isDestructive) closeModal();
+    });
   });
 
-  // Return control functions
   return { openModal, closeModal };
 }
