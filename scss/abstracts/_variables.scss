@@ -3,17 +3,17 @@
 // ------------------------------------------------------
 
 $White: #ffffff;
-$Black: #000000;
+$Black: rgb(14, 14, 15);
 
-$Gray-100: #f8f9fa;
-$Gray-200: #e9ecef;
+$Gray-100: #f3f5fb;
+$Gray-200: rgb(231, 235, 244);
 $Gray-300: #dee2e6;
 $Gray-400: #ced4da;
 $Gray-500: #adb5bd;
 $Gray-600: #6c757d;
 $Gray-700: #495057;
 $Gray-800: #343a40;
-$Gray-900: #212529;
+$Gray-900: rgb(30, 34, 63);
 
 $Blue-100: #cce5ff;
 $Blue-500: #007bff;
@@ -51,7 +51,7 @@ $BorderRadius--M: 6px;
 $BorderRadius--L: 8px;
 
 // Buttons
-$ButtonBackground--Primary: $Black;
+$ButtonBackground--Primary: $Gray-900;
 $ButtonBackground--PrimaryHover: $Gray-800;
 $ButtonBackground--Secondary: $Gray-700;
 $ButtonBackground--SecondaryHover: $Gray-600;

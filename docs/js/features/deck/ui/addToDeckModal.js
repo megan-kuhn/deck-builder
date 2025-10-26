@@ -94,13 +94,16 @@ export function initAddToDeckModal() {
     addToNewDeckButton.textContent = name ? `Create ${name} & Add` : 'Create Deck & Add';
   });
 
+  // ---- HANDLE NEW DECK CREATION ----
   newDeckForm.addEventListener('submit', e => {
     e.preventDefault();
     const deckName = newDeckInput.value.trim();
     if (!deckName) return;
 
-    // Check if this is the first deck
     const hadNoDecks = getDecks().length === 0;
+
+    // Preserve current selection before creating the new deck
+    const previouslySelectedDeckId = decksSelect.value;
 
     const newDeck = handleNewDeckName(deckName, currentCard);
 
@@ -120,6 +123,14 @@ export function initAddToDeckModal() {
     // 🔹 Only refresh deck list if the user already had decks
     if (!hadNoDecks) {
       renderExistingDecks();
+
+      // Restore the previously selected deck (if it still exists)
+      if (previouslySelectedDeckId) {
+        decksSelect.value = previouslySelectedDeckId;
+
+        // Re-trigger the change event to update the "Add to ..." button label
+        decksSelect.dispatchEvent(new Event('change'));
+      }
     }
   });
 
