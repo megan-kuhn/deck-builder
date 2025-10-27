@@ -13,13 +13,13 @@
 @mixin button-small {
   font-size: $FontSize--S;
   border-radius: $BorderRadius--S;
-  padding: calc($Spacing--XS + 2px) $Spacing--S $Spacing--XS;
+  padding: .5em 1em
 }
 
 @mixin button-medium {
   font-size: $FontSize--M;
   border-radius: $BorderRadius--M;
-  padding: $Spacing--S $Spacing--M;
+  padding: .5em 1em;
 }
 
 @mixin button-full-width {
@@ -132,11 +132,11 @@ button {
   @include button-small;
 }
 
-#add-to-selected-deck-button,
-#add-to-deck_save-new-deck-button {
+#add-to-existing-deck-button,
+#add-to-new-deck-button {
   @include button-primary;
-  @include button-full-width;
   @include button-medium;
+  flex: 1;
 }
 
 #login-modal-sign-in-button,
@@ -183,17 +183,17 @@ button {
 }
 
 .qty-stepper__btn {
-  height: 2.5em;
-  width: 2.5em;
+  @include button-medium;
+  width: 2em;
   flex-shrink: 0;
   border: $BorderWidth--XS solid $BorderColor--Default;
   background: $White;
 
   &--decrement {
-    border-radius: 50% 4px 4px 50%;
+    border-radius: 80% 4px 4px 80%;
   }
 
   &--increment {
-    border-radius: 4px 50% 50% 4px;
+    border-radius: 4px 80% 80% 4px;
   }
 }

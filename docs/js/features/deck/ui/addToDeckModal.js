@@ -2,46 +2,100 @@
 
 import { getDecks } from '../data/deckList.js';
 import { handleNewDeckName } from '../handlers/newDeckHandler.js';
-import { addCardToDeckData } from '../data/deck.js';
+import { addCardToDeck } from '../handlers/deckHandlers.js'; // centralized handler
 import { renderDeck } from './deckContainer.js';
 import { setupModal } from '../../shared/ui/modal.js';
+import { createQtyStepper } from '../../shared/ui/qtyStepper.js';
 
 export function initAddToDeckModal() {
   const modalId = 'add-to-deck-modal';
   const closeButtonId = 'add-to-deck-modal-close-button';
 
-  // Initialize shared modal behavior
-  const modalControls = setupModal({ modalId, closeButtonId });
-  if (!modalControls) return {}; // Exit early if modal isn't present
-
-  const { openModal: openSharedModal, closeModal } = modalControls;
-
-  // ---- DOM ELEMENTS ----
   const modal = document.getElementById(modalId);
-  const decksSelect = modal.querySelector('#existing-decks-select');
-  const existingDecksContainer = modal.querySelector('#existing-decks-container');
-  const addToSelectedDeckButton = modal.querySelector('#add-to-selected-deck-button');
-  const existingDecksSuccessMsg = modal.querySelector('#add-to-deck_existing-deck-success-message');
+  if (!modal) return {}; // exit if modal isn't in DOM
 
-  const newDeckForm = modal.querySelector('#add-to-deck_new-deck-form');
-  const newDeckInput = modal.querySelector('#add-to-deck_deck-name-input');
-  const newDeckSuccessMsg = modal.querySelector('#add-to-deck_new-deck-success-message');
+  const decksSelect = modal.querySelector('#add-to-existing-deck-select');
+  const existingDecksContainer = modal.querySelector('#add-to-existing-deck-container');
+  const addToSelectedDeckButton = modal.querySelector('#add-to-existing-deck-button');
+  const existingDecksSuccessMsg = modal.querySelector('#add-to-existing-deck-success-message');
+
+  const newDeckForm = modal.querySelector('#add-to-new-deck-form');
+  const newDeckInput = modal.querySelector('#add-to-new-deck-name-input');
+  const addToNewDeckButton = newDeckForm.querySelector('#add-to-new-deck-button');
+  const newDeckSuccessMsg = modal.querySelector('#add-to-new-deck-success-message');
+
+  // Setup shared modal
+  const modalControls = setupModal({ modalId, closeButtonId });
+  if (!modalControls) return {};
+  const { openModal: openSharedModal, closeModal } = modalControls;
 
   let currentCard = null;
 
-  // ---- RENDER EXISTING DECKS ----
+  // ---- Quantity Steppers ----
+  let existingDeckQty = 1;
+  let newDeckQty = 1;
+
+  const existingDeckStepper = createQtyStepper({
+    initial: 1,
+    min: 1,
+    max: 999999,
+    onChange: (val) => (existingDeckQty = val),
+  });
+
+  const newDeckStepper = createQtyStepper({
+    initial: 1,
+    min: 1,
+    max: 999999,
+    onChange: (val) => (newDeckQty = val),
+  });
+
+  // ---- Wrap existing deck stepper + button ----
+  if (addToSelectedDeckButton?.parentNode && existingDecksSuccessMsg) {
+  const existingParent = addToSelectedDeckButton.parentNode;
+
+  const existingRow = document.createElement('div');
+  existingRow.classList.add('form__row');
+
+  // Move stepper + button into the row
+  existingRow.appendChild(existingDeckStepper.element);
+  existingRow.appendChild(addToSelectedDeckButton);
+
+  // Append the row
+  existingParent.appendChild(existingRow);
+
+  // Move the success message to be after the row
+  existingParent.appendChild(existingDecksSuccessMsg);
+}
+
+
+  // ---- Wrap new deck stepper + button ----
+  if (addToNewDeckButton?.parentNode) {
+    const newParent = addToNewDeckButton.parentNode;
+
+    const newRow = document.createElement('div');
+    newRow.classList.add('form__row');
+
+    // Move button into the row
+    newRow.appendChild(newDeckStepper.element);
+    newRow.appendChild(addToNewDeckButton);
+
+    newParent.appendChild(newRow);
+  }
+
+
+  // ---- Render Existing Decks ----
   function renderExistingDecks() {
+    if (!decksSelect) return;
     const decks = getDecks();
-    decksSelect.innerHTML = ''; // Clear old options
+    decksSelect.innerHTML = '';
 
     if (decks.length === 0) {
-      existingDecksContainer.style.display = 'none';
+      if (existingDecksContainer) existingDecksContainer.style.display = 'none';
       return;
     }
 
-    existingDecksContainer.style.display = 'block';
+    if (existingDecksContainer) existingDecksContainer.style.display = 'block';
 
-    // Placeholder option
     const placeholder = document.createElement('option');
     placeholder.value = '';
     placeholder.textContent = '-- Select a deck --';
@@ -49,8 +103,7 @@ export function initAddToDeckModal() {
     placeholder.selected = true;
     decksSelect.appendChild(placeholder);
 
-    // Deck options
-    decks.forEach(deck => {
+    decks.forEach((deck) => {
       const option = document.createElement('option');
       option.value = deck.id;
       option.textContent = deck.name;
@@ -58,91 +111,95 @@ export function initAddToDeckModal() {
     });
   }
 
-  // ---- HANDLE EXISTING DECK SELECTION ----
-  decksSelect.addEventListener('change', () => {
-    const selectedDeckName = decksSelect.options[decksSelect.selectedIndex]?.textContent;
-    addToSelectedDeckButton.textContent = selectedDeckName
-      ? `Add to ${selectedDeckName}`
-      : 'Add to Selected Deck';
-  });
+  // ---- Existing Deck Selection ----
+  if (decksSelect) {
+    decksSelect.addEventListener('change', () => {
+      const selectedDeckName = decksSelect.options[decksSelect.selectedIndex]?.textContent;
+      if (addToSelectedDeckButton) {
+        addToSelectedDeckButton.textContent = 'Add to Deck';
+      }
+    });
+  }
 
-  // ---- HANDLE ADDING CARD TO EXISTING DECK ----
+// ---- Add to Existing Deck ----
+if (addToSelectedDeckButton && decksSelect) {
   addToSelectedDeckButton.addEventListener('click', () => {
-    const selectedDeckId = decksSelect.value;
-    if (!selectedDeckId) return;
+    if (!currentCard) return;
 
-    const deck = getDecks().find(d => d.id === selectedDeckId);
+    // Convert select value to match deck ID type
+    const selectedDeckId = decksSelect.value;
+    const deck = getDecks().find((d) => String(d.id) === selectedDeckId);
     if (!deck) return;
 
-    addCardToDeckData(deck, currentCard);
+    // Add card to deck using centralized handler and quantity
+    addCardToDeck(currentCard, existingDeckQty, deck);
 
-    existingDecksSuccessMsg.textContent = `Card added to ${deck.name}`;
-    existingDecksSuccessMsg.style.display = 'block';
-
-    renderDeck(
-      document.querySelector(`.deck-element[data-deck-id="${deck.id}"] .deck-container`),
-      deck.cards
-    );
-  });
-
-  // ---- HANDLE NEW DECK CREATION ----
-  const addToNewDeckButton = newDeckForm.querySelector('button[type="submit"]');
-
-  // Update button label live as user types
-  newDeckInput.addEventListener('input', () => {
-    const name = newDeckInput.value.trim();
-    addToNewDeckButton.textContent = name ? `Create ${name} & Add` : 'Create Deck & Add';
-  });
-
-  // ---- HANDLE NEW DECK CREATION ----
-  newDeckForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const deckName = newDeckInput.value.trim();
-    if (!deckName) return;
-
-    const hadNoDecks = getDecks().length === 0;
-
-    // Preserve current selection before creating the new deck
-    const previouslySelectedDeckId = decksSelect.value;
-
-    const newDeck = handleNewDeckName(deckName, currentCard);
-
-    newDeckSuccessMsg.textContent = `New deck "${deckName}" created and card added!`;
-    newDeckSuccessMsg.style.display = 'block';
-
-    // Render the new deck in the UI
-    renderDeck(
-      document.querySelector(`.deck-element[data-deck-id="${newDeck.id}"] .deck-container`),
-      newDeck.cards
-    );
-
-    // Reset input and button
-    newDeckInput.value = '';
-    addToNewDeckButton.textContent = 'Add to New Deck';
-
-    // 🔹 Only refresh deck list if the user already had decks
-    if (!hadNoDecks) {
-      renderExistingDecks();
-
-      // Restore the previously selected deck (if it still exists)
-      if (previouslySelectedDeckId) {
-        decksSelect.value = previouslySelectedDeckId;
-
-        // Re-trigger the change event to update the "Add to ..." button label
-        decksSelect.dispatchEvent(new Event('change'));
-      }
+    // Show success message below button
+    if (existingDecksSuccessMsg) {
+      existingDecksSuccessMsg.textContent = `${existingDeckQty} card${existingDeckQty > 1 ? 's' : ''} added to ${deck.name}`;
+      existingDecksSuccessMsg.style.display = 'block';
     }
-  });
 
-  // ---- OPEN MODAL ----
+    // Re-render that deck in the UI
+    const container = document.querySelector(`.deck-element[data-deck-id="${deck.id}"] .deck-container`);
+    if (container) renderDeck(container, deck.cards);
+  });
+}
+
+
+  // ---- Create + Add to New Deck ----
+  if (newDeckForm && newDeckInput && addToNewDeckButton) {
+    newDeckInput.addEventListener('input', () => {
+      addToNewDeckButton.textContent = 'Add to New Deck';
+    });
+
+    newDeckForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const deckName = newDeckInput.value.trim();
+      if (!deckName || !currentCard) return;
+
+      const hadNoDecks = getDecks().length === 0;
+      const previouslySelectedDeckId = decksSelect?.value;
+
+      const newDeck = handleNewDeckName(deckName, currentCard);
+
+      // Apply new deck quantity
+      const cardInDeck = newDeck.cards.find((c) => c.id === currentCard.id);
+      if (cardInDeck) cardInDeck.quantity = newDeckQty;
+
+      if (newDeckSuccessMsg) {
+        newDeckSuccessMsg.textContent = `${newDeckQty} card${newDeckQty > 1 ? 's' : ''} added to ${deckName}`;
+        newDeckSuccessMsg.style.display = 'block';
+      }
+
+      const container = document.querySelector(`.deck-element[data-deck-id="${newDeck.id}"] .deck-container`);
+      if (container) renderDeck(container, newDeck.cards);
+
+      newDeckInput.value = '';
+      addToNewDeckButton.textContent = 'Add to New Deck';
+
+      if (!hadNoDecks && decksSelect) {
+        renderExistingDecks();
+        if (previouslySelectedDeckId) {
+          decksSelect.value = previouslySelectedDeckId;
+          decksSelect.dispatchEvent(new Event('change'));
+        }
+      }
+    });
+  }
+
+  // ---- Open Modal ----
   function openModal(cardData) {
     currentCard = cardData;
+    existingDeckQty = 1;
+    newDeckQty = 1;
+    existingDeckStepper.updateValue(1);
+    newDeckStepper.updateValue(1);
 
-    // Reset modal UI state
-    addToSelectedDeckButton.textContent = 'Add to Selected Deck';
-    existingDecksSuccessMsg.style.display = 'none';
-    newDeckSuccessMsg.style.display = 'none';
-    newDeckInput.value = '';
+    if (addToSelectedDeckButton) addToSelectedDeckButton.textContent = 'Add to Deck';
+    if (existingDecksSuccessMsg) existingDecksSuccessMsg.style.display = 'none';
+    if (newDeckSuccessMsg) newDeckSuccessMsg.style.display = 'none';
+    if (newDeckInput) newDeckInput.value = '';
 
     renderExistingDecks();
     openSharedModal();
@@ -150,3 +207,4 @@ export function initAddToDeckModal() {
 
   return { openModal, closeModal };
 }
+
