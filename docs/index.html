@@ -172,21 +172,21 @@
             <button id="add-to-deck-modal-close-button" class="button--x-close"><span class="visually-hidden">Close</span></button>
             
             <!-- Existing decks list -->
-            <div id="existing-decks-container">
+            <div id="add-to-existing-deck-container">
               <h3>Add to an existing deck:</h3>
-              <select id="existing-decks-select"></select>
-              <button id="add-to-selected-deck-button">Add to Selected Deck</button>
-              <p id="add-to-deck_existing-deck-success-message" class="success" style="display:none;"></p>
+              <select id="add-to-existing-deck-select"></select>
+              <button id="add-to-existing-deck-button">Add to Deck</button>
+              <p id="add-to-existing-deck-success-message" class="success" style="display:none;"></p>
             </div>
 
             <!-- New deck form -->
             <h3>Add to a new deck:</h3>
-            <form id="add-to-deck_new-deck-form" novalidate>
+            <form id="add-to-new-deck-form" novalidate>
               <label>
                 Deck Name
                 <input
-                  id="add-to-deck_deck-name-input"
-                  name="deck-name"
+                  id="add-to-new-deck-name-input"
+                  name="deck-name" 
                   type="text"
                   maxlength="80"
                   placeholder="Enter deck name"
@@ -194,9 +194,9 @@
                 />
               </label>
               <p id="add-to-deck_deck-name-error" aria-live="polite" style="display: none" class="error"></p>
-              <button type="submit" id="add-to-deck_save-new-deck-button">Add to New Deck</button>
+              <button type="submit" id="add-to-new-deck-button">Add to New Deck</button>
             </form>
-            <p id="add-to-deck_new-deck-success-message" class="success" style="display:none;"></p>
+            <p id="add-to-new-deck-success-message" class="success" style="display:none;"></p>
           </div>
         </div>
       </div>

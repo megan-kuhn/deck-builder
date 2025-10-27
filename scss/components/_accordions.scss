@@ -37,12 +37,12 @@ details  {
 
  
 #filters {
-  @include button-medium();
-  @include button-full-width();
   background: $Background--Alt;
   margin-top: $Spacing--S;
 
   > summary {
+    @include button-medium();
+    @include button-full-width();
     width: 100%;
     text-align: center; 
     margin: 0 auto;
@@ -50,15 +50,20 @@ details  {
 }
 
 .deck-element {
-  @include button-medium();
-  @include button-full-width();
   background: $Background--Alt;
   border-top: 1px solid $BorderColor--Default;
   border-radius: 0;
 
   > summary {
-    width: fit-content;
+    @include button-medium();
+    @include button-full-width();
+    
     margin: 0 auto;
+    text-align: center;
+
+    &:focus {
+      outline-offset: -4px;
+    }
   }
 }
 

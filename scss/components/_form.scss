@@ -30,6 +30,7 @@ fieldset {
 
 .form__row {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   gap: $Spacing--S;
@@ -53,7 +54,7 @@ select {
   border-radius: $BorderRadius--S;
   border: $BorderWidth--XS solid $BorderColor--Default;
   background: $White;
-  padding: $Spacing--S;
+  padding: .5em;
   width: 100%;
   margin: 0 0 $Spacing--M;
 }
@@ -65,7 +66,7 @@ input[type="number"],
 input[type="url"],
 input[type="tel"],
 select {
-  height: 2.5em;
+  line-height: $LineHeight--M;
 }
 
 // Remove number input spinners 

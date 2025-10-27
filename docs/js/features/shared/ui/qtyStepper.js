@@ -6,10 +6,11 @@ export function createQtyStepper({
   max = Infinity, 
   onChange = () => {} 
 } = {}) {
-  const container = document.createElement('div');
+  const container = document.createElement('div'); 
   container.classList.add('qty-stepper');
 
   const decrementBtn = document.createElement('button');
+  decrementBtn.type = 'button';
   decrementBtn.textContent = '-';
   decrementBtn.classList.add('qty-stepper__btn', 'qty-stepper__btn--decrement');
 
@@ -19,6 +20,7 @@ export function createQtyStepper({
   valueDisplay.classList.add('qty-stepper__input');
 
   const incrementBtn = document.createElement('button');
+  incrementBtn.type = 'button';
   incrementBtn.textContent = '+';
   incrementBtn.classList.add('qty-stepper__btn', 'qty-stepper__btn--increment');
 

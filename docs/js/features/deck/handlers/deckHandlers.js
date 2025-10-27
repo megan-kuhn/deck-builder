@@ -4,8 +4,9 @@ import { getActiveDeck } from '../data/deckList.js';
 import { addCard, removeCard } from '../data/deck.js';
 import { renderDeck } from '../ui/deckContainer.js';
 
-export function addCardToDeck(card) {
-  addCard(card);
+export function addCardToDeck(card, quantity = 1) {
+  addCard(card, quantity);
+
   const activeDeck = getActiveDeck(); 
   if (!activeDeck) return;
 
@@ -21,3 +22,4 @@ export function removeCardFromDeck(cardId) {
   const container = document.querySelector(`.deck-element.active .deck-container`);
   renderDeck(container, activeDeck.cards);
 }
+

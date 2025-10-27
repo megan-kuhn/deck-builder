@@ -180,7 +180,7 @@ button, .button {
   color: #ffffff;
   font-size: 0.875rem;
   border-radius: 4px;
-  padding: calc(0.25rem + 2px) 0.5rem 0.25rem;
+  padding: 0.5em 1em;
   flex: 1;
 }
 .button--x-close {
@@ -237,7 +237,7 @@ button, .button {
   color: #ffffff;
   font-size: 0.875rem;
   border-radius: 4px;
-  padding: calc(0.25rem + 2px) 0.5rem 0.25rem;
+  padding: 0.5em 1em;
 }
 
 #profile-link {
@@ -245,7 +245,7 @@ button, .button {
   color: #ffffff;
   font-size: 0.875rem;
   border-radius: 4px;
-  padding: calc(0.25rem + 2px) 0.5rem 0.25rem;
+  padding: 0.5em 1em;
   display: none;
 }
 
@@ -254,17 +254,17 @@ button, .button {
   color: #ffffff;
   font-size: 0.875rem;
   border-radius: 4px;
-  padding: calc(0.25rem + 2px) 0.5rem 0.25rem;
+  padding: 0.5em 1em;
 }
 
-#add-to-selected-deck-button,
-#add-to-deck_save-new-deck-button {
+#add-to-existing-deck-button,
+#add-to-new-deck-button {
   background: rgb(30, 34, 63);
   color: #ffffff;
-  width: 100%;
   font-size: 1rem;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
+  flex: 1;
 }
 
 #login-modal-sign-in-button,
@@ -274,7 +274,7 @@ button, .button {
   width: 100%;
   font-size: 1rem;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   margin-top: 0.5rem;
 }
 
@@ -284,7 +284,7 @@ button, .button {
   width: 100%;
   font-size: 1rem;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   margin-top: 0.5rem;
 }
 
@@ -293,7 +293,7 @@ button, .button {
   color: #ffffff;
   font-size: 1rem;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
 }
 
 #clear-search-button {
@@ -301,7 +301,7 @@ button, .button {
   color: #ffffff;
   font-size: 1rem;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
 }
 
 #reset-filters-button {
@@ -309,7 +309,7 @@ button, .button {
   color: #ffffff;
   font-size: 1rem;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
 }
 
 #next-page-button,
@@ -319,7 +319,7 @@ button, .button {
   width: 100%;
   font-size: 1rem;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   margin-top: 1rem;
 }
 
@@ -328,21 +328,23 @@ button, .button {
   color: #ffffff;
   font-size: 0.875rem;
   border-radius: 4px;
-  padding: calc(0.25rem + 2px) 0.5rem 0.25rem;
+  padding: 0.5em 1em;
 }
 
 .qty-stepper__btn {
-  height: 2.5em;
-  width: 2.5em;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5em 1em;
+  width: 2em;
   flex-shrink: 0;
   border: 1px solid #dee2e6;
   background: #ffffff;
 }
 .qty-stepper__btn--decrement {
-  border-radius: 50% 4px 4px 50%;
+  border-radius: 80% 4px 4px 80%;
 }
 .qty-stepper__btn--increment {
-  border-radius: 4px 50% 50% 4px;
+  border-radius: 4px 80% 80% 4px;
 }
 
 #search-results {
@@ -360,7 +362,7 @@ button, .button {
   margin: 2rem 0;
 }
 
-#existing-decks-container {
+#add-to-existing-deck-container {
   margin: 0 0 2rem;
 }
 
@@ -424,6 +426,7 @@ fieldset {
 
 .form__row {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
@@ -446,7 +449,7 @@ select {
   border-radius: 4px;
   border: 1px solid #dee2e6;
   background: #ffffff;
-  padding: 0.5rem;
+  padding: 0.5em;
   width: 100%;
   margin: 0 0 1rem;
 }
@@ -458,7 +461,7 @@ input[type=number],
 input[type=url],
 input[type=tel],
 select {
-  height: 2.5em;
+  line-height: 1.4;
 }
 
 input::-webkit-outer-spin-button,
@@ -675,31 +678,34 @@ details[open] > summary::after {
 }
 
 #filters {
-  font-size: 1rem;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  width: 100%;
   background: rgb(231, 235, 244);
   margin-top: 0.5rem;
 }
 #filters > summary {
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5em 1em;
+  width: 100%;
   width: 100%;
   text-align: center;
   margin: 0 auto;
 }
 
 .deck-element {
-  font-size: 1rem;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  width: 100%;
   background: rgb(231, 235, 244);
   border-top: 1px solid #dee2e6;
   border-radius: 0;
 }
 .deck-element > summary {
-  width: fit-content;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5em 1em;
+  width: 100%;
   margin: 0 auto;
+  text-align: center;
+}
+.deck-element > summary:focus {
+  outline-offset: -4px;
 }
 
 .qty-stepper {

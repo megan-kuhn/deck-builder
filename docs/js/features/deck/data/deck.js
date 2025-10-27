@@ -4,16 +4,19 @@ import { getActiveDeck } from './deckList.js';
 
 // --- Single Deck Operations ---
 
-export function addCardToDeckData(deck, card) {
+export function addCardToDeckData(deck, card, quantity = 1) {
   if (!deck) return;
 
-  // Ensure cards array exists 
   if (!deck.cards) deck.cards = [];
 
   const existing = deck.cards.find(c => c.id === card.id);
-  if (existing) existing.quantity++;
-  else deck.cards.push({ ...card, quantity: 1 });
+  if (existing) {
+    existing.quantity += quantity;
+  } else {
+    deck.cards.push({ ...card, quantity });
+  }
 }
+
 
 export function removeCardFromDeckData(deck, cardId) {
   if (!deck) return;
@@ -36,8 +39,8 @@ export function updateCardQty(deck, cardId, newQty) {
 
 // --- Convenience functions for active deck ---
 
-export function addCard(card) {
-  addCardToDeckData(getActiveDeck(), card);
+export function addCard(card, quantity = 1) {
+  addCardToDeckData(getActiveDeck(), card, quantity);
 }
 
 export function removeCard(cardId) {
