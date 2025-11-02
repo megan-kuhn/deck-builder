@@ -1,11 +1,12 @@
 @use '../abstracts/index' as *;
 
 .single-card-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: $Spacing--XS;
   background: $Background--Alt;
-  padding: $Spacing--S;
+  //padding: $Spacing--S;
   border-radius: $BorderRadius--L;
   text-align: center;
 }
