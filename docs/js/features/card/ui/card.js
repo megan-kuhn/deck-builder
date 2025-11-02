@@ -8,7 +8,7 @@ export function createCardElement(cardData) {
   cardEl.classList.add('card');
 
   cardEl.innerHTML = `
-    <h3 class="card__heading">${cardData.name}</h3>
+    <h3 class="card__heading visually-hidden">${cardData.name}</h3>
     <img class="card__image" src="${cardData.image_uris?.normal || ''}" alt="${cardData.name}" />
   `;
 
@@ -29,17 +29,10 @@ export function renderCard(cardData) {
   viewDetailsButton.textContent = 'View Details';
   viewDetailsButton._cardData = cardData;
 
-  // Add to deck button
-  const addToDeckButton = document.createElement('button');
-  addToDeckButton.classList.add('button--add-to-deck');
-  addToDeckButton.textContent = 'Add to Deck';
-  attachAddToDeckHandler(addToDeckButton, cardData);
-
   // Create a container div for the buttons
   const buttonRow = document.createElement('div');
   buttonRow.classList.add('card__button-row');
   buttonRow.appendChild(viewDetailsButton);
-  buttonRow.appendChild(addToDeckButton);
 
   // Append everything
   wrapper.appendChild(cardEl);

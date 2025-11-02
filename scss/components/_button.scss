@@ -26,6 +26,19 @@
   width: 100%;
 }
 
+@mixin button-hidden-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+  font-size: .01;
+  color: transparent;
+  line-height: .01;
+}
+
 button {
   background: none;
   height: fit-content;
@@ -65,8 +78,11 @@ button {
     @include button-full-width();
   }
 
-  &--add-to-deck,
   &--detail-view {
+    @include button-hidden-overlay;
+  }
+
+  &--add-to-deck {
     @include button-secondary;
     @include button-small;
     flex: 1;
